@@ -48,7 +48,7 @@ def print_room_items(room):
 
     """
     if len(room["items"]) != 0:
-        print("There is " + list_of_items(room["items"]) + " here.")
+        print("There is " + list_of_items(room["items"]) + " here. \n")
     
 
 
@@ -62,8 +62,8 @@ def print_inventory_items(items):
     <BLANKLINE>
 
     """
-    items[inventory]
-    print("You have ", print_inventory_items(inventory) + '\n')
+    if len(items) != 0:
+        print("You have " + list_of_items(items) + ". \n")
 
 
 def print_room(room):
