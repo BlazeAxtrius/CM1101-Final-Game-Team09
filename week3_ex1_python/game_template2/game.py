@@ -22,8 +22,14 @@ def list_of_items(items):
 
     """
 
-    pass
+    list_items = ""
+    for item in range(0, len(items)):
+        if item == 0:
+            list_items = items[item]["name"]
+        else:
+            list_items = list_items + ", " + items[item]["name"]
 
+    return list_items
 
 def print_room_items(room):
     """This function takes a room as an input and nicely displays a list of items
