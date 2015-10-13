@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
 from map import rooms
-from player import inventory
+from player import *
+from items import *
+from parser import *
+
 
 
 def list_of_items(items):
@@ -21,9 +24,16 @@ def list_of_items(items):
     'money, a student handbook, laptop'
 
     """
+    list_items = ""
+    #if len(items) == 0:
+        #return list_items
+    for item in range(0, len(items)):
+        if item == 0:
+            list_items = items[item]["name"]
+        else:
+            list_items = list_items + ", " + items[item]["name"]
 
-    pass
-
+    return list_items
 
 def print_room_items(room):
     """This function takes a room as an input and nicely displays a list of items
@@ -47,11 +57,7 @@ def print_room_items(room):
     Note: <BLANKLINE> here means that doctest should expect a blank line.
 
     """
-    #check that the list of items is not empty
-    if len(room["items"]) != 0:    
-        #prints the list of items
-        print("There is " + list_of_items(room["items"]) + " here. \n")     
-    
+    pass
 
 
 def print_inventory_items(items):
@@ -64,12 +70,7 @@ def print_inventory_items(items):
     <BLANKLINE>
 
     """
-    #check that the list of items is not empty
-    if len(items) != 0:     
-        #print the list of items
-        print("You have " + list_of_items(items) + ". \n")    
-    else:
-        print("You are not carrying any items.")
+    pass
 
 
 def print_room(room):
@@ -125,14 +126,10 @@ def print_room(room):
     # Display room description
     print(room["description"])
     print()
-    # Check to detect items in the room
-    if len(room["items"]) != 0:
-        # Display items if they are present
-        print_room_items(room)
-        print()
 
-    
-
+    #
+    # COMPLETE ME!
+    #
 
 def exit_leads_to(exits, direction):
     """This function takes a dictionary of exits and a direction (a particular
