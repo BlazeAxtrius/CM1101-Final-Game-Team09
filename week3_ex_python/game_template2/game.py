@@ -69,7 +69,7 @@ def print_inventory_items(items):
         #print the list of items
         print("You have " + list_of_items(items) + ". \n")    
     else:
-        print("You are not carrying any items.)
+        print("You are not carrying any items.")
 
 
 def print_room(room):
