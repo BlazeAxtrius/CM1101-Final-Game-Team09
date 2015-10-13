@@ -27,8 +27,8 @@ def filter_words(words, skip_words):
     ['go', 'passage', 'south']
 
     """
-    for ch in words:
-        if ch in skip_words:
+    for ch in skip_words:
+        if ch in words:
             words.remove(ch)
     return words
 
@@ -84,14 +84,11 @@ def normalise_input(user_input):
 
     """
     # Remove punctuation and convert to lower case
-
+    user_input.strip("")
     user_input = remove_punct(user_input).lower()
-
-    return user_input
-
-    #
-    # COMPLETE ME!
-    #
-
+    user_input_new = user_input.split()
+    filter_words(user_input_new, skip_words)
+#   user_input = ' '.join(user_input_new)
+    return user_input_new
 
 print(normalise_input("I...    Like Would go better that south!!!"))
