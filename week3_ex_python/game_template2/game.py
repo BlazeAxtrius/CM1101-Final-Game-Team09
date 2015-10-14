@@ -61,7 +61,7 @@ def print_room_items(room):
     #check that the list of items is not empty
     if len(room["items"]) != 0:    
         #prints the list of items
-        print("There is " + list_of_items(room["items"]) + " here. \n")     
+        print("There is " + list_of_items(room["items"]) + " here.\n")     
 
 def print_inventory_items(items):
     """This function takes a list of inventory items and displays it nicely, in a
@@ -77,7 +77,7 @@ def print_inventory_items(items):
     #check that the list of items is not empty
     if len(items) != 0:     
         #print the list of items
-        print("You have " + list_of_items(items) + ". \n")    
+        print("You have " + list_of_items(items) + ".\n")    
     else:
         print("You are not carrying any items.")
 
@@ -139,7 +139,7 @@ def print_room(room):
     if len(room["items"]) != 0:
         # Display items if they are present
         print_room_items(room)
-        print()
+
 
     
 
