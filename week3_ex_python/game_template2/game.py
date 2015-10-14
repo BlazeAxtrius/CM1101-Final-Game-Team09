@@ -247,6 +247,7 @@ def execute_go(direction):
         print("You move in to the " + current_room)
     else:
         print("You cannot go there")
+    #this does not work in it's current state. It says current_room is not assigned.
 
 
 def execute_take(item_id):
@@ -255,8 +256,11 @@ def execute_take(item_id):
     there is no such item in the room, this function prints
     "You cannot take that."
     """
-    rooms[current_room]["items"].remove(item_id)
-    inventory.append(item_id)
+    if item_id in rooms[current_room]["items"]:
+        rooms[current_room]["items"].remove(item_id)
+        inventory.append(item_id)
+    else:
+        print("You cannot take that.")
        
 
 def execute_drop(item_id):
@@ -264,8 +268,11 @@ def execute_drop(item_id):
     player's inventory to list of items in the current room. However, if there is
     no such item in the inventory, this function prints "You cannot drop that."
     """
-    inventory.remove(item_id)
-    rooms[current_room]["items"].append(item_id)
+    if item_id in inventory:
+        inventory.remove(item_id)
+        rooms[current_room]["items"].append(item_id)
+    else:
+        print("You cannot drop that.")
     
 
 def execute_command(command):
