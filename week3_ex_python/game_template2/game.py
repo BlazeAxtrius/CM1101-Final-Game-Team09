@@ -4,6 +4,7 @@ from map import rooms
 from player import *
 from items import *
 from parser_game import *
+import player
 
 
 
@@ -59,7 +60,7 @@ def print_room_items(room):
         # prints the list of items
         print("There is " + list_of_items(room["items"]) + " here.\n")
     else:
-        return print("(no output)")
+        pass
 
 
 def print_inventory_items(items):
@@ -222,9 +223,9 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."
     """
-    if is_valid_exit(rooms[current_room]["exits"], direction):
-        current_room = rooms[rooms[current_room]["exits"][direction]]
-        print("You move in to the " + current_room)
+    if is_valid_exit(player.current_room["exits"], direction):
+        player.current_room = rooms[player.current_room["exits"][direction]]
+        print("You move in to the " + player.current_room["name"])
     else:
         print("You cannot go there")
     # this does not work in it's current state. It says current_room is not assigned.
@@ -236,9 +237,9 @@ def execute_take(item_id):
     there is no such item in the room, this function prints
     "You cannot take that."
     """
-    if item_id in rooms[current_room]["items"]:
-        rooms[current_room]["items"].remove(item_id)
-        inventory.append(item_id)
+    if item_id in rooms[player.current_room]["items"]:
+        rooms[player.current_room]["items"].remove(item_id)
+        player.inventory.append(item_id)
     else:
         print("You cannot take that.")
        
@@ -248,9 +249,9 @@ def execute_drop(item_id):
     player's inventory to list of items in the current room. However, if there is
     no such item in the inventory, this function prints "You cannot drop that."
     """
-    if item_id in inventory:
-        inventory.remove(item_id)
-        rooms[current_room]["items"].append(item_id)
+    if item_id in player.inventory:
+        player.inventory.remove(item_id)
+        rooms[player.current_room]["items"].append(item_id)
     else:
         print("You cannot drop that.")
     
@@ -329,14 +330,16 @@ def main():
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
-        print_room(current_room)
-        print_inventory_items(inventory)
+        print_room(player.current_room)
+        print_inventory_items(player.inventory)
 
         # Show the menu with possible actions and ask the player
-        command = menu(current_room["exits"], current_room["items"], inventory)
+        command = menu(player.current_room["exits"], player.current_room["items"], player.inventory)
 
         # Execute the player's command
         execute_command(command)
+
+        print("--------------------------------------------------------")
 
 
 # Are we being run as a script? If so, run main().
