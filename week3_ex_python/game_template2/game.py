@@ -6,6 +6,8 @@ from items import *
 from parser_game import *
 
 
+
+
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
     returns a comma-separated list of item names (as a string). For example:
@@ -221,7 +223,7 @@ def execute_go(direction):
     moving). Otherwise, it prints "You cannot go there."
     """
     if is_valid_exit(rooms[current_room]["exits"], direction):
-        current_room = rooms[current_room]["exits"][direction]
+        current_room = rooms[rooms[current_room]["exits"][direction]]
         print("You move in to the " + current_room)
     else:
         print("You cannot go there")
