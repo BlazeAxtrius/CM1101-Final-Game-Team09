@@ -14,7 +14,7 @@ def list_of_items(items):
     returns a comma-separated list of item names (as a string). For example:
     >>> list_of_items([item_pen, item_handbook])
     'a pen, a student handbook'
-    >>> list_of_items([input_item_id])
+    >>> list_of_items([item_id])
     'id card'
     >>> list_of_items([])
     ''
@@ -61,7 +61,7 @@ def print_room_items(room):
         # prints the list of items
         print("There is " + list_of_items(room["items"]) + " here.\n")
     else:
-        pass
+        print("(no output)")
 
 
 def print_inventory_items(items):
