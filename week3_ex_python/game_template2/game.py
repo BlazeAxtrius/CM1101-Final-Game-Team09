@@ -48,7 +48,8 @@ def print_room_items(room):
         # prints the list of items
         print("There is " + list_of_items(room["items"]) + " here.\n")
     else:
-        return print("(no output)")
+        print("(no output)")
+
 
 
 
