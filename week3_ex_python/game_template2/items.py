@@ -49,3 +49,12 @@ item_handbook = {
 
     "description": "This student handbook explains everything. Seriously."
 }
+
+all_items = {
+    "id": item_id,
+    "laptop": item_laptop,
+    "money": item_money,
+    "biscuits": item_biscuits,
+    "pen": item_pen,
+    "handbook": item_handbook
+}

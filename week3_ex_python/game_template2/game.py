@@ -14,30 +14,31 @@ def list_of_items(items):
     returns a comma-separated list of item names (as a string). For example:
     >>> list_of_items([item_pen, item_handbook])
     'a pen, a student handbook'
-    >>> list_of_items([item_id])
+    >>> list_of_items([input_item_id])
     'id card'
     >>> list_of_items([])
     ''
     >>> list_of_items([item_money, item_handbook, item_laptop])
     'money, a student handbook, laptop'
     """
-
+    
     names = []
     for item in items:
         names.append(item["name"])
     names = ', '.join(names)
     return names
-
-#    list_items = ""
-    # if len(items) == 0:
-    # return list_items
-#    for item in range(0, len(items)):
-#        if item == 0:
-#            list_items = items[item]["name"]
-#        else:
-#            list_items = list_items + ", " + items[item]["name"]
-#    return list_items
-
+    
+    """
+    list_items = ""
+    if len(items) == 0:
+        return list_items
+    for item in range(0, len(items)):
+        if item == 0:
+            list_items = items[item]["name"]
+        else:
+            list_items = list_items + ", " + items[item]["name"]
+    return list_items
+    """
 
 def print_room_items(room):
     """This function takes a room as an input and nicely displays a list of items
@@ -231,29 +232,31 @@ def execute_go(direction):
     # this does not work in it's current state. It says current_room is not assigned.
 
 
-def execute_take(item_id):
-    """This function takes an item_id as an argument and moves this item from the
+def execute_take(input_item_id):
+    """This function takes an input_item_id as an argument and moves this item from the
     list of items in the current room to the player's inventory. However, if
     there is no such item in the room, this function prints
     "You cannot take that."
     """
-    if item_id in rooms[player.current_room]["items"]:
-        rooms[player.current_room]["items"].remove(item_id)
-        player.inventory.append(item_id)
+    if all_items[input_item_id] in player.current_room["items"]:
+        player.current_room["items"].remove(all_items[input_item_id])
+        player.inventory.append(all_items[input_item_id])
     else:
         print("You cannot take that.")
        
 
-def execute_drop(item_id):
-    """This function takes an item_id as an argument and moves this item from the
+def execute_drop(input_item_id):
+    """This function takes an input_item_id as an argument and moves this item from the
     player's inventory to list of items in the current room. However, if there is
     no such item in the inventory, this function prints "You cannot drop that."
     """
-    if item_id in player.inventory:
-        player.inventory.remove(item_id)
-        rooms[player.current_room]["items"].append(item_id)
-    else:
+    if all_items[input_item_id] in player.inventory:
+        player.inventory.remove(all_items[input_item_id])
+        player.current_room["items"].append(all_items[input_item_id])
+    elif input_item_id not in player.inventory:
         print("You cannot drop that.")
+    else:
+        pass
     
 
 def execute_command(command):
