@@ -325,7 +325,9 @@ def move(exits, direction):
 
 def victory():
     if item_handbook in player.inventory:
-        return True
+        if item_pen in player.inventory:
+            if item_biscuits in player.inventory:
+                return True
 
 
 # This is the entry point of our program
