@@ -90,5 +90,3 @@ def normalise_input(user_input):
     filter_words(user_input_new, skip_words)
 #   user_input = ' '.join(user_input_new)
     return user_input_new
-
-print(normalise_input("I...    Like Would go better that south!!!"))

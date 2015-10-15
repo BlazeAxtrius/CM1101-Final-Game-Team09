@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 
-from map import rooms
+# from map import rooms
 from player import *
 from items import *
 from parser_game import *
 import player
-
-
 
 
 def list_of_items(items):
@@ -40,6 +38,7 @@ def list_of_items(items):
     return list_items
     """
 
+
 def print_room_items(room):
     """This function takes a room as an input and nicely displays a list of items
     found in this room (followed by a blank line). If there are no items in
@@ -62,6 +61,7 @@ def print_room_items(room):
         print("There is " + list_of_items(room["items"]) + " here.\n")
     else:
         print("(no output)")
+
 
 
 def print_inventory_items(items):
@@ -325,6 +325,7 @@ def move(exits, direction):
 
     # Next room to go to
     return rooms[exits[direction]]
+
 
 def victory():
     if item_handbook in player.inventory:
