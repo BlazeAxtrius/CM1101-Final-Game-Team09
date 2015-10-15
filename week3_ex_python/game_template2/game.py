@@ -326,6 +326,10 @@ def move(exits, direction):
     # Next room to go to
     return rooms[exits[direction]]
 
+def victory():
+    if item_handbook in player.inventory:
+        return True
+
 
 # This is the entry point of our program
 def main():
@@ -342,7 +346,13 @@ def main():
         # Execute the player's command
         execute_command(command)
 
+        if victory():
+            print("\n\n" + "YOU WIN!!!" + "\n")
+            break
+
         print("--------------------------------------------------------")
+
+
 
 
 # Are we being run as a script? If so, run main().
