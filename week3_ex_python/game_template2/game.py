@@ -4,6 +4,7 @@ from map import rooms
 from player import *
 from items import *
 from parser import *
+from player import current_room
 
 
 
@@ -243,7 +244,7 @@ def execute_go(direction):
     moving). Otherwise, it prints "You cannot go there."
     """
     if is_valid_exit(rooms[current_room]["exits"], direction):
-        current_room = rooms[current_room]["exits"][direction]
+        current_room = rooms[rooms[current_room]["exits"][direction]]
         print("You move in to the " + current_room)
     else:
         print("You cannot go there")
