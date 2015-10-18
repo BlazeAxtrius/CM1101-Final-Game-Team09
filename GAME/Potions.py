@@ -1,5 +1,6 @@
 # import random
-from parser_game import *
+# from parser_game import *
+import player
 
 HP_potion = {
     "id": "HP_potion",
@@ -96,30 +97,172 @@ all_items = {
 
 
 def potions(input):
-    normalise_input(input())
     while True:
-        if input == 1:
+        if player.inventory.append(HP_potion):
             print(HP_potion["description"])
-            health = health + 100
-            print("Your health now is " + health)
-        elif input == 2:
+        elif player.inventory.append(Mana_potion):
             print(Mana_potion["description"])
-            mana = mana + 100
-            print("Your mana now is " + mana)
-        elif input == 3:
+        elif player.inventory.append(Damage_potion):
             print(Damage_potion["description"])
-            minDmg = minDmg + 20
-            maxDmg = maxDmg * 2
-            print("Your minimum damage now is " + minDmg)
-            print("Your maximum damage now is " + maxDmg)
-        elif input == 4:
+        elif player.inventory.append(Defense_potion):
             print(Defense_potion["description"])
-            armor = armor * 2
-            print("Your armor now is " + armor)
         else:
-            if inventory.append(Reverse_potion):
-                input = reversed
-            elif inventory.append(Onekey_potion):
-                len(input) > 1
-                if len(input()) > 1:
-
+            if player.inventory.append(Reverse_potion):
+                print("You drank a Reverse_potion")
+                print(Reverse_potion["description"])
+            elif player.inventory.append(Vowel_potion):
+                print("You drank a Vowel_potion")
+                print(Vowel_potion["description"])
+            elif player.inventory.append(Onekey_potion):
+                print("You drank a Onekey_potion")
+                print(Onekey_potion["description"])
+            elif player.inventory.append(Double_potion):
+                print("You drank a Double_potion")
+                print(Double_potion["description"])
+            elif player.inventory.append(Random_potion):
+                print("You drank a Random_potion")
+                print(Random_potion["description"])
+        if character == "Innocent Civilian":
+            if input == 1:
+#                print(HP_potion["description"])
+                Players.health[0] = Players.health[0] + 100
+                if Players.health[0] > 1000:
+                    Players.health[0] = 1000
+                print("Your health now is " + str(Players.health[0]))
+                break
+            elif input == 2:
+#                print(Mana_potion["description"])
+                Players.mana[0] = Players.mana[0] + 100
+                if Players.health[0] > 0:
+                    Players.health[0] = 0
+                print("Your mana now is " + str(Players.mana[0]))
+                break
+            elif input == 3:
+#                print(Damage_potion["description"])
+                Players.minDmg + 20
+                Players.maxDmg * 2
+                print("Your minimum damage now is " + Players.minDmg)
+                print("Your maximum damage now is " + Players.maxDmg)
+                break
+            elif input == 4:
+#                print(Defense_potion["description"])
+                Players.armor * 2
+                print("Your armor now is " + Players.armor)
+                break
+            else:
+                if Players.inventory.append(Reverse_potion):
+                    input = reversed
+                    break
+                elif Players.inventory.append(Onekey_potion):
+                    len(input) > 1
+                    if len(input()) > 1:
+                        print("1")
+                        break
+        if character == "Unknown Warrior":
+            if input == 1:
+#                print(HP_potion["description"])
+                Players.health[1] = Players.health[1] + 100
+                if Players.health[1] > 1200:
+                    Players.health[1] = 1200
+                print("Your health now is " + str(Players.health[1]))
+                break
+            elif input == 2:
+#                print(Mana_potion["description"])
+                Players.mana[1] = Players.mana[1] + 100
+                if Players.health[1] > 100:
+                    Players.health[1] = 100
+                print("Your mana now is " + str(Players.mana[1]))
+                break
+            elif input == 3:
+#                print(Damage_potion["description"])
+                Players.minDmg + 20
+                Players.maxDmg * 2
+                print("Your minimum damage now is " + Players.minDmg)
+                print("Your maximum damage now is " + Players.maxDmg)
+                break
+            elif input == 4:
+#                print(Defense_potion["description"])
+                Players.armor * 2
+                print("Your armor now is " + Players.armor)
+                break
+            else:
+                if Players.inventory.append(Reverse_potion):
+                    input = reversed
+                    break
+                elif Players.inventory.append(Onekey_potion):
+                    len(input) > 1
+                    if len(input()) > 1:
+                        print("1")
+                        break
+        if character == "Matt Morgan":
+            if input == 1:
+#                print(HP_potion["description"])
+                Players.health[2] = Players.health[2] + 100
+                if Players.health[2] > 800:
+                    Players.health[2] = 800
+                print("Your health now is " + str(Players.health[2]))
+                break
+            elif input == 2:
+#                print(Mana_potion["description"])
+                Players.mana[2] = Players.mana[2] + 100
+                if Players.health[2] > 50:
+                    Players.health[2] = 50
+                print("Your mana now is " + str(Players.mana[2]))
+                break
+            elif input == 3:
+#                print(Damage_potion["description"])
+                Players.minDmg + 20
+                Players.maxDmg * 2
+                print("Your minimum damage now is " + Players.minDmg)
+                print("Your maximum damage now is " + Players.maxDmg)
+                break
+            elif input == 4:
+#                print(Defense_potion["description"])
+                Players.armor * 2
+                print("Your armor now is " + Players.armor)
+                break
+            else:
+                if Players.inventory.append(Reverse_potion):
+                    input = reversed
+                    break
+                elif Players.inventory.append(Onekey_potion):
+                    len(input) > 1
+                    if len(input()) > 1:
+                        print("1")
+                        break
+        if character == "Kirill The God":
+            if input == 1:
+#                print(HP_potion["description"])
+                Players.health[3] = Players.health[3] + 100
+                if Players.health[3] > 2000:
+                    Players.health[3] = 2000
+                print("Your health now is " + str(Players.health[3]))
+                break
+            elif input == 2:
+#                print(Mana_potion["description"])
+                Players.mana[3] = Players.mana[3] + 100
+                if Players.health[3] > 400:
+                    Players.health[3] = 400
+                print("Your mana now is " + str(Players.mana[3]))
+                break
+            elif input == 3:
+#                print(Damage_potion["description"])
+                Players.minDmg + 20
+                Players.maxDmg * 2
+                print("Your minimum damage now is " + Players.minDmg)
+                print("Your maximum damage now is " + Players.maxDmg)
+                break
+            elif input == 4:
+#                print(Defense_potion["description"])
+                Players.armor * 2
+                print("Your armor now is " + Players.armor)
+                break
+            else:
+                if Players.inventory.append(Reverse_potion):
+                    input = reversed
+                    break
+                elif Players.inventory.append(Onekey_potion):
+                    len(input) > 1
+                    if len(input()) > 1:
+                        print("1")
+                        break

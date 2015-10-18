@@ -61,7 +61,7 @@ def choose_character():
     print("You find four names written down on a scrap of paper next to you.\nOne looks familiar... Yes... it's yours")
 
     for name in characters:
-        print("\n" + characters[name]["name"])
+        print("\n" + str(characters[name]["name"]))
     
     character_choice = input("Which character would you like to play with?: ")
 
