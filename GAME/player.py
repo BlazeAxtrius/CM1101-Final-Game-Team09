@@ -1,5 +1,8 @@
 from collections import OrderedDict
 import random
+from Potions_items import *
+import parser_game
+a = ""
 
 civilian = {
     "name": "Innocent Civilian",
@@ -9,12 +12,22 @@ civilian = {
     "armor": 50,
     "experience": 0,
     "isAlive": True,
-    "inventory": [],
-    "damage": [0,50]
+    "inventory": ["Phone", "gum", "wallet", HP_potion],
+    "damage": [0, 50]  # random.randrange[0, 50]
     }
 
+# print("Name" + ": " + civilian["name"], "\n"
+#       "Type" + ": " + civilian["type"], "\n"
+#       "Health" + ": " + str(civilian["health"]), "\n"
+#       "Mana" + ": " + str(civilian["mana"]), "\n"
+#       "Armor" + ": " + str(civilian["armor"]), "\n"
+#       "Experience" + ": " + str(civilian["experience"]), "\n"
+#       "IsAlive" + ": " + str(civilian["isAlive"]), "\n"
+#       "Inventory" + ": " + str(civilian["inventory"]), "\n"
+#       "Damage" + ": " + str(civilian["damage"]) + "\n")
+
 warrior = {
-    "name": "Unknown warrior",
+    "name": "Unknown Warrior",
     "type": "melee",
     "health": 1200,
     "mana": 100,
@@ -22,8 +35,18 @@ warrior = {
     "experience": 0,
     "isAlive": True,
     "inventory": [],
-    "damage": [25,100]
+    "damage": [25, 100]  # random.randrange[25, 100]
     }
+
+# print("Name" + ": " + warrior["name"], "\n"
+#       "Type" + ": " + warrior["type"], "\n"
+#       "Health" + ": " + str(warrior["health"]), "\n"
+#       "Mana" + ": " + str(warrior["mana"]), "\n"
+#       "Armor" + ": " + str(warrior["armor"]), "\n"
+#       "Experience" + ": " + str(warrior["experience"]), "\n"
+#       "IsAlive" + ": " + str(warrior["isAlive"]), "\n"
+#       "Inventory" + ": " + str(warrior["inventory"]), "\n"
+#       "Damage" + ": " + str(warrior["damage"]) + "\n")
 
 matt_morgan = {
     "name": "Matt Morgan",
@@ -34,8 +57,18 @@ matt_morgan = {
     "experience": 0,
     "isAlive": True,
     "inventory": [],
-    "damage": [0,150]
+    "damage": [0, 150]  # random.randrange[0, 150]
     }
+
+# print("Name" + ": " + matt_morgan["name"], "\n"
+#       "Type" + ": " + matt_morgan["type"], "\n"
+#       "Health" + ": " + str(matt_morgan["health"]), "\n"
+#       "Mana" + ": " + str(matt_morgan["mana"]), "\n"
+#       "Armor" + ": " + str(matt_morgan["armor"]), "\n"
+#       "Experience" + ": " + str(matt_morgan["experience"]), "\n"
+#       "IsAlive" + ": " + str(matt_morgan["isAlive"]), "\n"
+#       "Inventory" + ": " + str(matt_morgan["inventory"]), "\n"
+#       "Damage" + ": " + str(matt_morgan["damage"]) + "\n")
 
 kirill = {
     "name": "Kirill the God",
@@ -46,42 +79,68 @@ kirill = {
     "experience": 0,
     "isAlive": True,
     "inventory": [],
-    "damage": [100,500]
+    "damage": [100, 500]  # random.randrange[100, 500]
     }
 
-characters = {
-    "Civilian": civilian,
-    "Warrior": warrior,
-    "Matt Morgan": matt_morgan,
-    "Kirill": kirill
-    }
+# print("Name" + ": " + kirill["name"], "\n"
+#       "Type" + ": " + kirill["type"], "\n"
+#       "Health" + ": " + str(kirill["health"]), "\n"
+#       "Mana" + ": " + str(kirill["mana"]), "\n"
+#       "Armor" + ": " + str(kirill["armor"]), "\n"
+#       "Experience" + ": " + str(kirill["experience"]), "\n"
+#       "IsAlive" + ": " + str(kirill["isAlive"]), "\n"
+#       "Inventory" + ": " + str(kirill["inventory"]), "\n"
+#       "Damage" + ": " + str(kirill["damage"]) + "\n")
+
+characters = OrderedDict([
+    ("Civilian", civilian),
+    ("Unknown Warrior", warrior),
+    ("Matt Morgan", matt_morgan),
+    ("Kirill The God", kirill)])
 
 
-def choose_character():
-    print("You find four names written down on a scrap of paper next to you.\nOne looks familiar... Yes... it's yours")
+def choose_character(choice):
+    global a
+    while True:
+        print("""You find four names written down on a scrap of paper next to you.
+One looks familiar... Yes... it's yours""")
 
-    for name in characters:
-        print("\n" + str(characters[name]["name"]))
-    
-    character_choice = input("Which character would you like to play with?: ")
+        for name in characters:
+            print(str(characters[name]["name"]))
 
-    for name in characters:
-        if character_choice == name:
-            character_found = True
-        else:
-            character_found = False
-        
-    if not character_found:
-        print("That's not on the list, are you okay?")
-    return (character_choice, character_found)
+        character_choice = input("Which character would you like to play with?: ")
+        character_choice = parser_game.normalise_input(character_choice)
+        print(character_choice)
+        for choice in characters:
+            if character_choice == civilian["name"]:
+                print_stats(character_choice)
+                a = civilian
+                return
+            elif character_choice == warrior["name"]:
+                print_stats(character_choice)
+                a = warrior
+                return
+            elif character_choice == matt_morgan["name"]:
+                print_stats(character_choice)
+                a = matt_morgan
+                return
+            elif character_choice == kirill["name"]:
+                print_stats(character_choice)
+                a = kirill
+                return
+            else:
+                print("That's not on the list, are you okay?")
+                break
+    return choice
 
-#player = civilian
-def print_stats(player):
-    print("You are the " + civilian["name"] + ".")
-    print("Your fighting style is " + civilian["type"] + ".")
-    print("You have " + str(civilian["health"]) + " health, " + str(civilian["mana"]) + " mana, and " + str(civilian["armor"]) + " armor.")
+def print_stats(character_choice):
+    if character_choice == civilian["name"]:
+        print("You are " + str(civilian["name"]) + ".")
+        print("Your fighting style is " + str(civilian["type"]) + ".")
+        print("You have " + str(civilian["health"]) + " health, " + str(civilian["mana"]) + " mana, and " + str(civilian["armor"]) + " armor.")
 
-print_stats()
+choose_character(input)
+
 
 #print_stats()
 # while True:
