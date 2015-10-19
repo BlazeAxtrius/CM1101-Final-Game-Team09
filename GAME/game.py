@@ -339,15 +339,18 @@ def intro():
     print("""After a long night out you wake up infront of a strange and 
 mysterious looking house.""")
     sleep(1)
-    print("""You look around, trying to work out where you are. A ruffled piece
+    print("""\nYou look around, trying to work out where you are. A ruffled piece
 paper sits a metre away in the dirt. You walk over and pick up the paper.""")
     sleep(1)
-    print("""You unfold the piece of paper.""")
+    print("""\nYou unfold the piece of paper.""")
+    print()
     sleep(1)
     choose_character(input)
     sleep(1)
-    print("""You don't really know whats going on, probably because you have a 
+    print("""\nYou don't really know whats going on, probably because you have a 
 hangover, but you decide to carry on anyway.""")
+    print()
+    print("────────────────────────────────────────────────────────────")
     sleep(1)
     
 # This is the entry point of our program
@@ -366,10 +369,10 @@ def main():
         execute_command(command)
 
         if victory():
-            print("\n\n" + "YOU WIN!!!" + "\n")
+            print("\n" + "YOU WIN!!!" + "\n")
             break
 
-        print("--------------------------------------------------------")
+        print("────────────────────────────────────────────────────────────")
 
 
 

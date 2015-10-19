@@ -14,7 +14,7 @@ experience = 0
 isAlive = True
 inventory = [item_id, item_money, item_pen]
 damage = [0, 0]
-current_room = rooms["outside"]
+current_room = rooms["storage, F-1"]
 
 a = ""
 
@@ -113,7 +113,7 @@ characters = OrderedDict([
     ("Kirill The God", kirill)])
     
 def print_choices():
-    print("""You find four names written down on the scrap of paper you 
+    print("""You find four names written down on the scrap of paper you found 
 next to you. One looks familiar... Yes... it's yours""")
     print()
     print("┌────────────────────────┐")
@@ -131,7 +131,7 @@ next to you. One looks familiar... Yes... it's yours""")
         
 def print_stats(character_choice):
     print()
-    print("You are " + str(character_choice["name"]) + ".")
+    print("You are now " + str(character_choice["name"]) + ".")
     print("Your fighting style is " + str(character_choice["style"]) + ".")
     print("You have " + str(character_choice["health"]) + " health, " + str(character_choice["mana"]) + " mana, and " + str(character_choice["armor"]) + " armor.")
     print()
