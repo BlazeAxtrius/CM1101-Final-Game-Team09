@@ -210,7 +210,6 @@ def is_valid_exit(exits, chosen_exit):
     >>> is_valid_exit(rooms["Parking"]["exits"], "east")
     True
     """
-    print(str(chosen_exit[0]))
     if chosen_exit[0] in exits:
         return True
 
@@ -222,7 +221,7 @@ def execute_go(direction):
     moving). Otherwise, it prints "You cannot go there."
     """
     direction = normalise_input(direction)
-    print(direction[0])
+    
     if is_valid_exit(player.current_room["exits"], direction):
         player.current_room = rooms[player.current_room["exits"][direction[0]]]
         print("You move in to the " + player.current_room["name"])
