@@ -4,6 +4,7 @@ from random import *
 from items import *
 from Potions_items import *
 import parser_game
+import map
 
 name = ""
 style = ""
@@ -27,18 +28,9 @@ civilian = {
     "experience": 0,
     "isAlive": True,
     "inventory": [item_id, item_money, item_card,item_note],
-    "damage": [0, 50]  # random.randrange[0, 50]
+    "damage": [20, 50]  # random.randrange[0, 50]
     }
 
-# print("Name" + ": " + civilian["name"], "\n"
-#       "Type" + ": " + civilian["type"], "\n"
-#       "Health" + ": " + str(civilian["health"]), "\n"
-#       "Mana" + ": " + str(civilian["mana"]), "\n"
-#       "Armor" + ": " + str(civilian["armor"]), "\n"
-#       "Experience" + ": " + str(civilian["experience"]), "\n"
-#       "IsAlive" + ": " + str(civilian["isAlive"]), "\n"
-#       "Inventory" + ": " + str(civilian["inventory"]), "\n"
-#       "Damage" + ": " + str(civilian["damage"]) + "\n")
 
 warrior = {
     "name": "Unknown Warrior",
@@ -52,15 +44,6 @@ warrior = {
     "damage": [25, 100]  # random.randrange[25, 100]
     }
 
-# print("Name" + ": " + warrior["name"], "\n"
-#       "Type" + ": " + warrior["type"], "\n"
-#       "Health" + ": " + str(warrior["health"]), "\n"
-#       "Mana" + ": " + str(warrior["mana"]), "\n"
-#       "Armor" + ": " + str(warrior["armor"]), "\n"
-#       "Experience" + ": " + str(warrior["experience"]), "\n"
-#       "IsAlive" + ": " + str(warrior["isAlive"]), "\n"
-#       "Inventory" + ": " + str(warrior["inventory"]), "\n"
-#       "Damage" + ": " + str(warrior["damage"]) + "\n")
 
 matt_morgan = {
     "name": "Matt Morgan",
@@ -71,18 +54,9 @@ matt_morgan = {
     "experience": 0,
     "isAlive": True,
     "inventory": [item_id, item_money, item_card, item_note],
-    "damage": [0, 150]  # random.randrange[0, 150]
+    "damage": [30, 150]  # random.randrange[0, 150]
     }
 
-# print("Name" + ": " + matt_morgan["name"], "\n"
-#       "Type" + ": " + matt_morgan["type"], "\n"
-#       "Health" + ": " + str(matt_morgan["health"]), "\n"
-#       "Mana" + ": " + str(matt_morgan["mana"]), "\n"
-#       "Armor" + ": " + str(matt_morgan["armor"]), "\n"
-#       "Experience" + ": " + str(matt_morgan["experience"]), "\n"
-#       "IsAlive" + ": " + str(matt_morgan["isAlive"]), "\n"
-#       "Inventory" + ": " + str(matt_morgan["inventory"]), "\n"
-#       "Damage" + ": " + str(matt_morgan["damage"]) + "\n")
 
 kirill = {
     "name": "Kirill the God",
@@ -96,22 +70,31 @@ kirill = {
     "damage": [100, 500]  # random.randrange[100, 500]
     }
 
-# print("Name" + ": " + kirill["name"], "\n"
-#       "Type" + ": " + kirill["type"], "\n"
-#       "Health" + ": " + str(kirill["health"]), "\n"
-#       "Mana" + ": " + str(kirill["mana"]), "\n"
-#       "Armor" + ": " + str(kirill["armor"]), "\n"
-#       "Experience" + ": " + str(kirill["experience"]), "\n"
-#       "IsAlive" + ": " + str(kirill["isAlive"]), "\n"
-#       "Inventory" + ": " + str(kirill["inventory"]), "\n"
-#       "Damage" + ": " + str(kirill["damage"]) + "\n")
+
+enemy1 = {
+    "name": "Haunted Ghost",
+    "style": "ghostly",
+    "health": 500,
+    "armor": 0,
+    "isAlive": True,
+    "inventory": [HP_potion],
+    "damage": [30, 60],
+}
+
 
 characters = OrderedDict([
     ("Civilian", civilian),
     ("Unknown Warrior", warrior),
     ("Matt Morgan", matt_morgan),
     ("Kirill The God", kirill)])
-    
+
+
+characters_dict = {"Civilian": civilian,
+     "Unknown Warrior": warrior,
+     "Matt Morgan": matt_morgan,
+     "Kirill The God": kirill}
+
+
 def print_choices():
     print("""You find four names written down on the scrap of paper you found
 next to you. One looks familiar... Yes... it's yours""")
@@ -128,14 +111,16 @@ next to you. One looks familiar... Yes... it's yours""")
     print("└────────────────────────┘")        
     print("")
     print("Enter the character you thought of straight away.")
-        
+
+
 def print_stats(character_choice):
     print()
     print("You are now " + str(character_choice["name"]) + ".")
     print("Your fighting style is " + str(character_choice["style"]) + ".")
     print("You have " + str(character_choice["health"]) + " health, " + str(character_choice["mana"]) + " mana, and " + str(character_choice["armor"]) + " armor.")
     print()
-    
+
+
 def set_stats(character_choice):
     global name
     global style
@@ -155,14 +140,19 @@ def set_stats(character_choice):
     isAlive = character_choice["isAlive"]
     inventory = character_choice["inventory"]
     damage = character_choice["damage"]
-    
+
+
 def choose_character(choice):
     global a
     while True:
         print_choices()
         character_choice = input("> ")
         character_choice = parser_game.normalise_input(character_choice)
-        for choice in characters:
+        for name in characters:
+            # print(alpha)
+            # print(character_choice)
+            # if alpha in character_choice:
+            #     return alpha
             if character_choice == parser_game.normalise_input(civilian["name"]):
                 print_stats(civilian)
                 set_stats(civilian)
@@ -190,65 +180,53 @@ def choose_character(choice):
     return choice
 
 
+def print_player(player):
+    for key in player:
+        if player:
+            print(key + ": " + str(player[key]))
 
 
+def print_enemy1(enemy):
+    for key1 in enemy:
+        print(key1 + ": " + str(enemy1[key1]))
 
 
+def compute_experience(damage):
+    damage = randrange(0, damage*2 + 1)
+    return damage
 
-#print_stats()
-# while True:
-    # damage = float(random.randint(minDmg, maxDmg))
-    # damage_2 = float(random.randint(minDmg, maxDmg))
-    # damage = random.randint(0, 50)
-    # damage_2 = random.randint(0, 50)
-    # damage_armor_red_enemy = (damage - ((damage * (armor[e_i] / 100)) / 2))
-    # damage_armor_red = (damage_2 - ((damage_2*(armor[i]/100))/2))
 
-    # print("damage " + str(damage))
-    # print("damage_2 " + str(damage_2))
-    # print("damage_armor_red_enemy " + str(damage_armor_red_enemy))
-    # print("damage_armor_red " + str(damage_armor_red))
+def take_damage_enemy1(enemy1, damage_dealt):
+    enemy1["health"] = enemy1["health"] - choice["damage"]
+    if enemy1["health"] <= 0:
+        enemy1["isAlive"] = False
+        enemy1["health"] = 0
+    return enemy1
 
-    # def compute_experience(exp, dmg):
-        # result = random.randint(0, dmg*2) + exp
-        # return result
 
-    # def take_damage(experience, dmg):
-        # global health
-        # health[i] = stats["Health"] - dmg
-        # result = compute_experience(experience, dmg)
-        # return result
+def take_damage(choice, damage_dealt):
+    choice["health"] = choice["health"] - enemy1["damage"]
+    choice["experience"] = choice["experience"] + compute_experience(damage)
+    if choice["health"] <= 0:
+        choice["isAlive"] = False
+        choice["health"] = 0
+        print('You are DEAD!')
+    return choice
 
-    # def deal_damage(dmg):
-        # e_health[e_i] = e_stats["Health"] - dmg
 
-    # experience = compute_experience(experience, int(damage_armor_red_enemy))
-    # experience = take_damage(experience, int(damage_armor_red))
-    # deal_damage(damage_armor_red_enemy)
-
-    # stats = OrderedDict([("Name", name[i]), ("Class", classes[i]), ("Health", health[i]), ("Armor", armor[i]), ("Experience", experience), "Alive", isAlive])
-
-    # e_stats = OrderedDict([("Name", name[e_i]), ("Health", health[e_i]), ("Armor", armor[e_i]), "Alive", isAlive])
-
-    # if health[i] <= 0:
-        # isAlive = False
-        # print("Your hero has been slain.\nGame Over!")
-        # break
-    # elif e_health[e_i] <= 0:
-        # print(e_stats['Name'] + " has been slain! " + stats['Name'] + " is victorious!")
-        # break
-
-    # def print_player_stats():
-        # for key_1, value in character.items():
-            # print(key_1 + ": " + str(value))
-        # print(character['Name'] + " survives!")
-
-    # def print_player_stats_enemy():
-        # for key_1, value in e_stats.items():
-            # print(key_1 + ": " + str(value))
-        # print(e_stats['Name'] + " survives!")
-
-    # print("\nYour new stats: \n")
-    # print_player_stats()
-    # print("\nEnemy's new stats: \n")
-    # print_player_stats_enemy()
+while enemy1["isAlive"] and isAlive:
+    damage_dealt = damage
+    damage_dealt = enemy1["damage"]
+    take_damage_enemy1(enemy1, damage_dealt)
+    take_damage(choice, damage_dealt)
+    if input == "strong":
+        continue
+    else:
+        input("Try again")
+    print_enemy1(enemy1)
+    print()
+    print_player(choice)
+    print("")
+    print()
+    if enemy1['isAlive'] == False:
+        break

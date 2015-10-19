@@ -45,12 +45,14 @@ def potions(input):
                 print(player.inventory)
                 break
             elif input == str(3):
+                player.inventory.remove(Damage_potion)
                 player.damage *= 20
                 print("Your minimum damage now is " + player.damage)
                 print("You consumed a Damage potion")
                 print(player.inventory)
                 break
             elif input == str(4):
+                player.inventory.remove(Defense_potion)
                 player.armor *= 2
                 print("Your armor now is " + player.armor)
                 print("You consumed a Armor potion")

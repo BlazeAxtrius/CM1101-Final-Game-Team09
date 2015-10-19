@@ -51,8 +51,6 @@ def print_room_items(room):
         print("(no output)")
 
 
-
-
 def print_inventory_items(items):
     """This function takes a list of inventory items and displays it nicely, in a
     manner similar to print_room_items(). The only difference is in formatting:
@@ -124,9 +122,6 @@ def print_room(room):
         # Display items if they are present
         print_room_items(room)
 
-    #
-    # COMPLETE ME!
-    #
 
 def exit_leads_to(exits, direction):
     """This function takes a dictionary of exits and a direction (a particular
@@ -336,6 +331,7 @@ def victory():
         if item_biscuits in player.inventory:
             return True
 
+
 def intro():
     print("\n\n\n\n\n\n\n\n\n")
     print("""After a long night out you wake up infront of a strange and 
@@ -354,7 +350,8 @@ hangover, but you decide to carry on anyway.""")
     print()
     print("────────────────────────────────────────────────────────────")
     sleep(1)
-    
+
+
 # This is the entry point of our program
 def main():
     intro()
@@ -375,8 +372,6 @@ def main():
             break
 
         print("────────────────────────────────────────────────────────────")
-
-
 
 
 # Are we being run as a script? If so, run main().

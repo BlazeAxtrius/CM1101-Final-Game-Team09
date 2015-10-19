@@ -3,4 +3,5 @@ from player import *
 
 choose_character(choice)
 check_potions()
-potions(input("Type something: "))
+
+# potions(input("Type something: "))
