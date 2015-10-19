@@ -1,5 +1,6 @@
 from Potions import *
-import player
+from player import *
 
-check_potions(player.a)
-potions(int(input("Type something: ")), player.a)
+choose_character(choice)
+check_potions()
+potions(input("Type something: "))
