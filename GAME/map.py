@@ -14,12 +14,8 @@ room_entrance = {
 weight. The hallway that lies in front of you to the east is sparsely 
 decorated other than a carpet leading down the room and a grandfather clock
 to your right. Upon listening the clock seems to be broken.""",
-    "exits": {"north" : "dining room, G, W", "south": "lounge, G, W", "east": "hallway, G, C, W", "west": "outside"},
-
-=======
 
     "exits": {"north" : "dining room, G, W", "south": "lounge, G, W", "east": "hallway, G, W", "west": "outside"},
->>>>>>> d4be206a6bb3d4c4d31b1c4b28dc29aa5e4aed8b
 
     "items": []
 }
@@ -229,11 +225,10 @@ to the north and south and a staircase to the east.""",
 room_secret = { 
     "name": "secret room, F-1",
                 
-    "description": """As you enter the room it seems empty at first but as you 
-look closer you can see a chair and a table in one corner. After shining your
-light into the room you can see that the walls are covered in writing. As you 
-look closer you can clearly see that the words "For all intents and purposes"
-are written over and over with the writing becoming more frantic and jagged
+    "description": """As you enter the room it seems empty at first but as you
+look closer you can see a chair and a table in one corner. Upon lifting 
+your torch you can see that the walls are covered in writing. As you look 
+closer you can clearly see that the words "For all intents and purposes" are written over and over with the writing becoming more frantic and jagged
 the further around the room you look. Whoever wrote these words was clearly
 not in the right frame of mind for anything. You wonder what could drive a 
 person to such insanity. As you are about to leave you hear a whisper from 
@@ -260,7 +255,7 @@ be used for crafting. An old shelf with some dusty equipment and a few
 books is to the east of the room. A door leads to the north of the room and
 another from where you came. """,
 
-    "exits": {"west" : "wine cellar, F-1", "east": "secret room, F-1", "north": "hallway, F-1"},
+    "exits": {"west" : "wine cellar, F-1", "east": "secret, F-1", "north": "hallway, F-1"},
 
     "items": []
 }    
@@ -270,7 +265,7 @@ room_winecellar = {
                 
     "description": """As you enter the room, the large number of wine racks is 
 immediately visible. There are a few empty spaces but most are filled with 
-bottles that have so much dust on them that the labels can't be read. You 
+bottles that have so much dust on them that the labels can’t be read. You 
 can also see a door to the east and another from where you came.""",
 
     "exits": {"north" : "storage, F-1", "east": "workshop, F-1"},
@@ -395,11 +390,12 @@ leading in each direction, north, south, east and west. """,
 }    
 
 
-outside = {
-    "name": "outside",
+room_outside = {
+    "name": "porch",
     
-    "description": """Here is some example text, hopefully this will be changed
-""",
+    "description": """When you are standing in front of the house you can see a 
+    huge and magnificent structure attached to the exterior of a house which form 
+    a covered entrance and the structure will lead you to the east. """,
     
     "exits": {"east": "entrance"},
 
@@ -407,7 +403,7 @@ outside = {
 }
 
 rooms = {
-       "outside": outside,
+       "porch": room_outside,
        "entrance": room_entrance,
        "hallway, G, E": room_hallway_g_e,
        "hallway, G, W": room_hallway_g_w,
