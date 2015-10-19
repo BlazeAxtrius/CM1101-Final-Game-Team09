@@ -12,7 +12,7 @@ mana = 0
 armor = 50
 experience = 0
 isAlive = True
-inventory = [item_id, item_money, item_pen]
+inventory = [all_items["id"], all_items["money"], all_items["pen"]]
 damage = [0, 0]
 current_room = rooms["porch"]
 
