@@ -330,10 +330,9 @@ def move(exits, direction):
 
 
 def victory():
-    if item_handbook in player.inventory:
-        if item_pen in player.inventory:
-            if item_biscuits in player.inventory:
-                return True
+    if item_pen in player.inventory:
+        if item_biscuits in player.inventory:
+            return True
 
 def intro():
     print("\n\n\n\n\n\n\n\n\n")

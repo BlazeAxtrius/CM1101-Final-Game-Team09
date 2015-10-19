@@ -1,23 +1,32 @@
 from collections import OrderedDict
 from map import rooms
-import random
+from random import *
+from items import *
 from Potions_items import *
 import parser_game
 
-inventory = []
+name = ""
+style = ""
+health = 100
+mana = 0
+armor = 50
+experience = 0
+isAlive = True
+inventory = [item_id, item_money, item_pen]
+damage = [0, 0]
 current_room = rooms["outside"]
 
 a = ""
 
 civilian = {
     "name": "Innocent Civilian",
-    "type": "pathetic",
+    "style": "pathetic",
     "health": 1000,
     "mana": 0,
     "armor": 50,
     "experience": 0,
     "isAlive": True,
-    "inventory": ["Phone", "gum", "wallet"],
+    "inventory": [item_id, item_money, item_card,item_note],
     "damage": [0, 50]  # random.randrange[0, 50]
     }
 
@@ -33,13 +42,13 @@ civilian = {
 
 warrior = {
     "name": "Unknown Warrior",
-    "type": "melee",
+    "style": "melee",
     "health": 1200,
     "mana": 100,
     "armor": 100,
     "experience": 0,
     "isAlive": True,
-    "inventory": [],
+    "inventory": [item_id, item_money, item_card, item_note],
     "damage": [25, 100]  # random.randrange[25, 100]
     }
 
@@ -55,13 +64,13 @@ warrior = {
 
 matt_morgan = {
     "name": "Matt Morgan",
-    "type": "a bit eccentric",
+    "style": "a bit eccentric",
     "health": 800,
     "mana": 50,
     "armor": 80,
     "experience": 0,
     "isAlive": True,
-    "inventory": [],
+    "inventory": [item_id, item_money, item_card, item_note],
     "damage": [0, 150]  # random.randrange[0, 150]
     }
 
@@ -77,13 +86,13 @@ matt_morgan = {
 
 kirill = {
     "name": "Kirill the God",
-    "type": "brutal, swift death via pure power of will",
+    "style": "brutal, swift death via pure power of will",
     "health": 2000,
     "mana": 400,
     "armor": 30,
     "experience": 0,
     "isAlive": True,
-    "inventory": [],
+    "inventory": [item_id, item_money, item_card, item_note],
     "damage": [100, 500]  # random.randrange[100, 500]
     }
 
@@ -123,9 +132,29 @@ next to you. One looks familiar... Yes... it's yours""")
 def print_stats(character_choice):
     print()
     print("You are " + str(character_choice["name"]) + ".")
-    print("Your fighting style is " + str(character_choice["type"]) + ".")
+    print("Your fighting style is " + str(character_choice["style"]) + ".")
     print("You have " + str(character_choice["health"]) + " health, " + str(character_choice["mana"]) + " mana, and " + str(character_choice["armor"]) + " armor.")
     print()
+    
+def set_stats(character_choice):
+    global name
+    global style
+    global health
+    global mana
+    global armor
+    global experience
+    global isAlive
+    global inventory
+    global damage
+    name = character_choice["name"]
+    style = character_choice["style"]
+    health = character_choice["health"]
+    mana = character_choice["mana"]
+    armor = character_choice["armor"]
+    experience = character_choice["experience"]
+    isAlive = character_choice["isAlive"]
+    inventory = character_choice["inventory"]
+    damage = character_choice["damage"]
     
 def choose_character(choice):
     global a
@@ -136,19 +165,22 @@ def choose_character(choice):
         for choice in characters:
             if character_choice == parser_game.normalise_input(civilian["name"]):
                 print_stats(civilian)
+                set_stats(civilian)
                 a = civilian
                 return
             elif character_choice == parser_game.normalise_input(warrior["name"]):
                 print_stats(warrior)
+                set_stats(warrior)
                 a = warrior
                 return
             elif character_choice == parser_game.normalise_input(matt_morgan["name"]):
                 print_stats(matt_morgan)
-                print("")
+                set_stats(matt_morgan)
                 a = matt_morgan
                 return
             elif character_choice == parser_game.normalise_input(kirill["name"]):
                 print_stats(kirill)
+                set_stats(kirill)
                 a = kirill
                 return
             else:
