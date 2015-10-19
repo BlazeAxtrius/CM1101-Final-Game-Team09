@@ -222,9 +222,15 @@ def execute_go(direction):
     moving). Otherwise, it prints "You cannot go there."
     """
     direction = normalise_input(direction)
-    
+    if player.current_room == rooms["entrance"]:
+        if direction[0] == "east":
+            if all_items["plank"] not in player.inventory:
+                player.current_room = rooms["storage, F-1"]
+                print("You crash through some weak floorboards into a storage room below")
+                return
     if is_valid_exit(player.current_room["exits"], direction):
         player.current_room = rooms[player.current_room["exits"][direction[0]]]
+        
         print("You move in to the " + player.current_room["name"])
     else:
         print("You cannot go there")
