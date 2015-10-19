@@ -21,7 +21,6 @@ room_hallway_g_w = {
 }
 
 
-
 room_hallway_g_e = {
     "name": "hallway, G, E",
 
