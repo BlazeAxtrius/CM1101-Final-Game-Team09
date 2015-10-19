@@ -84,9 +84,11 @@ def normalise_input(user_input):
 
     """
     # Remove punctuation and convert to lower case
+    user_input = user_input.lower()
     user_input.strip("")
     user_input = remove_punct(user_input)
     user_input_new = user_input.split()
+    
     filter_words(user_input_new, skip_words)
-    user_input = ' '.join(user_input_new)
+    user_input = user_input_new
     return user_input
