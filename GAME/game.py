@@ -4,6 +4,7 @@ from map import rooms
 import player
 from items import *
 from parser_game import *
+from time import *
 
 
 def list_of_items(items):
@@ -290,6 +291,8 @@ def execute_command(command):
 
     else:
         print("This makes no sense.")
+        print(command[0])
+        print(command[1])
 
 
 def menu(exits, room_items, inv_items):
@@ -329,15 +332,32 @@ def move(exits, direction):
 
 
 def victory():
-    if item_handbook in player.inventory:
-        if item_pen in player.inventory:
-            if item_biscuits in player.inventory:
-                return True
+    if item_pen in player.inventory:
+        if item_biscuits in player.inventory:
+            return True
 
-
+def intro():
+    print("\n\n\n\n\n\n\n\n\n")
+    print("""After a long night out you wake up infront of a strange and 
+mysterious looking house.""")
+    sleep(1)
+    print("""\nYou look around, trying to work out where you are. A ruffled piece
+paper sits a metre away in the dirt. You walk over and pick up the paper.""")
+    sleep(1)
+    print("""\nYou unfold the piece of paper.""")
+    print()
+    sleep(1)
+    choose_character(input)
+    sleep(1)
+    print("""\nYou don't really know whats going on, probably because you have a 
+hangover, but you decide to carry on anyway.""")
+    print()
+    print("────────────────────────────────────────────────────────────")
+    sleep(1)
+    
 # This is the entry point of our program
 def main():
-
+    intro()
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
@@ -351,10 +371,10 @@ def main():
         execute_command(command)
 
         if victory():
-            print("\n\n" + "YOU WIN!!!" + "\n")
+            print("\n" + "YOU WIN!!!" + "\n")
             break
 
-        print("--------------------------------------------------------")
+        print("────────────────────────────────────────────────────────────")
 
 
 

@@ -52,14 +52,25 @@ item_pen = {
     "mass": "0.5"
 }
 
-item_handbook = {
-    "id": "handbook",
+item_card = {
+    "id": "card",
     
-    "name": "a student handbook",
+    "name": "a card with a mobile number",
 
-    "description": "This student handbook explains everything. Seriously.",
+    "description": """This card has a mobile number wrote on it. I wonder who's 
+number it is?""",
 
-    "mass": "1.5"
+    "mass": "0.05"
+}
+
+item_note = {
+    "id": "note",
+    
+    "name": "the note from outside",
+
+    "description": """This is the note you pick up from outside""",
+
+    "mass": "0.05"
 }
 
 all_items = {
@@ -68,5 +79,6 @@ all_items = {
     "money": item_money,
     "biscuits": item_biscuits,
     "pen": item_pen,
-    "handbook": item_handbook
+    "card": item_card,
+    "note": item_note
 }
