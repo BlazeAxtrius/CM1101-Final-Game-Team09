@@ -160,7 +160,7 @@ open. There is a door to the north and the room continues to the east.""",
 
 
 
-room_store = { 
+room_storage = { 
 
     "name": "storage, F-1",
                 
@@ -201,7 +201,7 @@ room_torture = {
 on the walls. When you look closer, you can see that they are chains and 
 shackles bolted to the wall. There are what appear to be instruments that 
 were used to inflict pain covered in congealed blood along with a large red
-stain on the floor. You don’t want to be in this room for any longer than 
+stain on the floor. You don't want to be in this room for any longer than 
 you have to. A door leads to the south and back from where you came.""",
 
     "exits": {"west" : "pantry, F-1", "south": "hallway, F-1"},
@@ -228,16 +228,17 @@ room_secret = {
     "description": """As you enter the room it seems empty at first but as you
 look closer you can see a chair and a table in one corner. Upon lifting 
 your torch you can see that the walls are covered in writing. As you look 
-closer you can clearly see that the words "For all intents and purposes" are written over and over with the writing becoming more frantic and jagged
+closer you can clearly see that the words "For all intents and purposes" are 
+written over and over with the writing becoming more frantic and jagged
 the further around the room you look. Whoever wrote these words was clearly
 not in the right frame of mind for anything. You wonder what could drive a 
 person to such insanity. As you are about to leave you hear a whisper from 
 the corner. As you move closer towards the sound you begin to see a pair of
 sunken eyes staring back at you. As you shine a light on the person in the 
 corner it becomes very clear; Matt Morgan is rocking back and forth 
-uttering the words “for all intents and purposes” under his breath. As you 
-reach out to help him he is startled and screams at you “FOR ALL INTENTS 
-AND PURPOSES!!!!!” You decide its best to leave him for now, there seems to
+uttering the words "for all intents and purposes" under his breath. As you 
+reach out to help him he is startled and screams at you "FOR ALL INTENTS 
+AND PURPOSES!!!!!" You decide its best to leave him for now, there seems to
 be little you can do to comfort him. """,
 
     "exits": {"west" : "workshop, F-1"},
@@ -255,7 +256,7 @@ be used for crafting. An old shelf with some dusty equipment and a few
 books is to the east of the room. A door leads to the north of the room and
 another from where you came. """,
 
-    "exits": {"west" : "wine cellar, F-1", "east": "secret, F-1", "north": "hallway, F-1"},
+    "exits": {"west" : "wine cellar, F-1", "east": "secret room, F-1", "north": "hallway, F-1"},
 
     "items": []
 }    
@@ -265,7 +266,7 @@ room_winecellar = {
                 
     "description": """As you enter the room, the large number of wine racks is 
 immediately visible. There are a few empty spaces but most are filled with 
-bottles that have so much dust on them that the labels can’t be read. You 
+bottles that have so much dust on them that the labels can't be read. You 
 can also see a door to the east and another from where you came.""",
 
     "exits": {"north" : "storage, F-1", "east": "workshop, F-1"},
@@ -390,12 +391,12 @@ leading in each direction, north, south, east and west. """,
 }    
 
 
-room_outside = {
+room_porch = {
     "name": "porch",
     
     "description": """When you are standing in front of the house you can see a 
-    huge and magnificent structure attached to the exterior of a house which form 
-    a covered entrance and the structure will lead you to the east. """,
+huge and magnificent structure attached to the exterior of a house which form 
+a covered entrance and the structure will lead you to the east. """,
     
     "exits": {"east": "entrance"},
 
@@ -403,7 +404,7 @@ room_outside = {
 }
 
 rooms = {
-       "porch": room_outside,
+       "porch": room_porch,
        "entrance": room_entrance,
        "hallway, G, E": room_hallway_g_e,
        "hallway, G, W": room_hallway_g_w,

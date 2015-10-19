@@ -14,7 +14,7 @@ experience = 0
 isAlive = True
 inventory = [item_id, item_money, item_pen]
 damage = [0, 0]
-current_room = rooms["storage, F-1"]
+current_room = rooms["porch"]
 
 a = ""
 

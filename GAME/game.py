@@ -347,7 +347,7 @@ paper sits a metre away in the dirt. You walk over and pick up the paper.""")
     print("""\nYou unfold the piece of paper.""")
     print()
     sleep(1)
-    choose_character(input)
+    player.choose_character(input)
     sleep(1)
     print("""\nYou don't really know whats going on, probably because you have a 
 hangover, but you decide to carry on anyway.""")
