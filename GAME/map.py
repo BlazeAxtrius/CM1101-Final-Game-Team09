@@ -159,10 +159,10 @@ open. There is a door to the north and the room continues to the east.""",
 
 
 
-room_store = { 
-    "name": "store, F-1",
+room_storage = { 
+    "name": "storage, F-1",
                 
-    "description": """As you pull yourself to your feet once more you can’t 
+    "description": """As you pull yourself to your feet once more you can't 
 help be thankful for the carpet breaking your fall somewhat. As you fumble 
 around in the darkness you realise that you are in a small storage 
 cupboard. You can just about make out a rusted oil lamp on a shelf along 
@@ -186,7 +186,7 @@ which is too old to distinguish between. You wonder just how long some of
 this has been here. You can see a door to the east and the door that you 
 entered the room with.""",
 
-    "exits": {"south" : "store, F-1", "east": "torture, F-1"},
+    "exits": {"south" : "storage, F-1", "east": "torture, F-1"},
 
     "items": []
 }    
@@ -198,7 +198,7 @@ room_torture = {
 on the walls. When you look closer, you can see that they are chains and 
 shackles bolted to the wall. There are what appear to be instruments that 
 were used to inflict pain covered in congealed blood along with a large red
-stain of the floor. You don’t want to be in this room for any longer than 
+stain of the floor. You don't want to be in this room for any longer than 
 you have to. A door leads to the south and back from where you came.""",
 
     "exits": {"west" : "pantry, F-1", "south": "hallway, F-1"},
@@ -211,10 +211,10 @@ room_hallway_b = {
                 
     "description": """The hallway is dingy and very dark. You can see a few 
 cobwebs hanging from the corners of the room and the floor is covered in 
-dust and dirt. You can’t see much more than this. There are doors leading 
+dust and dirt. You can't see much more than this. There are doors leading 
 to the north and south and a staircase to the east.""",
 
-    "exits": {"north" : "torture, F-1", "south": "workshop, F-1", "west": "store, F-1", "up": "hallway, G, E"},
+    "exits": {"north" : "torture, F-1", "south": "workshop, F-1", "west": "storage, F-1", "up": "hallway, G, E"},
 
     "items": []
 }    
@@ -225,7 +225,7 @@ room_secret = {
     "description": """As you enter the room it seems empty at first but as you 
 look closer you can see a chair and a table in one corner. Upon lifting 
 your torch you can see that the walls are covered in writing. As you look 
-closer you can clearly see that the words “For all intents and purposes” 
+closer you can clearly see that the words "For all intents and purposes" 
 are written over and over with the writing becoming more frantic and jagged
 the further around the room you look. Whoever wrote these words was clearly
 not in the right frame of mind for anything. You wonder what could drive a 
@@ -233,9 +233,9 @@ person to such insanity. As you are about to leave you hear a whisper from
 the corner. As you move closer towards the sound you begin to see a pair of
 sunken eyes staring back at you. As you shine a light on the person in the 
 corner it becomes very clear; Matt Morgan is rocking back and forth 
-uttering the words “for all intents and purposes” under his breath. As you 
-reach out to help him he is startled and screams at you “FOR ALL INTENTS 
-AND PURPOSES!!!!!” You decide its best to leave him for now, there seems to
+uttering the words "for all intents and purposes" under his breath. As you 
+reach out to help him he is startled and screams at you "FOR ALL INTENTS 
+AND PURPOSES!!!!!" You decide its best to leave him for now, there seems to
 be little you can do to comfort him. """,
 
     "exits": {"west" : "workshop, F-1"},
@@ -266,7 +266,7 @@ immediately visible. There are a few empty spaces but most are filled with
 bottles that have so much dust on them that the labels can’t be read. You 
 can also see a door to the east and another from where you came.""",
 
-    "exits": {"north" : "store, F-1", "east": "workshop, F-1"},
+    "exits": {"north" : "storage, F-1", "east": "workshop, F-1"},
 
     "items": []
 }    
@@ -324,7 +324,7 @@ south and the corridor goes back to the east.""",
 room_child = { 
     "name": "child bedroom, F1",
                 
-    "description": """You realise this is a child’s bedroom by the colourful 
+    "description": """You realise this is a child's bedroom by the colourful 
 décor. There is a small cot that looks broken along with a single bed 
 against one wall. There is a trunk at the foot of the bed overflowing with 
 toys and soft toy animals in another corner; their glass eyes reflecting 
@@ -412,7 +412,7 @@ rooms = {
        "office, G": room_office,
        "lounge, G, E": room_lounge_e,
        "lounge, G, W": room_lounge_w,
-       "store, F-1": room_store,
+       "storage, F-1": room_storage,
        "pantry, F-1": room_pantry,
        "torture, F-1": room_torture,
        "hallway, F-1": room_hallway_b,
