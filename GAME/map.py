@@ -18,7 +18,7 @@ room_hallway_g_w = {
         
         .""",
 
-    "exits": {"north" : "dining room, G, W", "south": "lounge, G, W", "east": "hallway, G, C, W},
+    "exits": {"north" : "dining room, G, W", "south": "lounge, G, W", "east": "hallway, G, C, W"},
 
     "items": []
 }
@@ -120,7 +120,7 @@ room_kitchen = {
 }     
 
 
-room_offfice = { 
+room_office = { 
         "name": "office,G",
                 
         "description":
@@ -317,7 +317,7 @@ room_hallway_f_w = {
 
     .""",
 
-    "exits": {"south": "child bedroom, F1", "east", "hallway, F1, N"},
+    "exits": {"south": "child bedroom, F1", "east": "hallway, F1, N"},
 
     "items": []
 }
@@ -332,7 +332,7 @@ room_child = {
         
         .""",
 
-    "exits": {"north" : "hallway, F1, W", "east", "master bedroom, F1", "south": "store, F1"},
+    "exits": {"north" : "hallway, F1, W", "east": "master bedroom, F1", "south": "store, F1"},
 
     "items": []
 }    
@@ -397,8 +397,8 @@ rooms = {
        "store,F-1": room_store,
        "pantry,F-1": room_pantry,
        "torture,F-1": room_torture,
-       "hallway,F-1": room_hallway,
-       "secret room,F-1": room_secert,
+       "hallway,F-1": room_hallway_b,
+       "secret room,F-1": room_secret,
        "workshop,F-1": room_workshop,
        "wine cellar,F-1": room_winecellar,
        "hallway, F1, S": room_hallway_f_s,

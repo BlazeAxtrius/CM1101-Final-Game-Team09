@@ -5,7 +5,7 @@ from Potions_items import *
 import parser_game
 
 inventory = []
-current_room = rooms["Reception"]
+current_room = rooms["hallway, G, W"]
 
 a = ""
 
@@ -76,7 +76,7 @@ matt_morgan = {
 #       "Damage" + ": " + str(matt_morgan["damage"]) + "\n")
 
 kirill = {
-    "name": "Kirill the God",
+    "name": "Kirill The God",
     "type": "brutal, swift death via pure power of will",
     "health": 2000,
     "mana": 400,
@@ -113,23 +113,22 @@ One looks familiar... Yes... it's yours""")
         for name in characters:
             print(str(characters[name]["name"]))
 
-        character_choice = input("Which character would you like to play with?: ")
-        character_choice = parser_game.normalise_input(character_choice)
-        print(character_choice)
+        character_choice = parser_game.normalise_input(input("Which character would you like to play with?: "))
+        
         for choice in characters:
-            if character_choice == civilian["name"]:
+            if character_choice == parser_game.normalise_input(civilian["name"]):
                 print_stats(character_choice)
                 a = civilian
                 return
-            elif character_choice == warrior["name"]:
+            elif character_choice == parser_game.normalise_input(warrior["name"]):
                 print_stats(character_choice)
                 a = warrior
                 return
-            elif character_choice == matt_morgan["name"]:
+            elif character_choice == parser_game.normalise_input(matt_morgan["name"]):
                 print_stats(character_choice)
                 a = matt_morgan
                 return
-            elif character_choice == kirill["name"]:
+            elif character_choice == parser_game.normalise_input(kirill["name"]):
                 print_stats(character_choice)
                 a = kirill
                 return

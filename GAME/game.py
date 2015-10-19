@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 
-# from map import rooms
-from player import *
+from map import rooms
+import player
 from items import *
 from parser_game import *
-import player
 
 
 def list_of_items(items):
@@ -211,7 +210,9 @@ def is_valid_exit(exits, chosen_exit):
     >>> is_valid_exit(rooms["Parking"]["exits"], "east")
     True
     """
-    return chosen_exit in exits
+    print(str(chosen_exit[0]))
+    if chosen_exit[0] in exits:
+        return True
 
 
 def execute_go(direction):
@@ -220,8 +221,10 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."
     """
+    direction = normalise_input(direction)
+    print(direction[0])
     if is_valid_exit(player.current_room["exits"], direction):
-        player.current_room = rooms[player.current_room["exits"][direction]]
+        player.current_room = rooms[player.current_room["exits"][direction[0]]]
         print("You move in to the " + player.current_room["name"])
     else:
         print("You cannot go there")
@@ -344,7 +347,7 @@ def main():
 
         # Show the menu with possible actions and ask the player
         command = menu(player.current_room["exits"], player.current_room["items"], player.inventory)
-
+        
         # Execute the player's command
         execute_command(command)
 
