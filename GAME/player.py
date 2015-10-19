@@ -5,7 +5,7 @@ from Potions_items import *
 import parser_game
 
 inventory = []
-current_room = rooms["Reception"]
+current_room = rooms["outside"]
 
 a = ""
 
@@ -102,50 +102,64 @@ characters = OrderedDict([
     ("Unknown Warrior", warrior),
     ("Matt Morgan", matt_morgan),
     ("Kirill The God", kirill)])
-
-
+    
+def print_choices():
+    print("""You find four names written down on the scrap of paper you 
+next to you. One looks familiar... Yes... it's yours""")
+    print()
+    print("┌────────────────────────┐")
+    for name in characters:
+        print("│ " + str(characters[name]["name"]), end = '')
+        for space in range(1,26 -(len(str(characters[name]["name"])) + 2)):
+            print(" ", end='')
+        print("│")
+    print("│                        │")
+    print("""│ Who would you least    │
+│ like to be?:           │""")
+    print("└────────────────────────┘")        
+    print("")
+    print("Enter the character you thought of straight away.")
+        
+def print_stats(character_choice):
+    print()
+    print("You are " + str(character_choice["name"]) + ".")
+    print("Your fighting style is " + str(character_choice["type"]) + ".")
+    print("You have " + str(character_choice["health"]) + " health, " + str(character_choice["mana"]) + " mana, and " + str(character_choice["armor"]) + " armor.")
+    print()
+    
 def choose_character(choice):
     global a
     while True:
-        print("""You find four names written down on a scrap of paper next to you.
-One looks familiar... Yes... it's yours""")
-
-        for name in characters:
-            print(str(characters[name]["name"]))
-
-        character_choice = input("Which character would you like to play with?: ")
+        print_choices()
+        character_choice = input("> ")
         character_choice = parser_game.normalise_input(character_choice)
-        print(character_choice)
         for choice in characters:
-            if character_choice == civilian["name"]:
-                print_stats(character_choice)
+            if character_choice == parser_game.normalise_input(civilian["name"]):
+                print_stats(civilian)
                 a = civilian
                 return
-            elif character_choice == warrior["name"]:
-                print_stats(character_choice)
+            elif character_choice == parser_game.normalise_input(warrior["name"]):
+                print_stats(warrior)
                 a = warrior
                 return
-            elif character_choice == matt_morgan["name"]:
-                print_stats(character_choice)
+            elif character_choice == parser_game.normalise_input(matt_morgan["name"]):
+                print_stats(matt_morgan)
+                print("")
                 a = matt_morgan
                 return
-            elif character_choice == kirill["name"]:
-                print_stats(character_choice)
+            elif character_choice == parser_game.normalise_input(kirill["name"]):
+                print_stats(kirill)
                 a = kirill
                 return
             else:
-                print("That's not on the list, are you okay?")
+                print("You need to pick something from the list.")
                 break
     return choice
 
 
-def print_stats(character_choice):
-    if character_choice == civilian["name"]:
-        print("You are " + str(civilian["name"]) + ".")
-        print("Your fighting style is " + str(civilian["type"]) + ".")
-        print("You have " + str(civilian["health"]) + " health, " + str(civilian["mana"]) + " mana, and " + str(civilian["armor"]) + " armor.")
 
-choose_character(input)
+
+
 
 
 #print_stats()

@@ -5,6 +5,7 @@ from player import *
 from items import *
 from parser_game import *
 import player
+from time import *
 
 
 def list_of_items(items):
@@ -288,6 +289,8 @@ def execute_command(command):
 
     else:
         print("This makes no sense.")
+        print(command[0])
+        print(command[1])
 
 
 def menu(exits, room_items, inv_items):
@@ -332,10 +335,25 @@ def victory():
             if item_biscuits in player.inventory:
                 return True
 
-
+def intro():
+    print("\n\n\n\n\n\n\n\n\n")
+    print("""After a long night out you wake up infront of a strange and 
+mysterious looking house.""")
+    sleep(1)
+    print("""You look around, trying to work out where you are. A ruffled piece
+paper sits a metre away in the dirt. You walk over and pick up the paper.""")
+    sleep(1)
+    print("""You unfold the piece of paper.""")
+    sleep(1)
+    choose_character(input)
+    sleep(1)
+    print("""You don't really know whats going on, probably because you have a 
+hangover, but you decide to carry on anyway.""")
+    sleep(1)
+    
 # This is the entry point of our program
 def main():
-
+    intro()
     # Main game loop
     while True:
         # Display game status (room description, inventory etc.)
