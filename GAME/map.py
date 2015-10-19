@@ -17,6 +17,8 @@ to your right. Upon listening the clock seems to be broken.""",
 
     "exits": {"north" : "dining room, G, W", "south": "lounge, G, W", "east": "hallway, G, W", "west": "porch"},
 
+    "has_plank": "False",
+    
     "items": []
 }
 
