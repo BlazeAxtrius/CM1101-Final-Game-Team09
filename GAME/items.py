@@ -73,6 +73,16 @@ item_note = {
     "mass": "0.05"
 }
 
+item_plank = {
+    "id": "plank",
+
+    "name": "a large, wooden plank",
+
+    "description": """This could easily support your weight""",
+
+    "mass": "10.0"
+}
+
 all_items = {
     "id": item_id,
     "laptop": item_laptop,
@@ -80,5 +90,6 @@ all_items = {
     "biscuits": item_biscuits,
     "pen": item_pen,
     "card": item_card,
-    "note": item_note
+    "note": item_note,
+    "plank": item_plank
 }
