@@ -2,22 +2,22 @@ import player
 from Potions_items import *
 
 
-def check_potions(choice):
-    if HP_potion in choice["inventory"]:
+def check_potions():
+    if HP_potion in player.inventory:
         print(HP_potion["description"])
-    elif Mana_potion in choice["inventory"]:
+    elif Mana_potion in player.inventory:
         print(Mana_potion["description"])
-    elif Damage_potion in choice["inventory"]:
+    elif Damage_potion in player.inventory:
         print(Damage_potion["description"])
-    elif Defense_potion in choice["inventory"]:
+    elif Defense_potion in player.inventory:
         print(Defense_potion["description"])
 
 
-def check_potions_rev(choice):
-    if Reverse_potion in choice["inventory"]:
+def check_potions_rev():
+    if Reverse_potion in player.inventory:
         print("You drank a Reverse_potion")
         print(Reverse_potion["description"])
-        choice["inventory"].remove(Reverse_potion)
+        player.inventory.remove(Reverse_potion)
         # while True:
         #     b = 0
         #     input = reversed
@@ -27,36 +27,32 @@ def check_potions_rev(choice):
         #             input = reversed
 
 
-def potions(input, choice):
+def potions(input):
     while True:
-        if choice["name"]:
-            if input == 1:
-                choice["inventory"].remove(HP_potion)
-                choice["health"] += 100
-                if choice["health"] >= 900:
-                    choice["health"] = 1000
-                print("Your health now is " + str(choice["health"]))
+        if player.name:
+            if input == str(1):
+                player.inventory.remove(HP_potion)
+                player.health += 100
+                print("Your health now is " + str(player.health))
                 print("You have consumed a Health potion.")
-                print(choice["inventory"])
+                print(player.inventory)
                 break
-            elif input == 2:
-                choice["invnetory"].remove(Mana_potion)
-                choice["mana"] += 100
-                if choice["mana"] >= 0:
-                    choice["mana"] = 0
-                print("Your mana now is " + str(player.characters["mana"]))
+            elif input == str(2):
+                player.inventory.remove(Mana_potion)
+                player.mana += 100
+                print("Your mana now is " + str(player.mana))
                 print("You have consumed a Mana potion.")
-                print(choice["inventory"])
+                print(player.inventory)
                 break
-            elif input == 3:
-                choice["damage"] *= 20
-                print("Your minimum damage now is " + choice["damage"])
+            elif input == str(3):
+                player.damage *= 20
+                print("Your minimum damage now is " + player.damage)
                 print("You consumed a Damage potion")
-                print(choice["inventory"])
+                print(player.inventory)
                 break
-            elif input == 4:
-                choice["armor"] *= 2
-                print("Your armor now is " + choice["armor"])
+            elif input == str(4):
+                player.armor *= 2
+                print("Your armor now is " + player.armor)
                 print("You consumed a Armor potion")
-                print(choice["inventory"])
+                print(player.inventory)
                 break
