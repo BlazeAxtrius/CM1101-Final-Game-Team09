@@ -1,7 +1,12 @@
 from collections import OrderedDict
+from map import rooms
 import random
 from Potions_items import *
 import parser_game
+
+inventory = []
+current_room = rooms["Reception"]
+
 a = ""
 
 civilian = {
@@ -12,7 +17,7 @@ civilian = {
     "armor": 50,
     "experience": 0,
     "isAlive": True,
-    "inventory": ["Phone", "gum", "wallet", HP_potion],
+    "inventory": ["Phone", "gum", "wallet"],
     "damage": [0, 50]  # random.randrange[0, 50]
     }
 
@@ -132,6 +137,7 @@ One looks familiar... Yes... it's yours""")
                 print("That's not on the list, are you okay?")
                 break
     return choice
+
 
 def print_stats(character_choice):
     if character_choice == civilian["name"]:

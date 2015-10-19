@@ -11,22 +11,20 @@ def check_potions(choice):
         print(Damage_potion["description"])
     elif Defense_potion in choice["inventory"]:
         print(Defense_potion["description"])
-    else:
-        if Reverse_potion in choice["inventory"]:
-            print("You drank a Reverse_potion")
-            print(Reverse_potion["description"])
-        elif Vowel_potion in choice["inventory"]:
-            print("You drank a Vowel_potion")
-            print(Vowel_potion["description"])
-        elif Onekey_potion in choice["inventory"]:
-            print("You drank a Onekey_potion")
-            print(Onekey_potion["description"])
-        elif Double_potion in choice["inventory"]:
-            print("You drank a Double_potion")
-            print(Double_potion["description"])
-        elif Random_potion in choice["inventory"]:
-            print("You drank a Random_potion")
-            print(Random_potion["description"])
+
+
+def check_potions_rev(choice):
+    if Reverse_potion in choice["inventory"]:
+        print("You drank a Reverse_potion")
+        print(Reverse_potion["description"])
+        choice["inventory"].remove(Reverse_potion)
+        # while True:
+        #     b = 0
+        #     input = reversed
+        #     if b <= 5:
+        #         b += 1
+        #         if b >= 5:
+        #             input = reversed
 
 
 def potions(input, choice):
@@ -62,13 +60,3 @@ def potions(input, choice):
                 print("You consumed a Armor potion")
                 print(choice["inventory"])
                 break
-            else:
-                print("Good Job")
-                # if Players.inventory.append(Reverse_potion):
-                #     input = reversed
-                #     break
-                # elif Players.inventory.append(Onekey_potion):
-                #     len(input) > 1
-                #     if len(input()) > 1:
-                #         print("1")
-                #         break
