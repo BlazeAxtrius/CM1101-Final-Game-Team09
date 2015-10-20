@@ -218,36 +218,46 @@ def print_menu(exits, room_items, inv_items):
     #For all possible items you can drop
     for drop_item in inv_items:
         print("DROP " + drop_item["id"].upper() + " to drop a " + drop_item["name"] + ".")
-    print("VIEW INVENTORY")
+    print("VIEW inventory")
     print("What do you want to do?")
 
 def print_inventory():
-    print("You find on your person: \n")
-    for item in player.inventory:
-        print(item["name"].upper())
-
-    print("What would you like to do?")
-    print("USE item\nOR\nVIEW ITEM description\nOR\nEXIT INVENTORY")
-    player_command = normalise_input(input("> "))
-
-    if player_command[0] == "use":
-        player_command = " ".join(player_command[1:])
+    try:
+        print()
+        print("You find on your person: \n")
         for item in player.inventory:
-            if player_command == item["name"]:
-                use_item = player_command
-                execute_use(use_item)
-        return
-    elif player_command[0] == "view":
-        for item in player.inventory:
-            view_item = [items.item["name"], items.item["description"]]
-            print(view_item[0].capitalise())
-            print(view_item[1])
+            print(item["id"].upper() + ", " + item["name"])
+        print()
+        print("What would you like to do?")
+        print()
+        print("USE item")
+        print("VIEW all item descriptions")
+        print("EXIT inventory")
+        player_command = normalise_input(input("> "))
+
+        if player_command[0] == "use":
+            #player_command = " ".join(player_command[1:])
+            for item in player.inventory:
+                if player_command[1] == item["id"]:
+                    use_item = player_command
+                    execute_use(use_item)
+                return
+        elif player_command[0] == "view":
+            print("Here is wha you are carrying: ")
+            for item in player.inventory:
+                print("> " + item["name"].capitalize())
+                print(item["description"])
+                print()
             return
-    elif player_command[0] == "exit":
-        return
-    else:
+        elif player_command[0] == "exit":
+            return
+        else:
+            print("That makes no sense")
+            print_inventory()
+    except:
         print("That makes no sense")
-        print_inventory()
+        print(True)
+        print_inventory()    
         
 
 

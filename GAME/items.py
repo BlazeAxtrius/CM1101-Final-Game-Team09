@@ -132,8 +132,9 @@ item_potion_health = {
 
     "name": "health potion",
 
-    "description": """This small flask feels warm to the touch. Opening it releases a strong and sweet aroma that
- fills your exhausted body with vigor. Imagine what drinking it would do.""",
+    "description": """This small flask feels warm to the touch. Opening it releases
+a strong and sweet aroma that fills your exhausted body with vigor. Imagine 
+what drinking it would do.""",
 
     "mass": "2.0",
 
