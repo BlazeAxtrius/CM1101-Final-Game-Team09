@@ -195,8 +195,18 @@ def compute_experience(damage_taken):
 def attack_enemy(enemy_fight):
     damage_dealt = randrange(damage[0], damage[1])
     print("You attacked and dealt " + str(damage_dealt) + " damage your enemy")
-    if all_enemies[enemy_fight]["armor"] <= 30:
-        new_damage_dealt = damage_dealt * float(0.5)
+    if all_enemies[enemy_fight]["armor"] == 0:
+        new_damage_dealt = damage_dealt
+        print("Your new damage is " + str(new_damage_dealt))
+        # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
+        all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+    elif 1 <= all_enemies[enemy_fight]["armor"] <= 30:
+        new_damage_dealt = damage_dealt * float(0.25)
+        print("Your new damage is " + str(new_damage_dealt))
+        # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
+        all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt + damage_dealt
+    elif 31 <= all_enemies[enemy_fight]["armor"] <= 49:
+        new_damage_dealt = damage_dealt * float(0.35)
         print("Your new damage is " + str(new_damage_dealt))
         # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
         all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt + damage_dealt
@@ -205,8 +215,13 @@ def attack_enemy(enemy_fight):
         print("Your new damage is " + str(new_damage_dealt))
         # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
         all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt + damage_dealt
-    elif all_enemies[enemy_fight]["armor"] >= 71:
-        new_damage_dealt = damage_dealt / 3
+    elif 71 >= all_enemies[enemy_fight]["armor"] <= 99:
+        new_damage_dealt = damage_dealt / float(2.75)
+        print("Your new damage is " + str(new_damage_dealt))
+        # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
+        all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt + damage_dealt
+    elif all_enemies[enemy_fight]["armor"] == 100:
+        new_damage_dealt = damage_dealt / float(3.50)
         print("Your new damage is " + str(new_damage_dealt))
         # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
         all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt + damage_dealt
