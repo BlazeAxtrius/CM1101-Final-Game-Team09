@@ -1,3 +1,5 @@
+from Potions_items import *
+
 item_id = {
     "id": "id",
 
@@ -125,6 +127,19 @@ item_torch = {
     "mass" : 0.5
 }
 
+item_potion_health = {
+    "id": "health.p",
+
+    "name": "health potion",
+
+    "description": """This small flask feels warm to the touch. Opening it releases a strong and sweet aroma that
+ fills your exhausted body with vigor. Imagine what drinking it would do.""",
+
+    "mass": "2.0",
+
+    "isPotion": "True",
+}
+
 all_items = {
     "id": item_id,
     "laptop": item_laptop,
@@ -137,5 +152,9 @@ all_items = {
     "rkey": item_rusty_key,
     "lamp": item_lamp,
     "torch": item_torch,
-    "mkey": item_metal_key
+    "mkey": item_metal_key,
+    "health.p": item_potion_health
+
 }
+
+

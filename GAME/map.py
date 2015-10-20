@@ -202,8 +202,8 @@ room_torture = {
     "name": "torture, F-1",
                 
     "description": """As you enter the room, the light glimmers off some metal 
-on the walls. When you look closer, you can see that they are chains and 
-shackles bolted to the wall. There are what appear to be instruments that 
+on the walls. When you look closer, you can see that there are chains and 
+shackles bolted to the wall. There appear to be instruments that 
 were used to inflict pain covered in congealed blood along with a large red
 stain on the floor. You don't want to be in this room for any longer than 
 you have to. A door leads to the south and back from where you came.""",
