@@ -3,6 +3,7 @@ from random import *
 import items
 from Potions_items import *
 import parser_game
+from map import *
 
 name = ""
 style = ""
@@ -13,7 +14,7 @@ experience = 0
 isAlive = True
 inventory = []
 damage = [0, 0]
-current_room = map.rooms["porch"]
+current_room = rooms["porch"]
 
 a = ""
 
