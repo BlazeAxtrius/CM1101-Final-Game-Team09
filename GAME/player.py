@@ -176,7 +176,7 @@ def choose_character(choice):
 
 
 def print_player(player):
-"""This print the stats that the player has."""
+    """This print the stats that the player has."""
 #    for key in player:
  #       if player:
   #          print(key + ": " + str(player[key]))
@@ -188,7 +188,7 @@ def print_player(player):
 
 
 def print_enemy_stats(enemy_fight):
-"""This prints the stats that the enemy has."""
+    """This prints the stats that the enemy has."""
     print("Name: " + all_enemies[enemy_fight]["name"])
     print("Style: " + all_enemies[enemy_fight]["style"])
     print("Health: " + str(all_enemies[enemy_fight]["health"]))
@@ -197,7 +197,7 @@ def print_enemy_stats(enemy_fight):
 
 
 def compute_experience(damage_taken):
-"""This function gives the play experience depending on the damage that the player took from the enemy."""
+    """This function gives the play experience depending on the damage that the player took from the enemy."""
     experience_gain = randrange(0, damage_taken*2 + 1)
     return experience_gain
 
@@ -205,10 +205,10 @@ def compute_experience(damage_taken):
 # Taking damage from player
 
 def attack_enemy(enemy_fight):
-"""This is the damage that the player deals to the enemy. We print the damage dealt before and after the armor
-reduction. We have code that is currently not used but we plan on making more enemies in the future and
-to use these lines of code for them.
-"""
+    """This is the damage that the player deals to the enemy. We print the damage dealt before and after the armor
+    reduction. We have code that is currently not used but we plan on making more enemies in the future and
+    to use these lines of code for them.
+    """
     damage_dealt = randrange(damage[0], damage[1])
     print("You attacked and dealt " + str(damage_dealt) + " damage your enemy")
     if all_enemies[enemy_fight]["armor"] == 0:
@@ -250,11 +250,11 @@ to use these lines of code for them.
 # Taking damage from enemy
 
 def take_damage(enemy_fight):
-"""In this function we have the damage that the player receives from the enemies.
-We have armor reduction that is also part of this function.
-We print the damage that the enemy dealt to the player before and after the reduction from the armor.
-If the player is DEAD we print that the game is over.
-We use the global health, experience and isAlive to write this code."""
+    """In this function we have the damage that the player receives from the enemies.
+    We have armor reduction that is also part of this function.
+    We print the damage that the enemy dealt to the player before and after the reduction from the armor.
+    If the player is DEAD we print that the game is over.
+    We use the global health, experience and isAlive to write this code."""
     global health
     global experience
     global isAlive
@@ -282,9 +282,9 @@ We use the global health, experience and isAlive to write this code."""
     return 
 
 def check_potions():
-"""This function checks if the player has a potion in his inventory. We use 
-this for when the player takes a potion. We want to print what the potion does 
-so the person playing knows what he just took."""
+    """This function checks if the player has a potion in his inventory. We use 
+    this for when the player takes a potion. We want to print what the potion does 
+    so the person playing knows what he just took."""
     if HP_potion in inventory:
         print(HP_potion["description"])
     elif Mana_potion in inventory:
@@ -319,9 +319,9 @@ def potion_health():
 
 
 def potion_effect(t):
-"""This is the function for the potions and what their effect is. We planned on
-making more potions but this will be made in the future. We have 4 different 
-types of potions for now."""
+    """This is the function for the potions and what their effect is. We planned on
+    making more potions but this will be made in the future. We have 4 different 
+    types of potions for now."""
 
     while True:
         if name:
@@ -361,13 +361,13 @@ potions = {
 
 
 def combat():
-"""This is the combat function. Here the player and the enemy meet and deal damage to each other.
-First we check if there is an enemy in the room and if the enemy is in the list of enemies.
-We print that the player met an enemy. We tell the player to type a command in order to deal damage to the enemy.
-We will make it more interesting in the future when we ask the player to input different actions and not just ATTACK.
-We print the health and damage after every action. If you type ATTACK wrong, you will miss and deal 0 damage.
-Also we will add a timer for more pressure on the player. This might make the player miss spell and therefore
-miss the attack."""
+    """This is the combat function. Here the player and the enemy meet and deal damage to each other.
+    First we check if there is an enemy in the room and if the enemy is in the list of enemies.
+    We print that the player met an enemy. We tell the player to type a command in order to deal damage to the enemy.
+    We will make it more interesting in the future when we ask the player to input different actions and not just ATTACK.
+    We print the health and damage after every action. If you type ATTACK wrong, you will miss and deal 0 damage.
+    Also we will add a timer for more pressure on the player. This might make the player miss spell and therefore
+    miss the attack."""
     for enemy in all_enemies:
         if all_enemies[enemy]["name"] == current_room["enemy"][0]["name"]:
             enemy_fight = enemy
@@ -391,9 +391,9 @@ miss the attack."""
             print_player(choice)
             if all_enemies[enemy_fight]["isAlive"] == False:
                 print("You killed your enemy!")
-                current_room["enemy"].remove(all_enemies[enemy_fight])
                 print("It dropped a Health potion")
-                current_room["items"].append(item_potion_health)
+                current_room["items"].append(all_enemies[enemy_fight]["inventory"][0])
+                current_room["enemy"].remove(all_enemies[enemy_fight])
                 print("────────────────────────────────────────────────────────────")
                 print()
                 print()
