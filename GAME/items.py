@@ -204,7 +204,8 @@ all_items = {
     "torch": item_torch,
     "mkey": item_metal_key,
     "bkey": item_brass_key,
-    "health": item_potion_health
+    "health": item_potion_health,
+    "clue": item_clue
 
 }
 

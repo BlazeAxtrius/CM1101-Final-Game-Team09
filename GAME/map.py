@@ -1,43 +1,41 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Oct 18 15:08:33 2015
-
-@author: KHADIJA
-"""
-
-
+from enemies import *
 from items import *
+
+
 room_entrance = { 
     "name": "entrance",
                 
-    "description":"""As you close the door behind you it booms with a huge 
+    "description": """As you close the door behind you it booms with a huge
 weight. The hallway that lies in front of you to the east is sparsely 
 decorated other than a carpet leading down the room and a grandfather clock
 to your right. Upon listening the clock seems to be broken.""",
 
-    "exits": {"north" : "dining room, G, W", "south": "lounge, G, W", "east": "hallway, G, W", "west": "porch"},
+    "exits": {"north": "dining room, G, W", "south": "lounge, G, W", "east": "hallway, G, W", "west": "porch"},
 
     "has_plank": "False",
     
     "items": [],
     
-    "first_visit": True
+    "first_visit": True,
+
+    "enemy": [enemy1]
 }
 
 
 room_hallway_g_e = {
     "name": "hallway, G, E",
 
-    "description":"""As you leave the stairs you can see a door to the south 
+    "description": """As you leave the stairs you can see a door to the south
 and the stairs to the basement to the north. There is a small table against
 the wall and on it you can see a torch. The hallway continues to the 
 west.""",
 
     "exits": {"west": "hallway, G, C", "up": "hallway, F1, S", "down": "hallway, F-1"}, 
 
-    "items": [item_metal_key]
-}  
+    "items": [item_metal_key],
 
+    "enemy": []
+}
 
 
 room_hallway_g_w = {
@@ -50,13 +48,12 @@ but the wood has broken nearly all the way around. You doubt whether the
 remaining floorboards would support any weight on them at all and decide 
 not to find out. """,
 
-
     "exits": {"west": "entrance", "north": "dining room, G, E", "south": "lounge, G, E"},
 
+    "items": [],
 
-    "items": []
+    "enemy": []
 }
-
 
 
 room_hallway_g_c = {
@@ -69,10 +66,11 @@ There are doors to the north and south and the stairway to the east.""",
 
     "exits": {"north": "kitchen, G", "south": "office, G", "east": "hallway, G, E"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }
 
-            
             
 room_dining_w = { 
     "name": "dining room, G, W",
@@ -83,11 +81,12 @@ the table has a very large chair placed at it, as though it was saved for
 someone important. There is a door to the south and the room continues to 
 the east.""",
 
-    "exits": {"south" : "entrance", "east": "dining room, G, E"},
+    "exits": {"south": "entrance", "east": "dining room, G, E"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }    
-
 
 
 room_dining_e = {
@@ -100,9 +99,10 @@ west. There is also a door to the south. """,
 
     "exits": {"west": "dining room, G, W", "east": "kitchen, G", "south": "hallway, G, W"},
 
-    "items": []
-}
+    "items": [],
 
+    "enemy": []
+}
 
  
 room_kitchen = { 
@@ -114,11 +114,12 @@ wall. There are several shelves and cupboards that seem to be broken and
 empty. You can see a rack of cutlery including some larger knives used for 
 chopping food. There is a door to the west and to the south.""",
 
-    "exits": {"south" : "hallway, G, C", "west": "dining room, G, E"},
+    "exits": {"south": "hallway, G, C", "west": "dining room, G, E"},
 
-    "items": [item_knife, item_potion_health]
+    "items": [item_knife, item_potion_health],
+
+    "enemy": []
 }     
-
 
 
 room_office = { 
@@ -129,9 +130,11 @@ of you along with a thick leather chair. Behind that there are two large
 bookcases in the corners of the rooms filled with books that are dusted but
 look as though they are expensive. """,
 
-    "exits": {"north" : "hallway, G, C", "west": "lounge, G, E"},
+    "exits": {"north": "hallway, G, C", "west": "lounge, G, E"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }  
     
 room_lounge_e = { 
@@ -143,9 +146,11 @@ the south there is a large fireplace although it looks unused for some time
 now. There is a door to the north as well as the east and the room 
 continues to the west.""",
 
-    "exits": {"north" : "hallway, G, W", "east": "office, G", "west": "lounge, G, W"},
+    "exits": {"north": "hallway, G, W", "east": "office, G", "west": "lounge, G, W"},
 
-    "items": []
+    "items": [item_clue],
+
+    "enemy": []
 }    
 
 
@@ -159,9 +164,10 @@ open. There is a door to the north and the room continues to the east.""",
 
     "exits": {"north": "entrance", "east": "lounge, G, E"}, 
 
-    "items": []
-}
+    "items": [],
 
+    "enemy": []
+}
 
 
 room_storage = { 
@@ -176,9 +182,11 @@ with a match box. You tread carefully avoiding the large pieces of wood
 that have splintered as a result of the fall. You also notice a small 
 cupboard in the corner when noises that emanate from it startle you.""",
 
-    "exits": {"north" : "pantry, F-1", "south": "wine cellar, F-1", "east": "hallway, F-1"},
+    "exits": {"north": "pantry, F-1", "south": "wine cellar, F-1", "east": "hallway, F-1"},
 
-    "items": [item_lamp]
+    "items": [item_lamp],
+
+    "enemy": []
 }    
 
 room_pantry = { 
@@ -193,9 +201,11 @@ which is too old to distinguish between. You wonder just how long some of
 this has been here. You can see a door to the east and the door that you 
 entered the room with.""",
 
-    "exits": {"south" : "storage, F-1", "east": "torture, F-1"},
+    "exits": {"south": "storage, F-1", "east": "torture, F-1"},
 
-    "items": [item_torch]
+    "items": [item_torch],
+
+    "enemy": []
 }    
 
 room_torture = { 
@@ -208,9 +218,11 @@ were used to inflict pain covered in congealed blood along with a large red
 stain on the floor. You don't want to be in this room for any longer than 
 you have to. A door leads to the south and back from where you came.""",
 
-    "exits": {"west" : "pantry, F-1", "south": "hallway, F-1"},
+    "exits": {"west": "pantry, F-1", "south": "hallway, F-1"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }    
 
 room_hallway_b = { 
@@ -221,9 +233,11 @@ cobwebs hanging from the corners of the room and the floor is covered in
 dust and dirt. You can't see much more than this. There are doors leading 
 to the north and south and a staircase to the east.""",
 
-    "exits": {"north" : "torture, F-1", "south": "workshop, F-1", "west": "storage, F-1", "up": "hallway, G, E"},
+    "exits": {"north": "torture, F-1", "south": "workshop, F-1", "west": "storage, F-1", "up": "hallway, G, E"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }    
 
 room_secret = { 
@@ -245,9 +259,11 @@ reach out to help him he is startled and screams at you "FOR ALL INTENTS
 AND PURPOSES!!!!!" You decide its best to leave him for now, there seems to
 be little you can do to comfort him. """,
 
-    "exits": {"west" : "workshop, F-1"},
+    "exits": {"west": "workshop, F-1"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }    
 
 room_workshop = { 
@@ -260,9 +276,11 @@ be used for crafting. An old shelf with some dusty equipment and a few
 books is to the east of the room. A door leads to the north of the room and
 another from where you came. """,
 
-    "exits": {"west" : "wine cellar, F-1", "east": "secret room, F-1", "north": "hallway, F-1"},
+    "exits": {"west": "wine cellar, F-1", "east": "secret room, F-1", "north": "hallway, F-1"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }    
 
 room_winecellar = { 
@@ -273,9 +291,11 @@ immediately visible. There are a few empty spaces but most are filled with
 bottles that have so much dust on them that the labels can't be read. You 
 can also see a door to the east and another from where you came.""",
 
-    "exits": {"north" : "storage, F-1", "east": "workshop, F-1"},
+    "exits": {"north": "storage, F-1", "east": "workshop, F-1"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }    
 
 room_hallway_f_s = { 
@@ -285,9 +305,11 @@ room_hallway_f_s = {
 corridor leading to the north along with a door to the west. The stairs to 
 the south lead back downstairs. It is difficult to see much else. """,
 
-    "exits": {"north" : "hallway, F1, E", "west": "master bedroom, F1", "down": "hallway, G, E" },
+    "exits": {"north": "hallway, F1, E", "west": "master bedroom, F1", "down": "hallway, G, E"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }    
 
 
@@ -300,7 +322,9 @@ lamp on top of it.""",
 
     "exits": {"south": "hallway, F1, S", "west": "hallway, F1, N"},
 
-    "items": [item_brass_key]
+    "items": [item_brass_key],
+
+    "enemy": []
 }
 
 
@@ -312,7 +336,9 @@ south. The corridor continues to the west and to the east.""",
 
     "exits": {"west": "hallway, F1, W", "south": "master bedroom, F1", "east": "hallway, F1, E"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }
 
 
@@ -324,7 +350,9 @@ south and the corridor goes back to the east.""",
 
     "exits": {"south": "child bedroom, F1", "east": "hallway, F1, N"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }
 
 
@@ -340,13 +368,15 @@ through the dirty window casts long shadows over parts of the room adding
 to the atmosphere of the unknown. There are doors leading to the north, 
 east and south""",
 
-    "exits": {"north" : "hallway, F1, W", "east": "master bedroom, F1", "south": "store, F1"},
+    "exits": {"north": "hallway, F1, W", "east": "master bedroom, F1", "south": "store, F1"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }    
 
 
-room_store ={
+room_store = {
     "name": "store, F1",
                 
     "description": """The room is the darkest that you have seen in the house. 
@@ -356,9 +386,11 @@ mostly closed and taped up. There are a few broken boards in one corner
 along with a large plank which upon closer inspection seems to be solid, 
 maybe even strong enough to hold a significant weight. """,
 
-    "exits": {"north" : "child bedroom, F1", "east": "bathroom, F1"},
+    "exits": {"north": "child bedroom, F1", "east": "bathroom, F1"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }    
 
 
@@ -370,9 +402,11 @@ this bathroom despite the obvious dirt that covers most of it. There is a
 deep empty bath against the back wall along with a sink above which is a 
 cabinet. There are doors leading to the north and to the west.""",
 
-    "exits": {"north" : "master bedroom, F1", "west": "store, F1"},
+    "exits": {"north": "master bedroom, F1", "west": "store, F1"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }    
 
 room_master = { 
@@ -389,9 +423,11 @@ Looking back to the mirror Kirill once again smiles at you and waves as he
 turns away from the mirror and moves into the shadows. There are four doors
 leading in each direction, north, south, east and west. """,
 
-    "exits": {"north" : "hallway, F1, N", "south": "bathroom, F1", "west": "child bedroom, F1", "east": "hallway, F1, S"},
+    "exits": {"north": "hallway, F1, N", "south": "bathroom, F1", "west": "child bedroom, F1", "east": "hallway, F1, S"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }    
 
 
@@ -404,77 +440,86 @@ a covered entrance and the structure will lead you to the east. """,
     
     "exits": {"east": "entrance"},
 
-    "items": []
+    "items": [],
+
+    "enemy": []
 }
 
-rooms = {
-       "porch": room_porch,
-       "entrance": room_entrance,
-       "hallway, G, E": room_hallway_g_e,
-       "hallway, G, W": room_hallway_g_w,
-       "hallway, G, C": room_hallway_g_c,
-       "dining room, G, W": room_dining_w,
-       "dining room, G, E": room_dining_e,
-       "kitchen, G": room_kitchen,
-       "office, G": room_office,
-       "lounge, G, E": room_lounge_e,
-       "lounge, G, W": room_lounge_w,
-       "storage, F-1": room_storage,
-       "pantry, F-1": room_pantry,
-       "torture, F-1": room_torture,
-       "hallway, F-1": room_hallway_b,
-       "secret room, F-1": room_secret,
-       "workshop, F-1": room_workshop,
-       "wine cellar, F-1": room_winecellar,
-       "hallway, F1, S": room_hallway_f_s,
-       "hallway, F1, E": room_hallway_f_e,
-       "hallway, F1, N": room_hallway_f_n,
-       "hallway, F1, W": room_hallway_f_w,
-       "child bedroom, F1": room_child,
-       "store, F1": room_store,
-       "bathroom, F1": room_bathroom,
-       "master bedroom, F1": room_master
- }
+rooms = {"porch": room_porch,
+         "entrance": room_entrance,
+         "hallway, G, E": room_hallway_g_e,
+         "hallway, G, W": room_hallway_g_w,
+         "hallway, G, C": room_hallway_g_c,
+         "dining room, G, W": room_dining_w,
+         "dining room, G, E": room_dining_e,
+         "kitchen, G": room_kitchen,
+         "office, G": room_office,
+         "lounge, G, E": room_lounge_e,
+         "lounge, G, W": room_lounge_w,
+         "storage, F-1": room_storage,
+         "pantry, F-1": room_pantry,
+         "torture, F-1": room_torture,
+         "hallway, F-1": room_hallway_b,
+         "secret room, F-1": room_secret,
+         "workshop, F-1": room_workshop,
+         "wine cellar, F-1": room_winecellar,
+         "hallway, F1, S": room_hallway_f_s,
+         "hallway, F1, E": room_hallway_f_e,
+         "hallway, F1, N": room_hallway_f_n,
+         "hallway, F1, W": room_hallway_f_w,
+         "child bedroom, F1": room_child,
+         "store, F1": room_store,
+         "bathroom, F1": room_bathroom,
+         "master bedroom, F1": room_master}
 
 locked_exit_E_D = {
     "rooms": ["entrance", "dining room, G, W"],
     
-    "key_required" : "bkey",    
+    "key_required": "bkey",
     
-    "locked": True
+    "locked": True,
 
+    "enemy": []
 }
 
 locked_exit_E_L = {
     "rooms": ["entrance", "lounge, G, W"],
     
-    "key_required" : "bkey",    
+    "key_required": "bkey",
     
-    "locked": True
+    "locked": True,
+
+    "enemy": []
 }
 
 locked_exit_S_P = {
     "rooms": ["storage, F-1", "pantry, F-1"],
     
-    "key_required" : "rkey",    
+    "key_required": "rkey",
     
-    "locked": True
+    "locked": True,
+
+    "enemy": []
 }
 
 locked_exit_S_W = {
     "rooms": ["storage, F-1", "wine cellar, F-1"],
     
-    "key_required" : "rkey",    
+    "key_required": "rkey",
     
-    "locked": True
+    "locked": True,
+
+    "enemy": []
 }
 
 locked_exit_S_H = {
     "rooms": ["storage, F-1", "hallway, F-1"],
     
-    "key_required" : "mkey",    
+    "key_required": "mkey",
     
-    "locked": True
+    "locked": True,
+
+    "enemy": []
 }
 
 locked_room_exits = {
@@ -483,5 +528,4 @@ locked_room_exits = {
     "Storage_Pantry": locked_exit_S_P,
     "Storage_Wine_cellar": locked_exit_S_W,
     "Storage_Hallway": locked_exit_S_H
-
 }
