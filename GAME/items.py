@@ -14,16 +14,16 @@ You wonder why they have printed a suicide hotline number on it?...""",
     "isPotion": False,
 }
 
-item_laptop = {
-    "id": "laptop",
+item_knife = {
+    "id": "knife",
 
-    "name": "laptop",
+    "name": "a kitchen knife",
 
     "description":
-    "It has seen better days. At least it has a WiFi card!",
+    "It is very sharp",
 
-    "mass": 4,
-    
+    "mass": 0.75, 
+        
     "isPotion": False,
 }
 
@@ -89,6 +89,18 @@ item_note = {
     "isPotion": False,
 }
 
+item_clue = {
+    "id": "clue",
+    
+    "name": "a piece of paper with writing on",
+
+    "description": """Use books will reveal a horror you don't want to experience""",
+
+    "mass": 0.05,
+    
+    "isPotion": False,
+}
+
 item_plank = {
     "id": "plank",
 
@@ -100,6 +112,7 @@ item_plank = {
     
     "isPotion": False,
 }
+
 item_brass_key = {
     "id" : "bkey",
     
@@ -179,7 +192,7 @@ what drinking it would do.""",
 
 all_items = {
     "id": item_id,
-    "laptop": item_laptop,
+    "knife": item_knife,
     "money": item_money,
     "biscuits": item_biscuits,
     "pen": item_pen,

@@ -116,7 +116,7 @@ chopping food. There is a door to the west and to the south.""",
 
     "exits": {"south" : "hallway, G, C", "west": "dining room, G, E"},
 
-    "items": []
+    "items": [item_knife, item_potion_health]
 }     
 
 
