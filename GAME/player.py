@@ -4,6 +4,7 @@ import items
 import parser_game
 from map import *
 from enemies import *
+import enemies
 
 name = ""
 style = ""
@@ -185,41 +186,21 @@ def compute_experience(damage):
     return damage
 
 
-
-"""def take_damage_enemy1(enemy1, damage_dealt):
-    enemy1["health"] = enemy1["health"] - choice["damage"]
-    if enemy1["health"] <= 0:
-        enemy1["isAlive"] = False
-        enemy1["health"] = 0
+def take_damage_enemy1(enemy1, damage_dealt):
+    enemy1.health = enemy1.health - damage
+    if enemy1.health <= 0:
+        enemy1.isAlive = False
+        enemy1.health = 0
     return enemy1
 
 
 def take_damage(choice, damage_dealt):
-    health -= damage_e
-    experience += compute_experience(damage)
-    if health <= 0:
+    choice.health -= enemy1.damage_e
+    choice.experience += compute_experience(damage)
+    if choice.health <= 0:
         isAlive = False
-        health <= 0
         print('You are DEAD!')
     return choice
-
-while enemy1["isAlive"] and isAlive:
-    damage_dealt = damage
-    damage_dealt = enemy1["damage"]
-    take_damage_enemy1(enemy1, damage_dealt)
-    take_damage(choice, damage_dealt)
-    if input == "strong":
-        continue
-    else:
-        input("Try again")
-    print_enemy1(enemy1)
-    print()
-    print_player(choice)
-    print("")
-    print()
-    if enemy1['isAlive'] == False:
-        break
-"""
 
 
 def check_potions():
@@ -292,9 +273,9 @@ potions = {
 
 
 def combat():
-    while isAlive_e and isAlive:
+    while enemy1["isAlive_e"] and isAlive:
         damage_dealt = damage
-        damage_dealt = damage_e
+        damage_dealt = enemy1.damage_e
         take_damage_enemy1(enemy1, damage_dealt)
         take_damage(choice, damage_dealt)
         if input == "strong":
@@ -306,6 +287,6 @@ def combat():
         print_player(choice)
         print("")
         print()
-        if enemy1['isAlive'] == False:
+        if enemy1["isAlive_e"] == False:
             break
 

@@ -6,9 +6,8 @@ enemy1 = {
     "health": 500,
     "armor": 0,
     "isAlive": True,
-    "inventory": [HP_potion],
+    "inventory": ["item_potion_health"],
     "damage": [30, 60],
-    "place": rooms["entrance"]
 }
 
 
