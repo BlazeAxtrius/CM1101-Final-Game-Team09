@@ -50,24 +50,6 @@ def print_room_items(room):
     else:
         print("(no output)")
 
-
-def print_inventory_items(items):
-    """This function takes a list of inventory items and displays it nicely, in a
-    manner similar to print_room_items(). The only difference is in formatting:
-    print "You have ..." instead of "There is ... here.". For example:
-    >>> print_inventory_items(inventory)
-    You have id card, laptop, money.
-    <BLANKLINE>
-    """
-    
-    # check that the list of items is not empty
-    if len(items) != 0:
-        # print the list of items
-        print("You have " + list_of_items(items) + ".\n")    
-    else:
-        print("You are not carrying any items.")
-
-
 def print_room(room):
     """This function takes a room as an input and nicely displays its name
     and description. The room argument is a dictionary with entries "name",
@@ -184,11 +166,41 @@ def print_menu(exits, room_items, inv_items):
         print("TAKE " + take_item["id"].upper() + " to take a " + take_item["name"] + ".")
     for drop_item in inv_items:
         print("DROP " + drop_item["id"].upper() + " to drop a " + drop_item["name"] + ".")
+    print("VIEW INVENTORY")
     #
     # COMPLETE ME!
     #
     
     print("What do you want to do?")
+
+def print_inventory():
+    print("You find on your person: \n")
+    for item in player.inventory:
+        print(item["name"].upper())
+
+    print("What would you like to do?")
+    print("USE item\nOR\nVIEW ITEM description\nOR\nEXIT INVENTORY")
+    player_command = normalise_input(input("> "))
+
+    if player_command[0] == "use":
+        player_command = " ".join(player_command[1:])
+        for item in player.inventory:
+            if player_command == item["name"]:
+                use_item = player_command
+                execute_use(use_item)
+        return
+    elif player_command[0] == "view":
+        for item in player.inventory:
+            view_item = [items.item["name"], items.item["description"]]
+            print(view_item[0].capitalise())
+            print(view_item[1])
+            return
+    elif player_command[0] == "exit":
+        return
+    else:
+        print("That makes no sense")
+        print_inventory()
+        
 
 
 def is_valid_exit(exits, chosen_exit):
@@ -208,6 +220,16 @@ def is_valid_exit(exits, chosen_exit):
     """
     if chosen_exit[0] in exits:
         return True
+
+def execute_use(item):
+    """This function looks for an item in the players inventory,
+    removes it from the inventory, and then affects the player or the world state depending on the item"""
+    for player_item in player.inventory:
+        if item == player_item["name"]:
+            if bool(player_item["isPotion"]):
+                print(player_item["description"])
+                if normalise_input(input("Are you sure you want to use potion?\n> "))[0] == "yes":
+                    player.potions[item]()
 
 
 def execute_go(direction):
@@ -289,7 +311,8 @@ def execute_command(command):
             execute_drop(command[1])
         else:
             print("Drop what?")
-
+    elif command[0] == "view":
+        print_inventory()
     else:
         print("This makes no sense.")
         print(command[0])
@@ -365,7 +388,6 @@ def main():
     while True:
         # Display game status (room description, inventory etc.)
         print_room(player.current_room)
-        print_inventory_items(player.inventory)
 
         # Show the menu with possible actions and ask the player
         command = menu(player.current_room["exits"], player.current_room["items"], player.inventory)

@@ -1,7 +1,6 @@
 from collections import OrderedDict
-from map import rooms
 from random import *
-from items import *
+import items
 from Potions_items import *
 import parser_game
 import map
@@ -13,9 +12,9 @@ mana = 0
 armor = 50
 experience = 0
 isAlive = True
-inventory = [all_items["id"], all_items["money"], all_items["pen"]]
+inventory = []
 damage = [0, 0]
-current_room = rooms["porch"]
+current_room = map.rooms["porch"]
 
 a = ""
 
@@ -27,7 +26,7 @@ civilian = {
     "armor": 50,
     "experience": 0,
     "isAlive": True,
-    "inventory": [item_id, item_money, item_card,item_note],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
     "damage": [20, 50]  # random.randrange[0, 50]
     }
 
@@ -40,7 +39,7 @@ warrior = {
     "armor": 100,
     "experience": 0,
     "isAlive": True,
-    "inventory": [item_id, item_money, item_card, item_note],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
     "damage": [25, 100]  # random.randrange[25, 100]
     }
 
@@ -53,7 +52,7 @@ matt_morgan = {
     "armor": 80,
     "experience": 0,
     "isAlive": True,
-    "inventory": [item_id, item_money, item_card, item_note],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
     "damage": [30, 150]  # random.randrange[0, 150]
     }
 
@@ -66,7 +65,7 @@ kirill = {
     "armor": 30,
     "experience": 0,
     "isAlive": True,
-    "inventory": [item_id, item_money, item_card, item_note],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
     "damage": [100, 500]  # random.randrange[100, 500]
     }
 
@@ -196,7 +195,7 @@ def compute_experience(damage):
     return damage
 
 
-def take_damage_enemy1(enemy1, damage_dealt):
+"""def take_damage_enemy1(enemy1, damage_dealt):
     enemy1["health"] = enemy1["health"] - choice["damage"]
     if enemy1["health"] <= 0:
         enemy1["isAlive"] = False
@@ -230,3 +229,71 @@ while enemy1["isAlive"] and isAlive:
     print()
     if enemy1['isAlive'] == False:
         break
+"""
+
+def check_potions():
+    if HP_potion in inventory:
+        print(HP_potion["description"])
+    elif Mana_potion in inventory:
+        print(Mana_potion["description"])
+    elif Damage_potion in inventory:
+        print(Damage_potion["description"])
+    elif Defense_potion in inventory:
+        print(Defense_potion["description"])
+
+
+def check_potions_rev():
+    if Reverse_potion in inventory:
+        print("You drank a Reverse_potion")
+        print(Reverse_potion["description"])
+        inventory.remove(Reverse_potion)
+        # while True:
+        #     b = 0
+        #     input = reversed
+        #     if b <= 5:
+        #         b += 1
+        #         if b >= 5:
+        #             input = reversed
+
+
+def health():
+    global health
+    health += 100
+    inventory.remove(items.item_potion_health)
+    print("You have restored 100 health")
+    
+def potion_effect(t):
+    while True:
+        if name:
+            if input == "health potion":
+                inventory.remove(HP_potion)
+                health += 100
+                print("Your health now is " + str(player.health))
+                print("You have consumed a Health potion.")
+                print(inventory)
+                break
+            elif input == str(2):
+                inventory.remove(Mana_potion)
+                mana += 100
+                print("Your mana now is " + str(player.mana))
+                print("You have consumed a Mana potion.")
+                print(inventory)
+                break
+            elif input == str(3):
+                inventory.remove(Damage_potion)
+                damage *= 20
+                print("Your minimum damage now is " + player.damage)
+                print("You consumed a Damage potion")
+                print(inventory)
+                break
+            elif input == str(4):
+                inventory.remove(Defense_potion)
+                armor *= 2
+                print("Your armor now is " + player.armor)
+                print("You consumed a Armor potion")
+                print(inventory)
+                break
+
+potions = {
+    "health potion": health,
+}
