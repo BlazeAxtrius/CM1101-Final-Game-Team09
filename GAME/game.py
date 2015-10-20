@@ -44,11 +44,17 @@ def print_room_items(room):
     """
 
     # check that the list of items is not empty
-    if room["items"] != ([]):
+    if (room["items"] != ([])) and ((item_torch in player.inventory) or (rooms["entrance"]["first_visit"] == True)) :
         # prints the list of items
         print("There is " + list_of_items(room["items"]) + " here.\n")
+    elif (item_torch in room["items"]):
+        print("There is " + item_torch["name"] + " here.\n")
     else:
-        print("(no output)")
+        print("")
+    if (item_lamp in room["items"]) and not (item_torch in player.inventory):
+       print("There is " + item_lamp["name"] + " here.\n")
+    else:
+        print("")
 
 def print_room(room):
     """This function takes a room as an input and nicely displays its name
@@ -207,7 +213,7 @@ def print_menu(exits, room_items, inv_items):
             #If there is a locked door and the player carries the right key
             if exit_locked(direction) and carrying_right_key(direction, inv_items):
                 print ("UNLOCK " + direction.upper() + " to unlock the " + direction + " door.")
-    if item_torch in inv_items:
+    if (item_torch in inv_items) or (rooms["entrance"]["first_visit"] == True) :
         #For all possible item you can pick up
         for take_item in room_items:
             print("TAKE " + take_item["id"].upper() + " to take a " + take_item["name"] + ".")

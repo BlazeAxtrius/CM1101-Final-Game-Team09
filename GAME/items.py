@@ -160,7 +160,7 @@ item_potion_health = {
 a strong and sweet aroma that fills your exhausted body with vigor. Imagine 
 what drinking it would do.""",
 
-    "mass": "2.0",
+    "mass": 2.0,
 
     "isPotion": "True",
 }
