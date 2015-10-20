@@ -1,9 +1,10 @@
 from collections import OrderedDict
 from random import *
 import items
-import parser_game
+from parser_game import *
 from map import *
 from enemies import *
+import os
 
 name = ""
 style = ""
@@ -23,7 +24,7 @@ civilian = {
     "style": "pathetic",
     "health": 1000,
     "mana": 0,
-    "armor": 50,
+    "armor": 600,
     "experience": 0,
     "isAlive": True,
     "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
@@ -48,7 +49,7 @@ warrior = {
 matt_morgan = {
     "name": "Matt Morgan",
     "style": "a bit eccentric",
-    "health": 800,
+    "health": 50,
     "mana": 50,
     "armor": 80,
     "experience": 0,
@@ -136,29 +137,29 @@ def choose_character(choice):
     while True:
         print_choices()
         character_choice = input("> ")
-        character_choice = parser_game.normalise_input(character_choice)
+        character_choice = normalise_input(character_choice)
         for name in characters:
             # print(alpha)
             # print(character_choice)
             # if alpha in character_choice:
             #     return alpha
-            if character_choice == parser_game.normalise_input(civilian["name"]):
+            if character_choice == normalise_input(civilian["name"]):
                 print_stats(civilian)
                 set_stats(civilian)
                 a = civilian
                 return
-            elif character_choice == parser_game.normalise_input(warrior["name"]):
+            elif character_choice == normalise_input(warrior["name"]):
                 print_stats(warrior)
                 set_stats(warrior)
                 a = warrior
                 return
-            elif character_choice == parser_game.normalise_input(matt_morgan["name"]):
+            elif character_choice == normalise_input(matt_morgan["name"]):
                 print_stats(matt_morgan)
                 print("")
                 set_stats(matt_morgan)
                 a = matt_morgan
                 return
-            elif character_choice == parser_game.normalise_input(kirill["name"]):
+            elif character_choice == normalise_input(kirill["name"]):
                 print_stats(kirill)
                 set_stats(kirill)
                 a = kirill
@@ -179,9 +180,12 @@ def print_player(player):
     print("Experience " + str(experience))
 
 
-def print_enemy1(enemy):
-    for key1 in enemy:
-        print(key1 + ": " + str(enemy1[key1]))
+def print_enemy_stats(enemy_fight):
+    print("Name: " + all_enemies[enemy_fight]["name"])
+    print("Style: " + all_enemies[enemy_fight]["style"])
+    print("Health: " + str(all_enemies[enemy_fight]["health"]))
+    print("Max damage: " + str(all_enemies[enemy_fight]["damage"][1]))
+    
 
 
 def compute_experience(damage_taken):
@@ -189,25 +193,30 @@ def compute_experience(damage_taken):
     return experience_gain
 
 
-def take_damage_enemy1(enemy1, damage_dealt):
-    enemy1["health"] = enemy1["health"] - randrange(damage[0], damage[1])
-    if enemy1["health"] <= 0:
-        enemy1["isAlive"] = False
-        enemy1["health"] = 0
-    return enemy1
+def attack_enemy(enemy_fight):
+    damage_dealt = randrange(damage[0], damage[1])
+    print("You attacked and dealt " + str(damage_dealt) + " damage your enemy")
+    all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - damage_dealt
+    if all_enemies[enemy_fight]["health"] <= 0:
+        all_enemies[enemy_fight]["isAlive"] = False
+        all_enemies[enemy_fight]["health"] = 0
+    return enemy_fight
 
 
-def take_damage(choice, damage_dealt):
+def take_damage(enemy_fight):
     global health
     global experience
     global isAlive
-    damage_taken = randrange(enemy1["damage"][0], enemy1["damage"][1])
+    damage_taken = randrange(all_enemies[enemy_fight]["damage"][0], all_enemies[enemy_fight]["damage"][1])
+    print("The enemy attacked you with a damage of " + str(damage_taken))
     health = health - damage_taken
     experience = experience + compute_experience(damage_taken)
     if health <= 0:
         isAlive = False
         print('You are DEAD!')
-    return choice
+        print("GAME OVER!")
+        os._exit(1)
+    return 
 
 
 def check_potions():
@@ -282,29 +291,40 @@ potions = {
 
 def combat():
     for enemy in all_enemies:
-        print("true")
-        if enemy[rooms] == current_room[enemy]:
-            print("true")
+        if all_enemies[enemy]["name"] == current_room["enemy"][0]["name"]:
             enemy_fight = enemy
-            print("true")
-            print(enemy_fight[isAlive])
-            while enemy_fight[isAlive] and isAlive:
-                damage_dealt = damage
-                damage_dealt = enemy_fight[0]
-                take_damage_enemy1(enemy1, damage_dealt)
-                take_damage(choice, damage_dealt)
-                if input() == "strong":
-                    print_enemy1(enemy1)
-                    print()
-                    print_player(choice)
-                    print()
-                    continue
-                else:
-                    input("Try again")
-                print_enemy1(enemy1)
+            break
+    print("You have come across a " + all_enemies[enemy_fight]["name"])
+    print()
+    print("Here are their stats: ")
+    print_enemy_stats(enemy_fight)
+    print()
+    while all_enemies[enemy_fight]["isAlive"] and isAlive:
+        print("ATTACK to deal damage")
+        print()
+        if (normalise_input(input("> ")))[0] == "attack":
+            print()
+            attack_enemy(enemy_fight)
+            print()
+            take_damage(enemy_fight)
+            print()
+            print_enemy_stats(enemy_fight)
+            print()
+            print_player(choice)
+            if all_enemies[enemy_fight]["isAlive"] == False:
+                print("You killed your enemy!")
+                print("────────────────────────────────────────────────────────────")
                 print()
-                print_player(choice)
-                print("")
                 print()
-                if enemy_fight[isAlive] == False:
-                    break
+                break
+            print("────────────────────────────────────────────────────────────")
+            continue
+        else:
+            print("You missed!")
+            print()
+            take_damage(enemy_fight)
+            print()
+            print_enemy_stats(enemy_fight)
+            print()
+            print_player(choice)
+            print("────────────────────────────────────────────────────────────")
