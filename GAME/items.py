@@ -9,7 +9,9 @@ item_id = {
     """Your new shiny student ID card. Expires 1 June 2017.
 You wonder why they have printed a suicide hotline number on it?...""",
 
-    "mass": 0.5
+    "mass": 0.5,
+    
+    "isPotion": "False",
 }
 
 item_laptop = {
@@ -20,7 +22,9 @@ item_laptop = {
     "description":
     "It has seen better days. At least it has a WiFi card!",
 
-    "mass": 4
+    "mass": 4,
+    
+    "isPotion": "False",
 }
 
 item_money = {
@@ -31,7 +35,9 @@ item_money = {
     "description":
     "This wad of cash is barely enough to pay your tuition fees.",
 
-    "mass": 0.75
+    "mass": 0.75,
+    
+    "isPotion": "False",
 }
 
 item_biscuits = {
@@ -41,7 +47,9 @@ item_biscuits = {
 
     "description": "A pack of biscuits.",
 
-    "mass": 1
+    "mass": 1,
+    
+    "isPotion": "False",
 }
 
 item_pen = {
@@ -51,7 +59,9 @@ item_pen = {
 
     "description": "A basic ballpoint pen.",
 
-    "mass": 0.5
+    "mass": 0.5,
+    
+    "isPotion": "False",
 }
 
 item_card = {
@@ -62,7 +72,9 @@ item_card = {
     "description": """This card has a mobile number wrote on it. I wonder who's 
 number it is?""",
 
-    "mass": 0.05
+    "mass": 0.05,
+    
+    "isPotion": "False",
 }
 
 item_note = {
@@ -72,7 +84,9 @@ item_note = {
 
     "description": """This is the note you pick up from outside""",
 
-    "mass": 0.05
+    "mass": 0.05,
+    
+    "isPotion": "False",
 }
 
 item_plank = {
@@ -82,7 +96,9 @@ item_plank = {
 
     "description": """This could easily support your weight""",
 
-    "mass": 5.0
+    "mass": 5.0,
+    
+    "isPotion": "False",
 }
 
 item_rusty_key = {
@@ -92,7 +108,9 @@ item_rusty_key = {
     
     "description": "The key allows you to open doors with rusty locks",
 
-    "mass" : 0.2
+    "mass" : 0.2,
+    
+    "isPotion": "False",
 }
 
 item_metal_key = {
@@ -102,7 +120,9 @@ item_metal_key = {
     
     "description": "The key allows you to open doors with metal locks",
     
-    "mass" : 0.2
+    "mass" : 0.2,
+    
+    "isPotion": "False",
 }
 
 item_lamp = {
@@ -114,7 +134,9 @@ item_lamp = {
 room items you can look in. But you may need to find something else if you
 want to look at the floor""",
 
-    "mass": 2.0
+    "mass": 2.0,
+    
+    "isPotion": "False",
 }
 
 item_torch = {
@@ -124,11 +146,13 @@ item_torch = {
     
     "description": "The torch allows you to see everything in the dark.",
 
-    "mass" : 0.5
+    "mass" : 0.5,
+    
+    "isPotion": "False",
 }
 
 item_potion_health = {
-    "id": "health.p",
+    "id": "health",
 
     "name": "health potion",
 
@@ -154,7 +178,7 @@ all_items = {
     "lamp": item_lamp,
     "torch": item_torch,
     "mkey": item_metal_key,
-    "health.p": item_potion_health
+    "health": item_potion_health
 
 }
 
