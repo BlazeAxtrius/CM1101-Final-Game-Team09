@@ -1,9 +1,9 @@
 from collections import OrderedDict
 from random import *
 import items
-from Potions_items import *
 import parser_game
 from map import *
+from enemies import *
 
 name = ""
 style = ""
@@ -71,18 +71,6 @@ kirill = {
     }
 
 
-enemy1 = {
-    "name": "Haunted Ghost",
-    "style": "ghostly",
-    "health": 500,
-    "armor": 0,
-    "isAlive": True,
-    "inventory": [HP_potion],
-    "damage": [30, 60],
-    "place": rooms["entrance"]
-}
-
-
 characters = OrderedDict([
     ("Civilian", civilian),
     ("Unknown Warrior", warrior),
@@ -91,9 +79,9 @@ characters = OrderedDict([
 
 
 characters_dict = {"Civilian": civilian,
-     "Unknown Warrior": warrior,
-     "Matt Morgan": matt_morgan,
-     "Kirill The God": kirill}
+                   "Unknown Warrior": warrior,
+                   "Matt Morgan": matt_morgan,
+                   "Kirill The God": kirill}
 
 
 def print_choices():
@@ -141,19 +129,6 @@ def set_stats(character_choice):
     isAlive = character_choice["isAlive"]
     inventory = character_choice["inventory"]
     damage = character_choice["damage"]
-
-
-def set_stats_e(enemy1):
-    global name_e
-    global health_e
-    global armor_e
-    global isAlive_e
-    global damage_e
-    name_e = enemy1["name"]
-    health_e = enemy1["heath"]
-    armor_e = enemy1["armor"]
-    isAlive_e = enemy1["isAlive"]
-    damage_e = enemy1["damage"]
 
 
 def choose_character(choice):
@@ -246,6 +221,7 @@ while enemy1["isAlive"] and isAlive:
         break
 """
 
+
 def check_potions():
     if HP_potion in inventory:
         print(HP_potion["description"])
@@ -276,7 +252,8 @@ def potion_health():
     health += 100
     inventory.remove(items.item_potion_health)
     print("You have restored 100 health")
-    
+
+
 def potion_effect(t):
     while True:
         if name:
@@ -312,6 +289,8 @@ def potion_effect(t):
 potions = {
     "health potion": health,
 }
+
+
 def combat():
     while isAlive_e and isAlive:
         damage_dealt = damage
