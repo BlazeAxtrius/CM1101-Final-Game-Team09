@@ -447,9 +447,10 @@ def menu(exits, room_items, inv_items):
     function before being returned.
     """
 
-    if enemy1 in player.current_room["enemy"]:
-        print("You met an enemy.")
-        player.combat()
+    for all_enemies in player.current_room["enemy"]:
+        if all_enemies in player.current_room["enemy"]:
+            print("You met an enemy.")
+            player.combat()
 
     # Display menu
     print_menu(exits, room_items, inv_items)

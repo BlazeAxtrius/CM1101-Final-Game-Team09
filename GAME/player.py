@@ -281,28 +281,30 @@ potions = {
 
 
 def combat():
-    # for enemy in all_enemies:
-    #     if enemy["name"] == player.current_room["enemy"]["name"]:
-    #         enemy_fight = enemy
-    print(enemy1["isAlive"])
-    while enemy1["isAlive"] and isAlive:
-        damage_dealt = damage
-        damage_dealt = enemy1["damage"]
-        take_damage_enemy1(enemy1, damage_dealt)
-        take_damage(choice, damage_dealt)
-        if input() == "strong":
-            print_enemy1(enemy1)
-            print()
-            print_player(choice)
-            print()
-            continue
-        else:
-            input("Try again")
-        print_enemy1(enemy1)
-        print()
-        print_player(choice)
-        print("")
-        print()
-        if enemy1["isAlive"] == False:
-            break
-
+    for enemy in all_enemies:
+        print("true")
+        if enemy[rooms] == current_room[enemy]:
+            print("true")
+            enemy_fight = enemy
+            print("true")
+            print(enemy_fight[isAlive])
+            while enemy_fight[isAlive] and isAlive:
+                damage_dealt = damage
+                damage_dealt = enemy_fight[0]
+                take_damage_enemy1(enemy1, damage_dealt)
+                take_damage(choice, damage_dealt)
+                if input() == "strong":
+                    print_enemy1(enemy1)
+                    print()
+                    print_player(choice)
+                    print()
+                    continue
+                else:
+                    input("Try again")
+                print_enemy1(enemy1)
+                print()
+                print_player(choice)
+                print("")
+                print()
+                if enemy_fight[isAlive] == False:
+                    break
