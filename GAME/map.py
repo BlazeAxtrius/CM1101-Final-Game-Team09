@@ -415,7 +415,7 @@ room_store = {
     "name": "First floor store room",
                 
     "description": """The room is the darkest that you have seen in the house. 
-The light form your torch pierces it to reveal a store room that is cloaked
+The light from your torch pierces it to reveal a store room that is cloaked
 in cobwebs from many years of neglect. There are many boxes, some open but 
 mostly closed and taped up. There are a few broken boards in one corner 
 along with a large plank which upon closer inspection seems to be solid, 
