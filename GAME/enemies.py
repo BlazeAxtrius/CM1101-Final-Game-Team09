@@ -4,7 +4,7 @@ from items import *
 enemy1 = {
     "name": "Haunted Ghost",
     "style": "ghostly",
-    "health": 500,
+    "health": 400,
     "armor": 0,
     "isAlive": True,
     "inventory": [item_potion_health],
@@ -14,7 +14,7 @@ enemy1 = {
 enemy2 = {
     "name": "Small Ogre",
     "style": "heavy",
-    "health": 800,
+    "health": 600,
     "armor": 20,
     "isAlive": True,
     "inventory": [item_potion_health],
@@ -24,7 +24,7 @@ enemy2 = {
 enemy3 = {
     "name": "Angry Ogre",
     "style": "really heavy",
-    "health": 1000,
+    "health": 800,
     "armor": 70,
     "isAlive": True,
     "inventory": [item_potion_health],
@@ -34,7 +34,7 @@ enemy3 = {
 enemy4 = {
     "name": "Evil Witch",
     "style": "magic",
-    "health": 1300,
+    "health": 1100,
     "armor": 30,
     "isAlive": True,
     "inventory": [item_potion_health],
@@ -44,7 +44,7 @@ enemy4 = {
 enemy5 = {
     "name": "Devils servant",
     "style": "semi-demonic",
-    "health": 1600,
+    "health": 1400,
     "armor": 60,
     "isAlive": True,
     "inventory": [item_potion_health],
@@ -54,7 +54,7 @@ enemy5 = {
 enemy6 = {
     "name": "The Devil",
     "style": "completely demonic",
-    "health": 2000,
+    "health": 1800,
     "armor": 100,
     "isAlive": True,
     "inventory": [item_potion_health],

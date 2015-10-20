@@ -205,7 +205,7 @@ cupboard in the corner when noises that emanate from it startle you.""",
 
     "items": [item_lamp],
 
-    "enemy": [enemy1]
+    "enemy": []
 }    
 
 room_pantry = { 
@@ -407,7 +407,7 @@ east and south""",
 
     "items": [],
 
-    "enemy": []
+    "enemy": [enemy3]
 }    
 
 
@@ -426,7 +426,7 @@ maybe even strong enough to hold a significant weight. """,
 
     "items": [],
 
-    "enemy": []
+    "enemy": [enemy1]
 }    
 
 
@@ -443,7 +443,7 @@ cabinet. There are doors leading to the north and to the west.""",
 
     "items": [],
 
-    "enemy": []
+    "enemy": [enemy2]
 }    
 
 room_master = { 

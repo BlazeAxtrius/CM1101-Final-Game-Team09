@@ -354,7 +354,9 @@ def combat():
             print_player(choice)
             if all_enemies[enemy_fight]["isAlive"] == False:
                 print("You killed your enemy!")
+                current_room["enemy"].remove(all_enemies[enemy_fight])
                 print("It dropped a Health potion")
+                current_room["items"].append(item_potion_health)
                 print("────────────────────────────────────────────────────────────")
                 print()
                 print()
