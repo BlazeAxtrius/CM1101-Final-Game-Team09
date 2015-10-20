@@ -1,6 +1,11 @@
 from map import *
 from items import *
 
+"""This is the enemies file. Here we have all the enemies. We give them their stats and then we use those stats
+for the combat. We will make enemies drop certain items. In the future we will make them drop swords and armor which
+will benefit the player. They will increase the players stats and he will have a better chance in beating the game.
+"""
+
 enemy1 = {
     "name": "Haunted Ghost",
     "style": "ghostly",
