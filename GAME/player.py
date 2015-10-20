@@ -240,6 +240,7 @@ def potion_health():
     health += 100
     inventory.remove(items.item_potion_health)
     print("You have restored 100 health")
+    print()
 
 
 def potion_effect(t):

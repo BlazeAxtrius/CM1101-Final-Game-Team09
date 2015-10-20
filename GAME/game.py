@@ -300,8 +300,16 @@ def execute_use(item):
         if item == player_item["id"]:
             if player_item["isPotion"]:
                 print(player_item["description"])
-                if normalise_input(input("Are you sure you want to use potion?\n> "))[0] == "yes":
-                    player.potion_health()
+                while True:
+                    confirmation = normalise_input(input("Are you sure you want to use potion? (YES|NO) \n> "))
+                    print()
+                    if confirmation[0] == "yes":
+                        player.potion_health()
+                        break
+                    elif confirmation[0] == "no":
+                        break
+                    else:
+                        print("Enter YES or NO to confirm whether to use the potion")
             else:
                 print("You cannot use this item right now")
 
