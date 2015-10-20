@@ -173,7 +173,13 @@ def choose_character(choice):
                 break
     return choice
 
-
+def print_game_over():
+    print("  _____                 ____                 ______")
+    print(" / ___/__ ___ _  ___   / __ \_  _____ ____  / / / /")
+    print("/ (_ / _ `/  ' \/ -_) / /_/ / |/ / -_) __/ /_/_/_/")
+    print("\___/\_,_/_/_/_/\__/  \____/|___/\__/_/   (_|_|_) ")
+    print()
+                                                   
 
 def print_player(player):
     """This print the stats that the player has."""
@@ -277,7 +283,7 @@ def take_damage(enemy_fight):
     if health <= 0:
         isAlive = False
         print('You are DEAD!')
-        print("GAME OVER!")
+        print_game_over()
         os._exit(1)
     return 
 

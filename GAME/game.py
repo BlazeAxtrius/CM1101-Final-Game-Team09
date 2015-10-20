@@ -322,11 +322,11 @@ def execute_go(direction):
     """
     #direction = normalise_input(direction)
     if player.current_room == rooms["Entrance"]:
-        if direction == "east":
-            if all_items["plank"] not in player.inventory:
+        if (direction == "east") and (rooms["Entrance"]["first_visit"] == True):
                 player.current_room = rooms["Basement storage"]
                 print("You crash through some weak floorboards into a storage room below")
                 rooms["Entrance"]["first_visit"] = False
+                locked_room_exits["Hole_In_Floor"]["locked"] = True
                 return
     #If there is a valid exit and this door is not locked
     if is_valid_exit(player.current_room["exits"], direction) and not exit_locked(direction):
