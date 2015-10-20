@@ -14,7 +14,7 @@ experience = 0
 isAlive = True
 inventory = []
 damage = [0, 0]
-current_room = rooms["porch"]
+current_room = rooms["Porch"]
 
 a = ""
 
@@ -170,9 +170,13 @@ def choose_character(choice):
 
 
 def print_player(player):
-    for key in player:
-        if player:
-            print(key + ": " + str(player[key]))
+#    for key in player:
+ #       if player:
+  #          print(key + ": " + str(player[key]))
+    global health
+    global experience
+    print("Health: " + str(health))
+    print("Experience " + str(experience))
 
 
 def print_enemy1(enemy):
@@ -180,14 +184,13 @@ def print_enemy1(enemy):
         print(key1 + ": " + str(enemy1[key1]))
 
 
-def compute_experience(damage):
-    damage = randrange(0, damage*2 + 1)
-    return damage
+def compute_experience(damage_taken):
+    experience_gain = randrange(0, damage_taken*2 + 1)
+    return experience_gain
 
 
-
-"""def take_damage_enemy1(enemy1, damage_dealt):
-    enemy1["health"] = enemy1["health"] - choice["damage"]
+def take_damage_enemy1(enemy1, damage_dealt):
+    enemy1["health"] = enemy1["health"] - randrange(damage[0], damage[1])
     if enemy1["health"] <= 0:
         enemy1["isAlive"] = False
         enemy1["health"] = 0
@@ -195,31 +198,16 @@ def compute_experience(damage):
 
 
 def take_damage(choice, damage_dealt):
-    health -= damage_e
-    experience += compute_experience(damage)
+    global health
+    global experience
+    global isAlive
+    damage_taken = randrange(enemy1["damage"][0], enemy1["damage"][1])
+    health = health - damage_taken
+    experience = experience + compute_experience(damage_taken)
     if health <= 0:
         isAlive = False
-        health <= 0
         print('You are DEAD!')
     return choice
-
-while enemy1["isAlive"] and isAlive:
-    damage_dealt = damage
-    damage_dealt = enemy1["damage"]
-    take_damage_enemy1(enemy1, damage_dealt)
-    take_damage(choice, damage_dealt)
-    if input == "strong":
-        continue
-    else:
-        input("Try again")
-    print_enemy1(enemy1)
-    print()
-    print_player(choice)
-    print("")
-    print()
-    if enemy1['isAlive'] == False:
-        break
-"""
 
 
 def check_potions():
@@ -252,6 +240,7 @@ def potion_health():
     health += 100
     inventory.remove(items.item_potion_health)
     print("You have restored 100 health")
+    print()
 
 
 def potion_effect(t):
@@ -292,20 +281,30 @@ potions = {
 
 
 def combat():
-    while isAlive_e and isAlive:
-        damage_dealt = damage
-        damage_dealt = damage_e
-        take_damage_enemy1(enemy1, damage_dealt)
-        take_damage(choice, damage_dealt)
-        if input == "strong":
-            continue
-        else:
-            input("Try again")
-        print_enemy1(enemy1)
-        print()
-        print_player(choice)
-        print("")
-        print()
-        if enemy1['isAlive'] == False:
-            break
-
+    for enemy in all_enemies:
+        print("true")
+        if enemy[rooms] == current_room[enemy]:
+            print("true")
+            enemy_fight = enemy
+            print("true")
+            print(enemy_fight[isAlive])
+            while enemy_fight[isAlive] and isAlive:
+                damage_dealt = damage
+                damage_dealt = enemy_fight[0]
+                take_damage_enemy1(enemy1, damage_dealt)
+                take_damage(choice, damage_dealt)
+                if input() == "strong":
+                    print_enemy1(enemy1)
+                    print()
+                    print_player(choice)
+                    print()
+                    continue
+                else:
+                    input("Try again")
+                print_enemy1(enemy1)
+                print()
+                print_player(choice)
+                print("")
+                print()
+                if enemy_fight[isAlive] == False:
+                    break

@@ -1,4 +1,5 @@
 from map import *
+from items import *
 
 enemy1 = {
     "name": "Haunted Ghost",
@@ -6,20 +7,65 @@ enemy1 = {
     "health": 500,
     "armor": 0,
     "isAlive": True,
-    "inventory": [HP_potion],
+    "inventory": [item_potion_health],
     "damage": [30, 60],
-    "place": rooms["entrance"]
 }
 
+enemy2 = {
+    "name": "Small Ogre",
+    "style": "heavy",
+    "health": 800,
+    "armor": 20,
+    "isAlive": True,
+    "inventory": [item_potion_health],
+    "damage": [70, 110],
+}
 
-def set_stats_e(enemy1):
-    global name_e
-    global health_e
-    global armor_e
-    global isAlive_e
-    global damage_e
-    name_e = enemy1["name"]
-    health_e = enemy1["heath"]
-    armor_e = enemy1["armor"]
-    isAlive_e = enemy1["isAlive"]
-    damage_e = enemy1["damage"]
+enemy3 = {
+    "name": "Angry Ogre",
+    "style": "really heavy",
+    "health": 1000,
+    "armor": 70,
+    "isAlive": True,
+    "inventory": [item_potion_health],
+    "damage": [120, 150],
+}
+
+enemy4 = {
+    "name": "Evil Witch",
+    "style": "magic",
+    "health": 1300,
+    "armor": 30,
+    "isAlive": True,
+    "inventory": [item_potion_health],
+    "damage": [130, 180],
+}
+
+enemy5 = {
+    "name": "Devils servant",
+    "style": "semi-demonic",
+    "health": 1600,
+    "armor": 60,
+    "isAlive": True,
+    "inventory": [item_potion_health],
+    "damage": [200, 240],
+}
+
+enemy6 = {
+    "name": "The Devil",
+    "style": "completely demonic",
+    "health": 2000,
+    "armor": 100,
+    "isAlive": True,
+    "inventory": [item_potion_health],
+    "damage": [250, 300],
+}
+
+all_enemies = {
+    "Haunted Ghost": enemy1,
+    "Small Orge": enemy2,
+    "Angry Ogre": enemy3,
+    "Evil Witch": enemy4,
+    "Devils servant": enemy5,
+    "The Devil": enemy6
+}
