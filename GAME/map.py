@@ -475,9 +475,10 @@ leading in each direction, north, south, east and west. """,
 room_porch = {
     "name": "Porch",
     
-    "description": """When you are standing in front of the house you can see a 
-huge and magnificent structure attached to the exterior of a house which form 
-a covered entrance and the structure will lead you to the east. """,
+    "description": """As you look around you can clearly see a house in front of you.
+    It looks old, almost an antique in itself, climbing a floor above you and possibly an attic space above that.
+    Looking around you see that there is no path leading away from the house, just east towards the porch.
+    The door is made of a wood that has seen better days but the handle gleams like the day it was installed. """,
     
     "exits": {"east": "Entrance"},
 

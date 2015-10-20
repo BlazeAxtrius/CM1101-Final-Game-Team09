@@ -537,8 +537,8 @@ decide to enter to start with?""")
 
 def intro():
     print("\n\n\n\n\n\n\n\n\n")
-    print("""After a long night out you wake up infront of a strange and 
-mysterious looking house.""")
+    print("""Oh God last night... The drink, the music... People being sick as usual... Maybe someone twerking?
+    The images flood your mind as you drift away once more.""")
     sleep(1)
     print("""\nYou look around, trying to work out where you are. A ruffled piece
 paper sits a metre away in the dirt right next to an rusty old key. You walk 

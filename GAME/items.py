@@ -1,4 +1,3 @@
-from Potions_items import *
 
 item_id = {
     "id": "id",
@@ -6,8 +5,8 @@ item_id = {
     "name": "id card",
 
     "description":
-    """Your new shiny student ID card. Expires 1 June 2017.
-You wonder why they have printed a suicide hotline number on it?...""",
+    """Your new shiny student ID card. Your picture really doesn't show your best features
+    and you really regret the cringy smile.""",
 
     "mass": 0.5,
     
@@ -20,7 +19,8 @@ item_knife = {
     "name": "a kitchen knife",
 
     "description":
-    "It is very sharp",
+    """Light and very sharp from the looks of it.
+    This knife will certainly come in handy. """,
 
     "mass": 0.75, 
         
@@ -45,7 +45,8 @@ item_biscuits = {
 
     "name": "a pack of biscuits",
 
-    "description": "A pack of biscuits.",
+    "description": """These biscuits look fairly new and you are tempted to take one.
+    After all, you can't really pass up free food as a student""",
 
     "mass": 1,
     
@@ -57,7 +58,7 @@ item_pen = {
     
     "name": "a pen",
 
-    "description": "A basic ballpoint pen.",
+    "description": """A basic ballpoint pen. One end seems to have been chewed slightly.""",
 
     "mass": 0.5,
     
@@ -94,7 +95,7 @@ item_clue = {
     
     "name": "a piece of paper with writing on",
 
-    "description": """Use books will reveal a horror you don't want to experience""",
+    "description": """Reading will reveal things that you don't want to know and will never forget.""",
 
     "mass": 0.05,
     
@@ -168,9 +169,9 @@ item_lamp = {
     
     "name": "an oil lamp",
     
-    "description": """This oil lamp has just enough for you to see exits in the
-room items you can look in. But you may need to find something else if you
-want to look at the floor""",
+    "description": """This oil lamp has just enough for you to see exits in
+    the room which you are in and the furniture within the room.
+    However its light is too dim to see the floor, you even struggle to see your own feet.""",
 
     "mass": 2.0,
     
@@ -200,7 +201,46 @@ what drinking it would do.""",
 
     "mass": 2.0,
 
-    "isPotion": True,
+    "isPotion": True
+}
+
+item_potion_mana = {
+    "id": "mana",
+
+    "name": "Mana Potion",
+
+    "description":
+    "This glass bottle buzzes almost as if with electricity, in fact you're sure it just sparked",
+
+    "mass": 2.0,
+
+    "isPotion": True
+}
+
+item_potion_damage = {
+    "id": "damage",
+
+    "name": "Damage Potion",
+
+    "description":
+    "The damage you deal is doubled while this potion is active.",
+
+    "mass": 2.0,
+
+    "isPotion": True
+}
+
+item_potion_defense = {
+    "id": "defense",
+
+    "name": "Defense Potion",
+
+    "description":
+    "The defense you have is twice as great while this potion is active.",
+
+    "mass": 2.0,
+
+    "isPotion": True
 }
 
 all_items = {
@@ -219,8 +259,11 @@ all_items = {
     "bkey": item_brass_key,
     "ckey": item_copper_key,
     "health": item_potion_health,
+    "mana": item_potion_mana,
+    "damage": item_potion_damage,
+    "defense": item_potion_defense,
+    "reverse": item_potion_reverse,
     "clue": item_clue
-
 }
 
 

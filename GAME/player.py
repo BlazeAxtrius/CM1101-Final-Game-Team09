@@ -100,8 +100,6 @@ next to you. One looks familiar... Yes... it's yours""")
             print(" ", end='')
         print("│")
     print("│                        │")
-    print("""│ Who would you least    │
-│ like to be?:           │""")
     print("└────────────────────────┘")        
     print("")
     print("Enter the character you thought of straight away.")
@@ -323,48 +321,31 @@ def potion_health():
     print()
 
 
+<<<<<<< HEAD
+def potion_mana():
+    mana += 100
+    inventory.remove(items.item_potion_mana)
+    print("You have restored 100 mana")
+    print()
 
-def potion_effect(t):
-    """This is the function for the potions and what their effect is. We planned on
-    making more potions but this will be made in the future. We have 4 different 
-    types of potions for now."""
+def potion_damage():
+    damage *= 2
+    inventory.remove(items.item_potion_damage)
+    print("You have increased your damage twofold temporarily")
+    print()
 
-    while True:
-        if name:
-            if input == "health potion":
-                inventory.remove(HP_potion)
-                health += 100
-                print("Your health now is " + str(player.health))
-                print("You have consumed a Health potion.")
-                print(inventory)
-                break
-            elif input == str(2):
-                inventory.remove(Mana_potion)
-                mana += 100
-                print("Your mana now is " + str(player.mana))
-                print("You have consumed a Mana potion.")
-                print(inventory)
-                break
-            elif input == str(3):
-                inventory.remove(Damage_potion)
-                damage *= 20
-                print("Your minimum damage now is " + player.damage)
-                print("You consumed a Damage potion")
-                print(inventory)
-                break
-            elif input == str(4):
-                inventory.remove(Defense_potion)
-                armor *= 2
-                print("Your armor now is " + player.armor)
-                print("You consumed a Armor potion")
-                print(inventory)
-                break
+def potion_defense():
+    armor *= 2
+    inventory.remove(items.item_potion_damage)
+    print("You have increased your defense twofol temporarily")
+    print()
 
 potions = {
-    "health potion": health,
+    "health": potion_health,
+    "mana": potion_mana,
+    "damage": potion_damage,
+    "defense": potion_defense,
 }
-
-
 
 def combat():
     """This is the combat function. Here the player and the enemy meet and deal damage to each other.
