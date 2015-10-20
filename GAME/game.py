@@ -266,7 +266,6 @@ def print_inventory():
      #   print_inventory()    
         
 
-
 def is_valid_exit(exits, chosen_exit):
     """This function checks, given a dictionary "exits" (see map.py) and
     a players's choice "chosen_exit" whether the player has chosen a valid exit.
@@ -284,13 +283,15 @@ def is_valid_exit(exits, chosen_exit):
     """
 
     return chosen_exit in exits
-        
+
+
 def current_weight(inv_items):
     #calculate how much the player is carrying
     carry_weight = 0
     for item in inv_items:
         carry_weight += item["mass"]
     return carry_weight
+
 
 def execute_use(item):
     """This function looks for an item in the players inventory,
@@ -303,6 +304,7 @@ def execute_use(item):
                     player.potion_health()
             else:
                 print("You cannot use this item right now")
+
 
 def execute_go(direction):
     """This function, given the direction (e.g. "south") updates the current room
@@ -328,7 +330,6 @@ def execute_go(direction):
         print("This door is locked")
     else:
         print("You cannot go there") 
-    
 
 
 def execute_take(input_item_id, inv_items):
@@ -437,6 +438,10 @@ def menu(exits, room_items, inv_items):
     action. The players's input is normalised using the normalise_input()
     function before being returned.
     """
+
+    if enemy1 in player.current_room["enemy"]:
+        print("You met an enemy.")
+        player.combat()
 
     # Display menu
     print_menu(exits, room_items, inv_items)

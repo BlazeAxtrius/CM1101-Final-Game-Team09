@@ -4,7 +4,6 @@ import items
 import parser_game
 from map import *
 from enemies import *
-import enemies
 
 name = ""
 style = ""
@@ -171,9 +170,13 @@ def choose_character(choice):
 
 
 def print_player(player):
-    for key in player:
-        if player:
-            print(key + ": " + str(player[key]))
+#    for key in player:
+ #       if player:
+  #          print(key + ": " + str(player[key]))
+    global health
+    global experience
+    print("Health: " + str(health))
+    print("Experience " + str(experience))
 
 
 def print_enemy1(enemy):
@@ -181,23 +184,27 @@ def print_enemy1(enemy):
         print(key1 + ": " + str(enemy1[key1]))
 
 
-def compute_experience(damage):
-    damage = randrange(0, damage*2 + 1)
-    return damage
+def compute_experience(damage_taken):
+    experience_gain = randrange(0, damage_taken*2 + 1)
+    return experience_gain
 
 
 def take_damage_enemy1(enemy1, damage_dealt):
-    enemy1.health = enemy1.health - damage
-    if enemy1.health <= 0:
-        enemy1.isAlive = False
-        enemy1.health = 0
+    enemy1["health"] = enemy1["health"] - randrange(damage[0], damage[1])
+    if enemy1["health"] <= 0:
+        enemy1["isAlive"] = False
+        enemy1["health"] = 0
     return enemy1
 
 
 def take_damage(choice, damage_dealt):
-    choice.health -= enemy1.damage_e
-    choice.experience += compute_experience(damage)
-    if choice.health <= 0:
+    global health
+    global experience
+    global isAlive
+    damage_taken = randrange(enemy1["damage"][0], enemy1["damage"][1])
+    health = health - damage_taken
+    experience = experience + compute_experience(damage_taken)
+    if health <= 0:
         isAlive = False
         print('You are DEAD!')
     return choice
@@ -273,12 +280,20 @@ potions = {
 
 
 def combat():
-    while enemy1["isAlive_e"] and isAlive:
+    # for enemy in all_enemies:
+    #     if enemy["name"] == player.current_room["enemy"]["name"]:
+    #         enemy_fight = enemy
+    print(enemy1["isAlive"])
+    while enemy1["isAlive"] and isAlive:
         damage_dealt = damage
-        damage_dealt = enemy1.damage_e
+        damage_dealt = enemy1["damage"]
         take_damage_enemy1(enemy1, damage_dealt)
         take_damage(choice, damage_dealt)
-        if input == "strong":
+        if input() == "strong":
+            print_enemy1(enemy1)
+            print()
+            print_player(choice)
+            print()
             continue
         else:
             input("Try again")
@@ -287,6 +302,6 @@ def combat():
         print_player(choice)
         print("")
         print()
-        if enemy1["isAlive_e"] == False:
+        if enemy1["isAlive"] == False:
             break
 
