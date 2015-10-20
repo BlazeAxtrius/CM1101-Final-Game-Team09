@@ -150,6 +150,19 @@ item_metal_key = {
     "isPotion": False,
 }
 
+item_copper_key = {
+    "id": "ckey",
+    
+    "name": "a metal key",
+    
+    "description": "The key allows you to open doors with metal locks",
+    
+    "mass" : 0.2,
+    
+    "isPotion": False,
+}
+
+
 item_lamp = {
     "id": "lamp",
     
@@ -204,6 +217,7 @@ all_items = {
     "torch": item_torch,
     "mkey": item_metal_key,
     "bkey": item_brass_key,
+    "ckey": item_copper_key,
     "health": item_potion_health,
     "clue": item_clue
 

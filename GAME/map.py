@@ -37,7 +37,7 @@ west.""",
               "up": "First floor south hallway", 
               "down": "Basement hallway"}, 
 
-    "items": [item_metal_key],
+    "items": [],
 
     "enemy": []
 }
@@ -93,7 +93,7 @@ the east.""",
     "exits": {"south": "Entrance", 
               "east": "Ground floor east dining room"},
 
-    "items": [],
+    "items": [item_metal_key],
 
     "enemy": []
 }    
@@ -164,7 +164,7 @@ continues to the west.""",
               "east": "Ground floor office", 
               "west": "Ground floor west lounge"},
 
-    "items": [item_clue],
+    "items": [item_copper_key],
 
     "enemy": []
 }    
@@ -285,7 +285,7 @@ be little you can do to comfort him. """,
 
     "exits": {"west": "Workshop"},
 
-    "items": [],
+    "items": [item_plank],
 
     "enemy": []
 }    
@@ -352,7 +352,7 @@ lamp on top of it.""",
     "exits": {"south": "First floor south hallway", 
               "west": "First floor north hallway"},
 
-    "items": [item_brass_key],
+    "items": [],
 
     "enemy": []
 }
@@ -424,7 +424,7 @@ maybe even strong enough to hold a significant weight. """,
     "exits": {"north": "First floor child's bedroom", 
               "east": "First floor bathroom"},
 
-    "items": [],
+    "items": [item_clue],
 
     "enemy": [enemy1]
 }    
@@ -517,9 +517,7 @@ locked_exit_E_D = {
     
     "key_required": "bkey",
     
-    "locked": True,
-
-    "enemy": []
+    "locked": True
 }
 
 locked_exit_E_L = {
@@ -527,9 +525,7 @@ locked_exit_E_L = {
     
     "key_required": "bkey",
     
-    "locked": True,
-
-    "enemy": []
+    "locked": True
 }
 
 locked_exit_S_P = {
@@ -537,9 +533,7 @@ locked_exit_S_P = {
     
     "key_required": "rkey",
     
-    "locked": True,
-
-    "enemy": []
+    "locked": True
 }
 
 locked_exit_S_W = {
@@ -547,9 +541,7 @@ locked_exit_S_W = {
     
     "key_required": "rkey",
     
-    "locked": True,
-
-    "enemy": []
+    "locked": True
 }
 
 locked_exit_S_H = {
@@ -557,9 +549,63 @@ locked_exit_S_H = {
     
     "key_required": "mkey",
     
-    "locked": True,
+    "locked": True
+}
 
-    "enemy": []
+locked_exit_secret = {
+    "rooms": ["Workshop", "Secret room"],
+    
+    "key_required": "clue",
+    
+    "locked": True
+}
+
+loceked_exit_O_L = {
+    "rooms": ["Ground floor office", "Ground floor east lounge"],
+    
+    "key_required": "rkey",
+    
+    "locked": True
+} 
+
+loceked_exit_GEH_FSH = {
+    "rooms": ["Ground floor east hallway", "First floor south hallway"],
+    
+    "key_required": "mkey",
+    
+    "locked": True
+}
+
+loceked_exit_FSH_FMB = {
+    "rooms": ["First floor master bedroom", "First floor south hallway"],
+    
+    "key_required": "bkey",
+    
+    "locked": True
+}
+
+loceked_exit_FCB_FS = {
+    "rooms": ["First floor child's bedroom", "First floor store room"],
+    
+    "key_required": "ckey",
+    
+    "locked": True
+}
+
+loceked_exit_FB_FS = {
+    "rooms": ["First floor bathroom", "First floor store room"],
+    
+    "key_required": "ckey",
+    
+    "locked": True
+}
+
+loceked_exit_plank = {
+    "rooms": ["Ground floor west hallway", "Entrance"],
+    
+    "key_required": "plank",
+    
+    "locked": False
 }
 
 locked_room_exits = {
@@ -567,5 +613,12 @@ locked_room_exits = {
     "Entrance_Lounge": locked_exit_E_L,
     "Storage_Pantry": locked_exit_S_P,
     "Storage_Wine_cellar": locked_exit_S_W,
-    "Storage_Hallway": locked_exit_S_H
+    "Storage_Hallway": locked_exit_S_H,
+    "Secret_Room": locked_exit_secret,
+    "Office_Lounge": loceked_exit_O_L,
+    "Ground_Floor_First_Floor": loceked_exit_GEH_FSH,
+    "South_Hallway_Master_Bedroom": loceked_exit_FSH_FMB,
+    "Child_Room_Store": loceked_exit_FCB_FS,
+    "Bathroom_Store": loceked_exit_FB_FS,
+    "Hole_In_Floor": loceked_exit_plank
 }

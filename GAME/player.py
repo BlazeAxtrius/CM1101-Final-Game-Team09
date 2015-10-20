@@ -378,29 +378,39 @@ def combat():
     print_enemy_stats(enemy_fight)
     print()
     while all_enemies[enemy_fight]["isAlive"] and isAlive:
-        print("ATTACK to deal damage")
-        print()
-        if (normalise_input(input("> ")))[0] == "attack":
+        try:
+            print("ATTACK to deal damage")
             print()
-            attack_enemy(enemy_fight)
-            print()
-            take_damage(enemy_fight)
-            print()
-            print_enemy_stats(enemy_fight)
-            print()
-            print_player(choice)
-            if all_enemies[enemy_fight]["isAlive"] == False:
-                print("You killed your enemy!")
-                print("It dropped a Health potion")
-                current_room["items"].append(all_enemies[enemy_fight]["inventory"][0])
-                current_room["enemy"].remove(all_enemies[enemy_fight])
+            if (normalise_input(input("> ")))[0] == "attack":
+                print()
+                attack_enemy(enemy_fight)
+                print()
+                take_damage(enemy_fight)
+                print()
+                print_enemy_stats(enemy_fight)
+                print()
+                print_player(choice)
+                if all_enemies[enemy_fight]["isAlive"] == False:
+                    print("You killed your enemy!")
+                    print("It dropped a Health potion")
+                    current_room["items"].append(all_enemies[enemy_fight]["inventory"][0])
+                    current_room["enemy"].remove(all_enemies[enemy_fight])
+                    print("────────────────────────────────────────────────────────────")
+                    print()
+                    print()
+                    break
                 print("────────────────────────────────────────────────────────────")
+                continue
+            else:
+                print("You missed!")
                 print()
+                take_damage(enemy_fight)
                 print()
-                break
-            print("────────────────────────────────────────────────────────────")
-            continue
-        else:
+                print_enemy_stats(enemy_fight)
+                print()
+                print_player(choice)
+                print("────────────────────────────────────────────────────────────")
+        except:
             print("You missed!")
             print()
             take_damage(enemy_fight)
@@ -408,4 +418,4 @@ def combat():
             print_enemy_stats(enemy_fight)
             print()
             print_player(choice)
-            print("────────────────────────────────────────────────────────────")
+            print("────────────────────────────────────────────────────────────")    
