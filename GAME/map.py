@@ -19,7 +19,9 @@ to your right. Upon listening the clock seems to be broken.""",
 
     "has_plank": "False",
     
-    "items": []
+    "items": [],
+    
+    "first_visit": True
 }
 
 
@@ -176,7 +178,7 @@ cupboard in the corner when noises that emanate from it startle you.""",
 
     "exits": {"north" : "pantry, F-1", "south": "wine cellar, F-1", "east": "hallway, F-1"},
 
-    "items": []
+    "items": [item_lamp, item_rusty_key, item_metal_key]
 }    
 
 room_pantry = { 
@@ -193,7 +195,7 @@ entered the room with.""",
 
     "exits": {"south" : "storage, F-1", "east": "torture, F-1"},
 
-    "items": []
+    "items": [item_torch]
 }    
 
 room_torture = { 
@@ -434,3 +436,25 @@ rooms = {
        "master bedroom, F1": room_master
  }
 
+locked_exit_E_D = {
+    "rooms": ["entrance", "dining room, G, W"],
+    
+    "key_required" : "mkey",    
+    
+    "locked": True
+
+}
+
+locked_exit_E_L = {
+    "rooms": ["entrance", "lounge, G, W"],
+    
+    "key_required" : "mkey",    
+    
+    "locked": True
+}
+
+locked_room_exits = {
+    "Entrance_Dining_room": locked_exit_E_D,
+    "Entrance_Lounge": locked_exit_E_L
+
+}

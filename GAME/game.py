@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from map import rooms
+from map import *
 import player
 from items import *
 from parser_game import *
@@ -150,7 +150,49 @@ def print_exit(direction, leads_to):
     """
     print("GO " + direction.upper() + " to " + leads_to + ".")
 
+def find_locked_door(direction):
+    #Find the next room for given direction
+    #next_room = rooms[player.current_room["exits"][direction]]
+    next_room = rooms[player.current_room["exits"][direction]]
+    #Search through each locked door
+    for locked_door in locked_room_exits:
+        #If the current room and next room correspond to the locked door and the door is locked
+        if (player.current_room["name"] in locked_room_exits[locked_door]["rooms"]) and (next_room["name"] in locked_room_exits[locked_door]["rooms"]):
+            return locked_door
+    
+def carrying_right_key(direction, inv_items):
+    """This function returns whether the player is carrying the right key to be
+    able to unlock the door in a certain direction
+    """
+    carrying_key = False
+    locked_door = find_locked_door(direction)
+    for key_search in inv_items:
+        #If the key for the door is found
+        if locked_room_exits[locked_door]["key_required"] == key_search["id"]:
+            carrying_key = True
+    return carrying_key
 
+def exit_locked(direction):
+    """This function checks, given the direction the user wishes to go 
+    (e.g. south) and checks whether the door between the two rooms is locked.
+    For example:
+    >>> exit_locked("south")
+    True
+    >>> exit_locked("west")
+    False
+    """
+    #Door is open unless found otherwise
+    door_locked = False
+    #Find the next room for given direction
+    #next_room = exit_leads_to(player.current_room["exits"], direction)
+    next_room = rooms[player.current_room["exits"][direction]]
+    #Search through each locked door
+    for locked_door in locked_room_exits:
+        #If the current room and next room correspond to the locked door and the door is locked
+        if (player.current_room["name"] in locked_room_exits[locked_door]["rooms"]) and (next_room["name"] in locked_room_exits[locked_door]["rooms"]) and locked_room_exits[locked_door]["locked"]:
+            door_locked = True
+    return door_locked
+    
 def print_menu(exits, room_items, inv_items):
     """This function displays the menu of available actions to the player. The
     argument exits is a dictionary of exits as exemplified in map.py. The
@@ -175,19 +217,25 @@ def print_menu(exits, room_items, inv_items):
     DROP MONEY to drop your money.
     What do you want to do?
     """
-    print("You can:")
-    # Iterate over available exits
-    for direction in exits:
-        # Print the exit name and where it leads to
-        print_exit(direction, exit_leads_to(exits, direction))
-    for take_item in room_items:
-        print("TAKE " + take_item["id"].upper() + " to take a " + take_item["name"] + ".")
+    if (item_lamp in inv_items) or (item_torch in inv_items) or (rooms["entrance"]["first_visit"] == True):
+        # Iterate over available exits
+        for direction in exits:
+            # Print the exit name and where it leads to
+            print_exit(direction, exit_leads_to(exits, direction))
+            #If there is a locked door and the player carries the right key
+            if exit_locked(direction) and carrying_right_key(direction, inv_items):
+                print ("UNLOCK " + direction.upper() + " to unlock the " + direction + " door.")
+    if item_torch in inv_items:
+        #For all possible item you can pick up
+        for take_item in room_items:
+            print("TAKE " + take_item["id"].upper() + " to take a " + take_item["name"] + ".")
+    if (item_lamp in room_items) and not (item_torch in inv_items) :
+        print("TAKE " + item_lamp["id"].upper() + " to take a " + item_lamp["name"] + ".")
+    if item_torch in room_items:
+        print("TAKE " + item_torch["id"].upper() + " to take a " + item_torch["name"] + ".")
+    #For all possible items you can drop
     for drop_item in inv_items:
         print("DROP " + drop_item["id"].upper() + " to drop a " + drop_item["name"] + ".")
-    #
-    # COMPLETE ME!
-    #
-    
     print("What do you want to do?")
 
 
@@ -206,9 +254,14 @@ def is_valid_exit(exits, chosen_exit):
     >>> is_valid_exit(rooms["Parking"]["exits"], "east")
     True
     """
-    if chosen_exit[0] in exits:
-        return True
-
+    return chosen_exit in exits
+        
+def current_weight(inv_items):
+    #calculate how much the player is carrying
+    carry_weight = 0
+    for item in inv_items:
+        carry_weight += item["mass"]
+    return carry_weight
 
 def execute_go(direction):
     """This function, given the direction (e.g. "south") updates the current room
@@ -216,32 +269,57 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."
     """
-    direction = normalise_input(direction)
+    #direction = normalise_input(direction)
     if player.current_room == rooms["entrance"]:
-        if direction[0] == "east":
+        if direction == "east":
             if all_items["plank"] not in player.inventory:
                 player.current_room = rooms["storage, F-1"]
                 print("You crash through some weak floorboards into a storage room below")
+                rooms["entrance"]["first_visit"] = False
                 return
-    if is_valid_exit(player.current_room["exits"], direction):
-        player.current_room = rooms[player.current_room["exits"][direction[0]]]
-        
+    #If there is a valid exit and this door is not locked
+    if is_valid_exit(player.current_room["exits"], direction) and not exit_locked(direction):
+        #Move player into the next room        
+        player.current_room = rooms[player.current_room["exits"][direction]]
         print("You move in to the " + player.current_room["name"])
+    #If the door between the two rooms is locked
+    elif is_valid_exit(player.current_room["exits"], direction) and exit_locked(direction):
+        print("This door is locked")
     else:
-        print("You cannot go there")
-    # this does not work in it's current state. It says current_room is not assigned.
+        print("You cannot go there") 
+    
+    
+#    direction = normalise_input(direction)
+#    if player.current_room == rooms["entrance"]:
+#        if direction[0] == "east":
+#            if all_items["plank"] not in player.inventory:
+#                player.current_room = rooms["storage, F-1"]
+#                print("You crash through some weak floorboards into a storage room below")
+#                return
+#    if is_valid_exit(player.current_room["exits"], direction):
+#        player.current_room = rooms[player.current_room["exits"][direction[0]]]
+#        
+#        print("You move in to the " + player.current_room["name"])
+#    else:
+#        print("You cannot go there")
+#    # this does not work in it's current state. It says current_room is not assigned.
 
 
-def execute_take(input_item_id):
+def execute_take(input_item_id, inv_items):
     """This function takes an input_item_id as an argument and moves this item from the
     list of items in the current room to the player's inventory. However, if
     there is no such item in the room, this function prints
     "You cannot take that."
     """
-    if all_items[input_item_id] in player.current_room["items"]:
-        player.current_room["items"].remove(all_items[input_item_id])
-        player.inventory.append(all_items[input_item_id])
-    else:
+    try:
+        if (current_weight(inv_items) + all_items[input_item_id]["mass"]) > 9.0:
+            print("You are carrying too much")        
+        elif all_items[input_item_id] in player.current_room["items"]:
+            player.current_room["items"].remove(all_items[input_item_id])
+            player.inventory.append(all_items[input_item_id])
+        else:
+            print("You cannot take that.")
+    except:
         print("You cannot take that.")
        
 
@@ -250,14 +328,35 @@ def execute_drop(input_item_id):
     player's inventory to list of items in the current room. However, if there is
     no such item in the inventory, this function prints "You cannot drop that."
     """
-    if all_items[input_item_id] in player.inventory:
-        player.inventory.remove(all_items[input_item_id])
-        player.current_room["items"].append(all_items[input_item_id])
-    elif input_item_id not in player.inventory:
-        print("You cannot drop that.")
-    else:
-        pass
+    try:
+        if all_items[input_item_id] in player.inventory:
+            player.inventory.remove(all_items[input_item_id])
+            player.current_room["items"].append(all_items[input_item_id])
+        elif input_item_id not in player.inventory:
+            print("You cannot drop that.")
+    except:
+        print("You cannot drop that")
     
+def execute_unlock(direction, inv_items):
+    """This function unlocks a door in a certain direction as long as the door
+    is currently locked and the player is carrying the right key in the 
+    inventory, inv_items.
+    """
+    #If there is a valid exit and this door is locked
+    if is_valid_exit(player.current_room["exits"], direction) and exit_locked(direction):
+        locked_door = find_locked_door(direction)
+        #If the door is locked and you are carrying the right key
+        if  exit_locked(direction) and carrying_right_key(direction, inv_items):
+            #Unlock the door
+            locked_room_exits[locked_door]["locked"] = False 
+            print("The " + direction + " door is now unlocked.")
+        elif not carrying_right_key(direction, inv_items):
+            print("You are not carrying the right key to unlock this door")
+    #If the door between the two rooms is not locked
+    elif is_valid_exit(player.current_room["exits"], direction) and not exit_locked(direction):
+        print("This door wasn't locked anyway")
+    else:
+        print("You cannot unlock that")
 
 def execute_command(command):
     """This function takes a command (a list of words as returned by
@@ -277,10 +376,7 @@ def execute_command(command):
 
     elif command[0] == "take":
         if len(command) > 1:
-            if float(all_items[command[1]]["mass"]) + player.carry_weight > 9.0:
-                print("You are carrying too much")
-            else:
-                execute_take(command[1])
+            execute_take(command[1], player.inventory)
         else:
             print("Take what?")
 
@@ -289,11 +385,14 @@ def execute_command(command):
             execute_drop(command[1])
         else:
             print("Drop what?")
-
+            
+    elif command[0] == "unlock":
+        if len(command) > 1:
+            execute_unlock(command[1], player.inventory)
+        else:
+            print("Unlock what?")
     else:
         print("This makes no sense.")
-        print(command[0])
-        print(command[1])
 
 
 def menu(exits, room_items, inv_items):

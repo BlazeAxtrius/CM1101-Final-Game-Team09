@@ -7,7 +7,7 @@ item_id = {
     """Your new shiny student ID card. Expires 1 June 2017.
 You wonder why they have printed a suicide hotline number on it?...""",
 
-    "mass": "0.5"
+    "mass": 0.5
 }
 
 item_laptop = {
@@ -18,7 +18,7 @@ item_laptop = {
     "description":
     "It has seen better days. At least it has a WiFi card!",
 
-    "mass": "4"
+    "mass": 4
 }
 
 item_money = {
@@ -29,7 +29,7 @@ item_money = {
     "description":
     "This wad of cash is barely enough to pay your tuition fees.",
 
-    "mass": "0.75"
+    "mass": 0.75
 }
 
 item_biscuits = {
@@ -39,7 +39,7 @@ item_biscuits = {
 
     "description": "A pack of biscuits.",
 
-    "mass": "1"
+    "mass": 1
 }
 
 item_pen = {
@@ -49,7 +49,7 @@ item_pen = {
 
     "description": "A basic ballpoint pen.",
 
-    "mass": "0.5"
+    "mass": 0.5
 }
 
 item_card = {
@@ -60,7 +60,7 @@ item_card = {
     "description": """This card has a mobile number wrote on it. I wonder who's 
 number it is?""",
 
-    "mass": "0.05"
+    "mass": 0.05
 }
 
 item_note = {
@@ -70,7 +70,7 @@ item_note = {
 
     "description": """This is the note you pick up from outside""",
 
-    "mass": "0.05"
+    "mass": 0.05
 }
 
 item_plank = {
@@ -80,7 +80,49 @@ item_plank = {
 
     "description": """This could easily support your weight""",
 
-    "mass": "10.0"
+    "mass": 5.0
+}
+
+item_rusty_key = {
+    "id" : "rkey",
+    
+    "name": "a rusty key",
+    
+    "description": "The key allows you to open doors with rusty locks",
+
+    "mass" : 0.2
+}
+
+item_metal_key = {
+    "id": "mkey",
+    
+    "name": "a metal key",
+    
+    "description": "The key allows you to open doors with metal locks",
+    
+    "mass" : 0.2
+}
+
+item_lamp = {
+    "id": "lamp",
+    
+    "name": "an oil lamp",
+    
+    "description": """This oil lamp has just enough for you to see exits in the
+room items you can look in. But you may need to find something else if you
+want to look at the floor""",
+
+    "mass": 2.0
+}
+
+item_torch = {
+    "id" : "torch",
+    
+    "name": "a torch",
+    
+    "description": "The torch allows you to see everything in the dark.",
+
+    "mass" : 0.5
 }
 
 all_items = {
@@ -91,5 +133,9 @@ all_items = {
     "pen": item_pen,
     "card": item_card,
     "note": item_note,
-    "plank": item_plank
+    "plank": item_plank,
+    "rkey": item_rusty_key,
+    "lamp": item_lamp,
+    "torch": item_torch,
+    "mkey": item_metal_key
 }
