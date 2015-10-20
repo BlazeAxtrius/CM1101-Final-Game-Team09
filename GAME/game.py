@@ -256,7 +256,6 @@ def print_inventory():
             print_inventory()
     except:
         print("That makes no sense")
-        print(True)
         print_inventory()    
         
 
