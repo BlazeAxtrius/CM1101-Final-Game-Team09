@@ -100,6 +100,18 @@ item_plank = {
     
     "isPotion": "False",
 }
+item_brass_key = {
+    "id" : "bkey",
+    
+    "name": "a brass key",
+    
+    "description": "The key allows you to open doors with brass locks",
+
+    "mass" : 0.2,
+    
+    "isPotion": "False",
+
+}
 
 item_rusty_key = {
     "id" : "rkey",
@@ -178,6 +190,7 @@ all_items = {
     "lamp": item_lamp,
     "torch": item_torch,
     "mkey": item_metal_key,
+    "bkey": item_brass_key,
     "health": item_potion_health
 
 }

@@ -355,6 +355,11 @@ def execute_take(input_item_id, inv_items):
         elif all_items[input_item_id] in player.current_room["items"]:
             player.current_room["items"].remove(all_items[input_item_id])
             player.inventory.append(all_items[input_item_id])
+            if input_item_id == "torch":
+                print("You can now see the floor and any items that may also be there.")
+            if input_item_id == "lamp":
+                print("""You can now see doors and other objects in the room, but the light,
+isn't strong enough to see the floor""")
         else:
             print("You cannot take that.")
     except:
@@ -485,7 +490,8 @@ def intro():
 mysterious looking house.""")
     sleep(1)
     print("""\nYou look around, trying to work out where you are. A ruffled piece
-paper sits a metre away in the dirt. You walk over and pick up the paper.""")
+paper sits a metre away in the dirt right next to an rusty old key. You walk 
+over and pick up the paper and they key beside it.""")
     sleep(1)
     print("""\nYou unfold the piece of paper.""")
     print()

@@ -26,7 +26,7 @@ civilian = {
     "armor": 50,
     "experience": 0,
     "isAlive": True,
-    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
 
     "damage": [20, 50]  # random.randrange[0, 50]
     }
@@ -40,7 +40,7 @@ warrior = {
     "armor": 100,
     "experience": 0,
     "isAlive": True,
-    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
     "damage": [25, 100]  # random.randrange[25, 100]
     }
 
@@ -53,7 +53,7 @@ matt_morgan = {
     "armor": 80,
     "experience": 0,
     "isAlive": True,
-    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
     "damage": [30, 150]  # random.randrange[0, 150]
     }
 
@@ -66,7 +66,7 @@ kirill = {
     "armor": 30,
     "experience": 0,
     "isAlive": True,
-    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
     "damage": [100, 500]  # random.randrange[100, 500]
     }
 

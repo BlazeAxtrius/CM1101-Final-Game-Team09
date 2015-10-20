@@ -35,7 +35,7 @@ west.""",
 
     "exits": {"west": "hallway, G, C", "up": "hallway, F1, S", "down": "hallway, F-1"}, 
 
-    "items": []
+    "items": [item_metal_key]
 }  
 
 
@@ -178,7 +178,7 @@ cupboard in the corner when noises that emanate from it startle you.""",
 
     "exits": {"north" : "pantry, F-1", "south": "wine cellar, F-1", "east": "hallway, F-1"},
 
-    "items": [item_lamp, item_rusty_key, item_metal_key]
+    "items": [item_lamp]
 }    
 
 room_pantry = { 
@@ -300,7 +300,7 @@ lamp on top of it.""",
 
     "exits": {"south": "hallway, F1, S", "west": "hallway, F1, N"},
 
-    "items": []
+    "items": [item_brass_key]
 }
 
 
@@ -439,7 +439,7 @@ rooms = {
 locked_exit_E_D = {
     "rooms": ["entrance", "dining room, G, W"],
     
-    "key_required" : "mkey",    
+    "key_required" : "bkey",    
     
     "locked": True
 
@@ -448,6 +448,30 @@ locked_exit_E_D = {
 locked_exit_E_L = {
     "rooms": ["entrance", "lounge, G, W"],
     
+    "key_required" : "bkey",    
+    
+    "locked": True
+}
+
+locked_exit_S_P = {
+    "rooms": ["storage, F-1", "pantry, F-1"],
+    
+    "key_required" : "rkey",    
+    
+    "locked": True
+}
+
+locked_exit_S_W = {
+    "rooms": ["storage, F-1", "wine cellar, F-1"],
+    
+    "key_required" : "rkey",    
+    
+    "locked": True
+}
+
+locked_exit_S_H = {
+    "rooms": ["storage, F-1", "hallway, F-1"],
+    
     "key_required" : "mkey",    
     
     "locked": True
@@ -455,6 +479,9 @@ locked_exit_E_L = {
 
 locked_room_exits = {
     "Entrance_Dining_room": locked_exit_E_D,
-    "Entrance_Lounge": locked_exit_E_L
+    "Entrance_Lounge": locked_exit_E_L,
+    "Storage_Pantry": locked_exit_S_P,
+    "Storage_Wine_cellar": locked_exit_S_W,
+    "Storage_Hallway": locked_exit_S_H
 
 }
