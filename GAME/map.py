@@ -297,8 +297,9 @@ room_workshop = {
 in the middle of the room. As you look closer you can see a few vices on 
 the sides of the table along with some files and blunt chisels that would 
 be used for crafting. An old shelf with some dusty equipment and a few 
-books is to the east of the room. A door leads to the north of the room and
-another from where you came. """,
+books is to the east of the room, you can see what looks to be a door that has
+tried to be hidden behind the shelf. But you can't seem to work out how to open it. A door leads
+to the north of the room and another from where you came. """,
 
     "exits": {"west": "Wine Cellar", 
               "east": "Secret room", 
