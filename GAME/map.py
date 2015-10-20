@@ -21,7 +21,7 @@ to your right. Upon listening the clock seems to be broken.""",
     
     "first_visit": True,
 
-    "enemy": [enemy1]
+    "enemy": []
 }
 
 
@@ -205,7 +205,7 @@ cupboard in the corner when noises that emanate from it startle you.""",
 
     "items": [item_lamp],
 
-    "enemy": []
+    "enemy": [enemy1]
 }    
 
 room_pantry = { 
