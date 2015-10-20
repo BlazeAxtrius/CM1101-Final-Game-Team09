@@ -5,8 +5,8 @@ item_id = {
     "name": "id card",
 
     "description":
-    """Your new shiny student ID card. Expires 1 June 2017.
-You wonder why they have printed a suicide hotline number on it?...""",
+    """Your new shiny student ID card. Your picture really doesn't show your best features
+    and you really regret the cringy smile.""",
 
     "mass": 0.5,
     
@@ -19,7 +19,8 @@ item_knife = {
     "name": "a kitchen knife",
 
     "description":
-    "It is very sharp",
+    """Light and very sharp from the looks of it.
+    This knife will certainly come in handy. """,
 
     "mass": 0.75, 
         
@@ -44,7 +45,8 @@ item_biscuits = {
 
     "name": "a pack of biscuits",
 
-    "description": "A pack of biscuits.",
+    "description": """These biscuits look fairly new and you are tempted to take one.
+    After all, you can't really pass up free food as a student""",
 
     "mass": 1,
     
@@ -56,7 +58,7 @@ item_pen = {
     
     "name": "a pen",
 
-    "description": "A basic ballpoint pen.",
+    "description": """A basic ballpoint pen. One end seems to have been chewed slightly.""",
 
     "mass": 0.5,
     
@@ -93,7 +95,7 @@ item_clue = {
     
     "name": "a piece of paper with writing on",
 
-    "description": """Use books will reveal a horror you don't want to experience""",
+    "description": """Reading will reveal things that you don't want to know and will never forget.""",
 
     "mass": 0.05,
     
@@ -167,9 +169,9 @@ item_lamp = {
     
     "name": "an oil lamp",
     
-    "description": """This oil lamp has just enough for you to see exits in the
-room items you can look in. But you may need to find something else if you
-want to look at the floor""",
+    "description": """This oil lamp has just enough for you to see exits in
+    the room which you are in and the furniture within the room.
+    However its light is too dim to see the floor, you even struggle to see your own feet.""",
 
     "mass": 2.0,
     
