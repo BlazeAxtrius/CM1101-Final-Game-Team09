@@ -249,7 +249,7 @@ def print_inventory():
                     execute_use(use_item)
                 return
         elif player_command[0] == "view":
-            print("Here is wha you are carrying: ")
+            print("Here is what you are carrying: ")
             for item in player.inventory:
                 print("> " + item["name"].capitalize())
                 print(item["description"])
