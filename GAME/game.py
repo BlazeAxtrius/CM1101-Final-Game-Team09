@@ -228,7 +228,8 @@ def print_menu(exits, room_items, inv_items):
     print("What do you want to do?")
 
 def print_inventory():
-    try:
+    #try:
+    if True:
         print()
         print("You find on your person: \n")
         for item in player.inventory:
@@ -236,7 +237,7 @@ def print_inventory():
         print()
         print("What would you like to do?")
         print()
-        print("USE item")
+        print("USE <ITEM>")
         print("VIEW all item descriptions")
         print("EXIT inventory")
         player_command = normalise_input(input("> "))
@@ -245,9 +246,9 @@ def print_inventory():
             #player_command = " ".join(player_command[1:])
             for item in player.inventory:
                 if player_command[1] == item["id"]:
-                    use_item = player_command
+                    use_item = player_command[1]
                     execute_use(use_item)
-                return
+            return
         elif player_command[0] == "view":
             print("Here is what you are carrying: ")
             for item in player.inventory:
@@ -260,9 +261,9 @@ def print_inventory():
         else:
             print("That makes no sense")
             print_inventory()
-    except:
-        print("That makes no sense")
-        print_inventory()    
+   # except:
+     #   print("That makes no sense")
+     #   print_inventory()    
         
 
 
@@ -295,11 +296,13 @@ def execute_use(item):
     """This function looks for an item in the players inventory,
     removes it from the inventory, and then affects the player or the world state depending on the item"""
     for player_item in player.inventory:
-        if item == player_item["name"]:
-            if bool(player_item["isPotion"]):
+        if item == player_item["id"]:
+            if player_item["isPotion"]:
                 print(player_item["description"])
                 if normalise_input(input("Are you sure you want to use potion?\n> "))[0] == "yes":
-                    player.potions[item]()
+                    player.potion_health()
+            else:
+                print("You cannot use this item right now")
 
 def execute_go(direction):
     """This function, given the direction (e.g. "south") updates the current room
@@ -326,21 +329,6 @@ def execute_go(direction):
     else:
         print("You cannot go there") 
     
-    
-#    direction = normalise_input(direction)
-#    if player.current_room == rooms["entrance"]:
-#        if direction[0] == "east":
-#            if all_items["plank"] not in player.inventory:
-#                player.current_room = rooms["storage, F-1"]
-#                print("You crash through some weak floorboards into a storage room below")
-#                return
-#    if is_valid_exit(player.current_room["exits"], direction):
-#        player.current_room = rooms[player.current_room["exits"][direction[0]]]
-#        
-#        print("You move in to the " + player.current_room["name"])
-#    else:
-#        print("You cannot go there")
-#    # this does not work in it's current state. It says current_room is not assigned.
 
 
 def execute_take(input_item_id, inv_items):
@@ -455,7 +443,7 @@ def menu(exits, room_items, inv_items):
 
     # Read player's input
     user_input = input("> ")
-
+    print()
     # Normalise the input
     normalised_user_input = normalise_input(user_input)
 

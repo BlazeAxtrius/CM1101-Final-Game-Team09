@@ -11,7 +11,7 @@ You wonder why they have printed a suicide hotline number on it?...""",
 
     "mass": 0.5,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 
 item_laptop = {
@@ -24,7 +24,7 @@ item_laptop = {
 
     "mass": 4,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 
 item_money = {
@@ -37,7 +37,7 @@ item_money = {
 
     "mass": 0.75,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 
 item_biscuits = {
@@ -49,7 +49,7 @@ item_biscuits = {
 
     "mass": 1,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 
 item_pen = {
@@ -61,7 +61,7 @@ item_pen = {
 
     "mass": 0.5,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 
 item_card = {
@@ -74,7 +74,7 @@ number it is?""",
 
     "mass": 0.05,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 
 item_note = {
@@ -86,7 +86,7 @@ item_note = {
 
     "mass": 0.05,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 
 item_plank = {
@@ -98,7 +98,7 @@ item_plank = {
 
     "mass": 5.0,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 item_brass_key = {
     "id" : "bkey",
@@ -109,7 +109,7 @@ item_brass_key = {
 
     "mass" : 0.2,
     
-    "isPotion": "False",
+    "isPotion": False,
 
 }
 
@@ -122,7 +122,7 @@ item_rusty_key = {
 
     "mass" : 0.2,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 
 item_metal_key = {
@@ -134,7 +134,7 @@ item_metal_key = {
     
     "mass" : 0.2,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 
 item_lamp = {
@@ -148,7 +148,7 @@ want to look at the floor""",
 
     "mass": 2.0,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 
 item_torch = {
@@ -160,7 +160,7 @@ item_torch = {
 
     "mass" : 0.5,
     
-    "isPotion": "False",
+    "isPotion": False,
 }
 
 item_potion_health = {
@@ -174,7 +174,7 @@ what drinking it would do.""",
 
     "mass": 2.0,
 
-    "isPotion": "True",
+    "isPotion": True,
 }
 
 all_items = {

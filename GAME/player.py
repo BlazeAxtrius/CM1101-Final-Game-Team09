@@ -271,7 +271,7 @@ def check_potions_rev():
         #             input = reversed
 
 
-def health():
+def potion_health():
     global health
     health += 100
     inventory.remove(items.item_potion_health)
