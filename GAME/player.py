@@ -49,13 +49,13 @@ warrior = {
 matt_morgan = {
     "name": "Matt Morgan",
     "style": "a bit eccentric",
-    "health": 50,
+    "health": 800,
     "mana": 50,
     "armor": 80,
     "experience": 0,
     "isAlive": True,
     "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
-    "damage": [30, 150]  # random.randrange[0, 150]
+    "damage": [50, 150]  # random.randrange[0, 150]
     }
 
 
@@ -177,7 +177,7 @@ def print_player(player):
     global health
     global experience
     print("Health: " + str(health))
-    print("Experience " + str(experience))
+    print("Experience: " + str(experience))
 
 
 def print_enemy_stats(enemy_fight):
@@ -187,7 +187,6 @@ def print_enemy_stats(enemy_fight):
     print("Max damage: " + str(all_enemies[enemy_fight]["damage"][1]))
     
 
-
 def compute_experience(damage_taken):
     experience_gain = randrange(0, damage_taken*2 + 1)
     return experience_gain
@@ -196,6 +195,21 @@ def compute_experience(damage_taken):
 def attack_enemy(enemy_fight):
     damage_dealt = randrange(damage[0], damage[1])
     print("You attacked and dealt " + str(damage_dealt) + " damage your enemy")
+    if all_enemies[enemy_fight]["armor"] <= 30:
+        new_damage_dealt = damage_dealt * float(0.5)
+        print("Your new damage is " + str(new_damage_dealt))
+        # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
+        all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt + damage_dealt
+    elif 50 <= all_enemies[enemy_fight]["armor"] <= 70:
+        new_damage_dealt = damage_dealt / 2
+        print("Your new damage is " + str(new_damage_dealt))
+        # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
+        all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt + damage_dealt
+    elif all_enemies[enemy_fight]["armor"] >= 71:
+        new_damage_dealt = damage_dealt / 3
+        print("Your new damage is " + str(new_damage_dealt))
+        # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
+        all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt + damage_dealt
     all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - damage_dealt
     if all_enemies[enemy_fight]["health"] <= 0:
         all_enemies[enemy_fight]["isAlive"] = False
@@ -209,6 +223,18 @@ def take_damage(enemy_fight):
     global isAlive
     damage_taken = randrange(all_enemies[enemy_fight]["damage"][0], all_enemies[enemy_fight]["damage"][1])
     print("The enemy attacked you with a damage of " + str(damage_taken))
+    if armor <= 50:
+        new_damage_taken = damage_taken / 2
+        print("Enemy new damage is " + str(new_damage_taken))
+        # health = health - damage_taken/2 = damage_taken/2 + damage_taken
+        # health = health - new_damage_taken = new_damage_taken + damage_taken
+        health = health - new_damage_taken + damage_taken
+    elif armor > 51:
+        new_damage_taken = damage_taken / 3
+        print("Enemy new damage is " + str(new_damage_taken))
+        # health = health - damage_taken/3 = damage_taken/3 + damage_taken
+        # health = health - new_damage_taken = new_damage_taken + damage_taken
+        health = health - new_damage_taken + damage_taken
     health = health - damage_taken
     experience = experience + compute_experience(damage_taken)
     if health <= 0:
@@ -313,6 +339,7 @@ def combat():
             print_player(choice)
             if all_enemies[enemy_fight]["isAlive"] == False:
                 print("You killed your enemy!")
+                print("It dropped a Health potion")
                 print("────────────────────────────────────────────────────────────")
                 print()
                 print()
