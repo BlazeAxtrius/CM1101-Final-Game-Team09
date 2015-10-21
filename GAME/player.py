@@ -5,7 +5,6 @@ from parser_game import *
 from map import *
 from enemies import *
 import os
-from Potions_items import *
 
 name = ""
 style = ""
@@ -212,7 +211,12 @@ def attack_enemy(enemy_fight):
     reduction. We have code that is currently not used but we plan on making more enemies in the future and
     to use these lines of code for them.
     """
-    damage_dealt = randrange(damage[0], damage[1])
+    hit_chance = randrange(0, 10)
+    if hit_chance =< 3:
+        print("You missed!")
+        damage_dealt = 0
+    else:
+        damage_dealt = randrange(damage[0], damage[1])
     critchance = randrange(chance[0], chance[1])
     print("You attacked and dealt " + str(damage_dealt) + " damage your enemy")
     if all_enemies[enemy_fight]["armor"] == 0:
