@@ -16,7 +16,6 @@ isAlive = True
 inventory = []
 damage = [0, 0]
 chance = [0, 12]
-combat = [0, 6]
 current_room = rooms["Porch"]
 
 a = ""
@@ -436,6 +435,7 @@ def combat():
     We print the health and damage after every action. If you type ATTACK wrong, you will miss and deal 0 damage.
     Also we will add a timer for more pressure on the player. This might make the player miss spell and therefore
     miss the attack."""
+    combat = [0, 6]
     for enemy in all_enemies:
         if all_enemies[enemy]["name"] == current_room["enemy"][0]["name"]:
             enemy_fight = enemy
@@ -445,39 +445,122 @@ def combat():
     print("Here are their stats: ")
     print_enemy_stats(enemy_fight)
     print()
+    print("Fight the enemy with all your might.")
+    print()
     while all_enemies[enemy_fight]["isAlive"] and isAlive:
         try:
-            print("ATTACK to deal damage")
-            print()
-            if (normalise_input(input("> ")))[0] == "attack" or "swing" or "fight" or "stab" or "poke" or "engage":
-                print()
-                attack_enemy(enemy_fight)
-                print()
-                take_damage(enemy_fight)
-                print()
-                print_enemy_stats(enemy_fight)
-                print()
-                print_player(choice)
-                if all_enemies[enemy_fight]["isAlive"] == False:
-                    print("You killed your enemy!")
-                    print("It dropped a Health potion")
-                    current_room["items"].append(all_enemies[enemy_fight]["inventory"][0])
-                    current_room["enemy"].remove(all_enemies[enemy_fight])
+            hit = randrange(combat[0], combat[1])
+            if hit == 1:
+                print("ATTACK to deal damage")
+                if (normalise_input(input("> ")))[0] == "attack":
+                    print()
+                    attack_enemy(enemy_fight)
+                    print()
+                    take_damage(enemy_fight)
+                    print()
+                    print_enemy_stats(enemy_fight)
+                    print()
+                    print_player(choice)
+                else:
+                    print("You missed!")
+                    print()
+                    take_damage(enemy_fight)
+                    print()
+                    print_enemy_stats(enemy_fight)
+                    print()
+                    print_player(choice)
                     print("────────────────────────────────────────────────────────────")
+            elif hit == 2:
+                print("SWING to hit enemy!!!")
+                if (normalise_input(input("> ")))[0] == "swing":
                     print()
+                    attack_enemy(enemy_fight)
                     print()
-                    break
-                print("────────────────────────────────────────────────────────────")
-                continue
-            else:
-                print("You missed!")
-                print()
-                take_damage(enemy_fight)
-                print()
-                print_enemy_stats(enemy_fight)
-                print()
-                print_player(choice)
-                print("────────────────────────────────────────────────────────────")
+                    take_damage(enemy_fight)
+                    print()
+                    print_enemy_stats(enemy_fight)
+                    print()
+                    print_player(choice)
+                else:
+                    print("You missed!")
+                    print()
+                    take_damage(enemy_fight)
+                    print()
+                    print_enemy_stats(enemy_fight)
+                    print()
+                    print_player(choice)
+                    print("────────────────────────────────────────────────────────────")
+            elif hit == 3:
+                print("FIGHT to hit enemy!!!")
+                if (normalise_input(input("> ")))[0] == "fight":
+                    print()
+                    attack_enemy(enemy_fight)
+                    print()
+                    take_damage(enemy_fight)
+                    print()
+                    print_enemy_stats(enemy_fight)
+                    print()
+                    print_player(choice)
+                else:
+                    print("You missed!")
+                    print()
+                    take_damage(enemy_fight)
+                    print()
+                    print_enemy_stats(enemy_fight)
+                    print()
+                    print_player(choice)
+                    print("────────────────────────────────────────────────────────────")
+            elif hit == 4:
+                print("STAB to hit enemy!!!")
+                if (normalise_input(input("> ")))[0] == "stab":
+                    print()
+                    attack_enemy(enemy_fight)
+                    print()
+                    take_damage(enemy_fight)
+                    print()
+                    print_enemy_stats(enemy_fight)
+                    print()
+                    print_player(choice)
+                else:
+                    print("You missed!")
+                    print()
+                    take_damage(enemy_fight)
+                    print()
+                    print_enemy_stats(enemy_fight)
+                    print()
+                    print_player(choice)
+                    print("────────────────────────────────────────────────────────────")
+            elif hit == 5:
+                print("POKE to hit enemy!!!")
+                if (normalise_input(input("> ")))[0] == "poke":
+                    print()
+                    attack_enemy(enemy_fight)
+                    print()
+                    take_damage(enemy_fight)
+                    print()
+                    print_enemy_stats(enemy_fight)
+                    print()
+                    print_player(choice)
+                else:
+                    print("You missed!")
+                    print()
+                    take_damage(enemy_fight)
+                    print()
+                    print_enemy_stats(enemy_fight)
+                    print()
+                    print_player(choice)
+                    print("────────────────────────────────────────────────────────────")
+                    if all_enemies[enemy_fight]["isAlive"] == False:
+                        print("You killed your enemy!")
+                        print("It dropped a Health potion")
+                        current_room["items"].append(all_enemies[enemy_fight]["inventory"][0])
+                        current_room["enemy"].remove(all_enemies[enemy_fight])
+                        print("────────────────────────────────────────────────────────────")
+                        print()
+                        print()
+                        break
+                    print("────────────────────────────────────────────────────────────")
+                    continue
         except:
             print("You missed!")
             print()
