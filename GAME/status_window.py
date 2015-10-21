@@ -21,7 +21,7 @@ current_room = import_health["current_room"]
 op.close()
 
 max_health = {
-    "Innocent Civilian": 1000,
+    "Innocent Civilian": 1100,
     "Unknown Warrior": 1200,
     "Mad Scientist": 800,
     "John Cena": 2000
