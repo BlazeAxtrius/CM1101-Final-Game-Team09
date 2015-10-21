@@ -72,7 +72,7 @@ john_cena = {
     "armor": 30,
     "experience": 0,
     "isAlive": True,
-    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key, item_plank],
     "damage": [150, 350]
     }
 
