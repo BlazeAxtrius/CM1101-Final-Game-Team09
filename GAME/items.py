@@ -83,7 +83,7 @@ item_note = {
     
     "name": "the note from outside",
 
-    "description": """This is the note you pick up from outside""",
+    "description": """This is the note you picked up from outside""",
 
     "mass": 0.05,
     
@@ -115,26 +115,26 @@ item_plank = {
 }
 
 item_brass_key = {
-    "id" : "bkey",
+    "id": "bkey",
     
     "name": "a brass key",
     
     "description": "The key allows you to open doors with brass locks",
 
-    "mass" : 0.2,
+    "mass": 0.2,
     
     "isPotion": False,
 
 }
 
 item_rusty_key = {
-    "id" : "rkey",
+    "id": "rkey",
     
     "name": "a rusty key",
     
     "description": "The key allows you to open doors with rusty locks",
 
-    "mass" : 0.2,
+    "mass": 0.2,
     
     "isPotion": False,
 }
@@ -146,7 +146,7 @@ item_metal_key = {
     
     "description": "The key allows you to open doors with metal locks",
     
-    "mass" : 0.2,
+    "mass": 0.2,
     
     "isPotion": False,
 }
@@ -158,7 +158,7 @@ item_copper_key = {
     
     "description": "The key allows you to open doors with metal locks",
     
-    "mass" : 0.2,
+    "mass": 0.2,
     
     "isPotion": False,
 }
@@ -179,13 +179,13 @@ item_lamp = {
 }
 
 item_torch = {
-    "id" : "torch",
+    "id": "torch",
     
     "name": "a torch",
     
     "description": "The torch allows you to see everything in the dark.",
 
-    "mass" : 0.5,
+    "mass": 0.5,
     
     "isPotion": False,
 }
@@ -264,5 +264,3 @@ all_items = {
     "defense": item_potion_defense,
     "clue": item_clue
 }
-
-

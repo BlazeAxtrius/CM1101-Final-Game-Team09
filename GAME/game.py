@@ -49,17 +49,18 @@ def print_room_items(room):
     """
 
     # check that the list of items is not empty
-    if (room["items"] != ([])) and ((item_torch in player.inventory) or (rooms["Entrance"]["first_visit"] == True)) :
+    if (room["items"] != ([])) and ((item_torch in player.inventory) or (rooms["Entrance"]["first_visit"] == True)):
         # prints the list of items
         print("There is " + list_of_items(room["items"]) + " here.\n")
-    elif (item_torch in room["items"]):
+    elif item_torch in room["items"]:
         print("There is " + item_torch["name"] + " here.\n")
     else:
         print("")
     if (item_lamp in room["items"]) and not (item_torch in player.inventory):
-       print("There is " + item_lamp["name"] + " here.\n")
+        print("There is " + item_lamp["name"] + " here.\n")
     else:
         print("")
+
 
 def print_room(room):
     """This function takes a room as an input and nicely displays its name
@@ -143,16 +144,18 @@ def print_exit(direction, leads_to):
     """
     print("GO " + direction.upper() + " to " + leads_to + ".")
 
+
 def find_locked_door(direction):
-    #Find the next room for given direction
-    #next_room = rooms[player.current_room["exits"][direction]]
+    # Find the next room for given direction
+    # next_room = rooms[player.current_room["exits"][direction]]
     next_room = rooms[player.current_room["exits"][direction]]
-    #Search through each locked door
+    # Search through each locked door
     for locked_door in locked_room_exits:
-        #If the current room and next room correspond to the locked door and the door is locked
+        # If the current room and next room correspond to the locked door and the door is locked
         if (player.current_room["name"] in locked_room_exits[locked_door]["rooms"]) and (next_room["name"] in locked_room_exits[locked_door]["rooms"]):
             return locked_door
-    
+
+
 def carrying_right_key(direction, inv_items):
     """This function returns whether the player is carrying the right key to be
     able to unlock the door in a certain direction
@@ -160,10 +163,11 @@ def carrying_right_key(direction, inv_items):
     carrying_key = False
     locked_door = find_locked_door(direction)
     for key_search in inv_items:
-        #If the key for the door is found
+        # If the key for the door is found
         if locked_room_exits[locked_door]["key_required"] == key_search["id"]:
             carrying_key = True
     return carrying_key
+
 
 def exit_locked(direction):
     """This function checks, given the direction the user wishes to go 
@@ -174,34 +178,37 @@ def exit_locked(direction):
     >>> exit_locked("west")
     False
     """
-    #Door is open unless found otherwise
+    # Door is open unless found otherwise
     door_locked = False
-    #Find the next room for given direction
-    #next_room = exit_leads_to(player.current_room["exits"], direction)
+    # Find the next room for given direction
+    # next_room = exit_leads_to(player.current_room["exits"], direction)
     next_room = rooms[player.current_room["exits"][direction]]
-    #Search through each locked door
+    # Search through each locked door
     for locked_door in locked_room_exits:
-        #If the current room and next room correspond to the locked door and the door is locked
+        # If the current room and next room correspond to the locked door and the door is locked
         if (player.current_room["name"] in locked_room_exits[locked_door]["rooms"]) and (next_room["name"] in locked_room_exits[locked_door]["rooms"]) and locked_room_exits[locked_door]["locked"]:
             door_locked = True
     return door_locked
-    
+
+
 def wooden_plank_required(direction): 
     wooden_plank_needed = False
     locked_door = find_locked_door(direction)
-    #If the current room and next room correspond to the locked door and the key is the plank 
-    if locked_room_exits[locked_door]["key_required"] == "plank" :
+    # If the current room and next room correspond to the locked door and the key is the plank
+    if locked_room_exits[locked_door]["key_required"] == "plank":
         wooden_plank_needed = True
     return wooden_plank_needed  
-    
+
+
 def clue_required(direction): 
     clue_needed = False
     locked_door = find_locked_door(direction)
-    #If the current room and next room correspond to the locked door and the key is the plank 
-    if locked_room_exits[locked_door]["key_required"] == "clue" :
+    # If the current room and next room correspond to the locked door and the key is the plank
+    if locked_room_exits[locked_door]["key_required"] == "clue":
         clue_needed = True
     return clue_needed 
-   
+
+
 def print_menu(exits, room_items, inv_items):
     """This function displays the menu of available actions to the player. The
     argument exits is a dictionary of exits as exemplified in map.py. The
@@ -231,7 +238,7 @@ def print_menu(exits, room_items, inv_items):
         for direction in exits:
             # Print the exit name and where it leads to
             print_exit(direction, exit_leads_to(exits, direction))
-            #If there is a locked door and the player carries the right key
+            # If there is a locked door and the player carries the right key
             if exit_locked(direction) and carrying_right_key(direction, inv_items) and not wooden_plank_required(direction) and not clue_required(direction):
                 print ("UNLOCK " + direction.upper() + " to unlock the " + direction + " door.")
             elif exit_locked(direction) and carrying_right_key(direction, inv_items) and wooden_plank_required(direction):
@@ -239,21 +246,22 @@ def print_menu(exits, room_items, inv_items):
             elif exit_locked(direction) and carrying_right_key(direction, inv_items) and clue_required(direction):
                 print ("USE CLUE " + direction.upper() + " to work out how to get into the secret room to the " + direction + ".")
     if (item_torch in inv_items) or (rooms["Entrance"]["first_visit"] == True) :
-        #For all possible item you can pick up
+        # For all possible item you can pick up
         for take_item in room_items:
             print("TAKE " + take_item["id"].upper() + " to take a " + take_item["name"] + ".")
     if (item_lamp in room_items) and not (item_torch in inv_items) :
         print("TAKE " + item_lamp["id"].upper() + " to take a " + item_lamp["name"] + ".")
     if item_torch in room_items:
         print("TAKE " + item_torch["id"].upper() + " to take a " + item_torch["name"] + ".")
-    #For all possible items you can drop
+    # For all possible items you can drop
     for drop_item in inv_items:
         print("DROP " + drop_item["id"].upper() + " to drop a " + drop_item["name"] + ".")
     print("VIEW inventory")
     print("What do you want to do?")
 
+
 def print_inventory():
-    #try:
+    # try:
     if True:
         print()
         print("You find on your person: \n")
@@ -268,7 +276,7 @@ def print_inventory():
         player_command = normalise_input(input("> "))
 
         if player_command[0] == "use":
-            #player_command = " ".join(player_command[1:])
+            # player_command = " ".join(player_command[1:])
             for item in player.inventory:
                 if player_command[1] == item["id"]:
                     use_item = player_command[1]
@@ -286,9 +294,9 @@ def print_inventory():
         else:
             print("That makes no sense")
             print_inventory()
-   # except:
-     #   print("That makes no sense")
-     #   print_inventory()    
+    # except:
+        #   print("That makes no sense")
+        #   print_inventory()
         
 
 def is_valid_exit(exits, chosen_exit):
@@ -311,7 +319,7 @@ def is_valid_exit(exits, chosen_exit):
 
 
 def current_weight(inv_items):
-    #calculate how much the player is carrying
+    # calculate how much the player is carrying
     carry_weight = 0
     for item in inv_items:
         carry_weight += item["mass"]
@@ -345,7 +353,7 @@ def execute_go(direction):
     (and prints the name of the room into which the player is
     moving). Otherwise, it prints "You cannot go there."
     """
-    #direction = normalise_input(direction)
+    # direction = normalise_input(direction)
     if player.current_room == rooms["Entrance"]:
         if (direction == "east") and (rooms["Entrance"]["first_visit"] == True):
                 player.current_room = rooms["Basement storage"]
@@ -353,12 +361,12 @@ def execute_go(direction):
                 rooms["Entrance"]["first_visit"] = False
                 locked_room_exits["Hole_In_Floor"]["locked"] = True
                 return
-    #If there is a valid exit and this door is not locked
+    # If there is a valid exit and this door is not locked
     if is_valid_exit(player.current_room["exits"], direction) and not exit_locked(direction):
-        #Move player into the next room        
+        # Move player into the next room
         player.current_room = rooms[player.current_room["exits"][direction]]
         print("You move in to the " + player.current_room["name"])
-    #If the door between the two rooms is locked
+    # If the door between the two rooms is locked
     elif is_valid_exit(player.current_room["exits"], direction) and exit_locked(direction):
         if player.current_room == rooms["Ground floor west hallway"] and (direction == "west"):
             print("You need to find something to cover the hole first")
@@ -404,18 +412,19 @@ def execute_drop(input_item_id):
             print("You cannot drop that.")
     except:
         print("You cannot drop that")
-    
+
+
 def execute_unlock(direction, inv_items, special):
     """This function unlocks a door in a certain direction as long as the door
     is currently locked and the player is carrying the right key in the 
     inventory, inv_items.
     """
-    #If there is a valid exit and this door is locked
+    # If there is a valid exit and this door is locked
     if is_valid_exit(player.current_room["exits"], direction) and exit_locked(direction):
         locked_door = find_locked_door(direction)
-        #If the door is locked and you are carrying the right key
-        if  exit_locked(direction) and carrying_right_key(direction, inv_items):
-            #Unlock the door
+        # If the door is locked and you are carrying the right key
+        if exit_locked(direction) and carrying_right_key(direction, inv_items):
+            # Unlock the door
             locked_room_exits[locked_door]["locked"] = False
             if special == "plank":
                 print("You have used the plank to cover the hole")
@@ -429,7 +438,7 @@ def execute_unlock(direction, inv_items, special):
                 print("You need to find something to cover the hole first")
             else:
                 print("You are not carrying the right key to unlock this door")
-    #If the door between the two rooms is not locked
+    # If the door between the two rooms is not locked
     elif is_valid_exit(player.current_room["exits"], direction) and not exit_locked(direction):
         if player.current_room == rooms["Ground floor west hallway"] and (direction == "west"):
             print("The hole is already covered")
@@ -437,6 +446,7 @@ def execute_unlock(direction, inv_items, special):
             print("This door wasn't locked anyway")
     else:
         print("You cannot unlock that")
+
 
 def execute_command(command):
     """This function takes a command (a list of words as returned by
@@ -469,7 +479,7 @@ def execute_command(command):
     elif (command[0] == "unlock") or ((command[0] == "use") and ((command[1] == "plank") or (command[1] == "clue"))):
             if len(command) > 1:
                 if command[0] == "unlock":
-                    execute_unlock(command[1], player.inventory,"")
+                    execute_unlock(command[1], player.inventory, "")
                 else:
                     execute_unlock(command[2], player.inventory, command[1])
             else:
@@ -529,6 +539,7 @@ def victory():
     else:
         return False
 
+
 def print_victory_message():
     print()
     print("""You finally made it out of the house alive! Why did you even 
@@ -543,12 +554,12 @@ decide to enter to start with?""")
 def intro():
     print("\n\n\n\n\n\n\n\n\n")
     print("""Oh God last night... The drink, the music... People being sick 
-as usual... Maybe someone twerking? The images flood your mind as you drift 
+as usual... Maybe someone twerking? The images flood your mind as you drift
 away once more.""")
     sleep(1)
     print("""\nYou look around, trying to work out where you are. A ruffled piece
-paper sits a metre away in the dirt right next to a rusty old key. You walk 
-over and pick up the paper and they key beside it.""")
+of paper sits a metre away in the dirt right next to a rusty old key. You walk
+over and pick up the paper and the key beside it.""")
     sleep(1)
     print("""\nYou unfold the piece of paper.""")
     print()
@@ -557,7 +568,7 @@ over and pick up the paper and they key beside it.""")
     sleep(1)
     print("""\nYou don't really know whats going on, probably because you have a 
 hangover, but you decide to carry on anyway and move onto the porch of 
-the house infront of you.""")
+the house in front of you.""")
     print()
     print("────────────────────────────────────────────────────────────")
     sleep(1)
@@ -565,7 +576,7 @@ the house infront of you.""")
 
 def status_update():
     shared = {"health": player.health}
-    fp = open("shared.pkl","wb")    
+    fp = open("shared.pkl", "wb")
     pickle.dump(shared, fp)
     fp.close()
 

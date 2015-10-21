@@ -29,7 +29,7 @@ civilian = {
     "style": "pathetic",
     "health": 1000,
     "mana": 0,
-    "armor": 600,
+    "armor": 60,
     "experience": 0,
     "isAlive": True,
     "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
@@ -73,7 +73,7 @@ kirill = {
     "experience": 0,
     "isAlive": True,
     "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
-    "damage": [100, 500]  # random.randrange[100, 500]
+    "damage": [100, 350]  # random.randrange[100, 500]
     }
 
 
@@ -339,7 +339,7 @@ def potion_damage():
 def potion_defense():
     armor *= 2
     inventory.remove(items.item_potion_damage)
-    print("You have increased your defense twofol temporarily")
+    print("You have increased your defense twofold temporarily")
     print()
 
 potions = {

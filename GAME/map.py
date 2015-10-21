@@ -8,7 +8,7 @@ room_entrance = {
     "description": """As you close the door behind you it booms with a huge
 weight. The hallway that lies in front of you to the east is sparsely 
 decorated other than a carpet leading down the room and a grandfather clock
-to your right. Upon listening the clock seems to be broken.""",
+to your right. Upon listening, the clock seems to be broken.""",
 
     "exits": {"north": "Ground floor west dining room", 
               "south": "Ground floor west lounge", 
