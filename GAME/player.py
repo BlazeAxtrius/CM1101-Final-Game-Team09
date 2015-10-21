@@ -382,6 +382,7 @@ def potion_health():
 
 
 def potion_mana():
+    global mana
     mana += 100
     inventory.remove(items.item_potion_mana)
     print("You have restored 100 mana")
@@ -389,6 +390,7 @@ def potion_mana():
 
 
 def potion_damage():
+    global damage
     damage *= 2
     inventory.remove(items.item_potion_damage)
     print("You have increased your damage twofold temporarily")
@@ -396,7 +398,8 @@ def potion_damage():
 
 
 def potion_defense():
-    armor *= 2
+    global armor
+    armor += 10
     inventory.remove(items.item_potion_defense)
     print("You have increased your defense twofold temporarily")
     print()
