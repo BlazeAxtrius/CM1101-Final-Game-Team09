@@ -34,7 +34,7 @@ civilian = {
     "isAlive": True,
     "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
 
-    "damage": [20, 50]  # random.randrange[0, 50]
+    "damage": [50, 100]  # random.randrange[0, 50]
     }
 
 
@@ -47,7 +47,7 @@ warrior = {
     "experience": 0,
     "isAlive": True,
     "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
-    "damage": [25, 100]  # random.randrange[25, 100]
+    "damage": [75, 125]  # random.randrange[25, 100]
     }
 
 
@@ -56,11 +56,11 @@ mad_scientist = {
     "style": "a bit eccentric",
     "health": 800,
     "mana": 50,
-    "armor": 80,
+    "armor": 50,
     "experience": 0,
     "isAlive": True,
     "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
-    "damage": [50, 150]  # random.randrange[0, 150]
+    "damage": [125, 200]  # random.randrange[0, 150]
     }
 
 
@@ -72,8 +72,8 @@ john_cena = {
     "armor": 30,
     "experience": 0,
     "isAlive": True,
-    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
-    "damage": [100, 350]
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key, item_plank],
+    "damage": [150, 350]
     }
 
 
@@ -187,8 +187,9 @@ def print_player(player):
     """This print the stats that the player has."""
     global health
     global experience
-    print("Health: " + str(health))
-    print("Experience: " + str(experience))
+    print("Your health: " + str(health))
+    print("Your experience: " + str(experience))
+    print()
 
 
 def print_enemy_stats(enemy_fight):
@@ -222,6 +223,7 @@ def attack_enemy(enemy_fight):
     else:
         damage_dealt_a = damage_dealt
     critchance = randrange(chance[0], chance[1])
+<<<<<<< HEAD
     print("You attacked and dealt " + str(damage_dealt) + " damage your enemy")
     if enemy_fight["armor"] == 0:
         if critchance == 1:
@@ -338,13 +340,13 @@ def take_damage(enemy_fight):
         if critchance == 7:
             new_damage_taken = damage_taken * float(1.5)
             print("The enemy critically hit you.")
-            print("Enemy new damage is " + str(new_damage_taken))
+            print("The enemies attack has the effect " + str(new_damage_taken) +" damage.")
             # health = health - damage_taken/2 = damage_taken/2 + damage_taken
             # health = health - new_damage_taken = new_damage_taken + damage_taken
             health = health - new_damage_taken + damage_taken
         else:
             new_damage_taken = damage_taken / 2
-            print("Enemy new damage is " + str(new_damage_taken))
+            print("The enemies attack has the effect " + str(new_damage_taken) +" damage.")
             # health = health - damage_taken/2 = damage_taken/2 + damage_taken
             # health = health - new_damage_taken = new_damage_taken + damage_taken
             health = health - new_damage_taken + damage_taken
@@ -352,13 +354,13 @@ def take_damage(enemy_fight):
         if critchance == 7:
             new_damage_taken = damage_taken * float(1.5)
             print("The enemy critically hit you.")
-            print("Enemy new damage is " + str(new_damage_taken))
+            print("The enemies attack has the effect " + str(new_damage_taken) +" damage.")
             # health = health - damage_taken/2 = damage_taken/2 + damage_taken
             # health = health - new_damage_taken = new_damage_taken + damage_taken
             health = health - new_damage_taken + damage_taken
         else:
             new_damage_taken = damage_taken / 3
-            print("Enemy new damage is " + str(new_damage_taken))
+            print("The enemies attack has the effect " + str(new_damage_taken) +" damage.")
             # health = health - damage_taken/3 = damage_taken/3 + damage_taken
             # health = health - new_damage_taken = new_damage_taken + damage_taken
             health = health - new_damage_taken + damage_taken
@@ -429,6 +431,7 @@ def combat(enemy_fight):
             hit = randrange(combat[0], combat[1])
             if hit == 1:
                 print("ATTACK to deal damage")
+                print()
                 if (normalise_input(input("> ")))[0] == "attack":
                     print()
                     attack_enemy(enemy_fight)
@@ -449,6 +452,7 @@ def combat(enemy_fight):
                     print("────────────────────────────────────────────────────────────")
             elif hit == 2:
                 print("SWING to hit enemy!!!")
+                print()
                 if (normalise_input(input("> ")))[0] == "swing":
                     print()
                     attack_enemy(enemy_fight)
@@ -469,6 +473,7 @@ def combat(enemy_fight):
                     print("────────────────────────────────────────────────────────────")
             elif hit == 3:
                 print("FIGHT to hit enemy!!!")
+                print()
                 if (normalise_input(input("> ")))[0] == "fight":
                     print()
                     attack_enemy(enemy_fight)
@@ -489,6 +494,7 @@ def combat(enemy_fight):
                     print("────────────────────────────────────────────────────────────")
             elif hit == 4:
                 print("STAB to hit enemy!!!")
+                print()
                 if (normalise_input(input("> ")))[0] == "stab":
                     print()
                     attack_enemy(enemy_fight)
@@ -509,6 +515,7 @@ def combat(enemy_fight):
                     print("────────────────────────────────────────────────────────────")
             elif hit == 5:
                 print("POKE to hit enemy!!!")
+                print()
                 if (normalise_input(input("> ")))[0] == "poke":
                     print()
                     attack_enemy(enemy_fight)

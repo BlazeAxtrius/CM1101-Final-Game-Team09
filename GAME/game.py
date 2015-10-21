@@ -370,6 +370,7 @@ def execute_go(direction):
                 print("You crash through some weak floorboards into a storage room below")
                 rooms["Entrance"]["first_visit"] = False
                 locked_room_exits["Hole_In_Floor"]["locked"] = True
+                rooms["Entrance"]["enemy"] = [enemy6]
                 return
     # If there is a valid exit and this door is not locked
     if is_valid_exit(player.current_room["exits"], direction) and not exit_locked(direction):
@@ -509,50 +510,52 @@ def execute_command(command):
     the command: "go", "take", or "drop"), executes either execute_go,
     execute_take, or execute_drop, supplying the second word as the argument.
     """
+    try:
+        if 0 == len(command):
+            return
 
-    if 0 == len(command):
-        return
-
-    if command[0] == "go":
-        if len(command) > 1:
-            execute_go(command[1])
-        else:
-            print("Go where?")
-
-    elif command[0] == "take":
-        if len(command) > 1:
-            execute_take(command[1], player.inventory)
-        else:
-            print("Take what?")
-
-    elif command[0] == "drop":
-        if len(command) > 1:
-            execute_drop(command[1])
-        else:
-            print("Drop what?")
-            
-    elif (command[0] == "unlock") or ((command[0] == "use") and ((command[1] == "plank") or (command[1] == "clue"))):
+        if command[0] == "go":
             if len(command) > 1:
-                if command[0] == "unlock":
-                    execute_unlock(command[1], player.inventory, "")
-                else:
-                    execute_unlock(command[2], player.inventory, command[1])
+                execute_go(command[1])
             else:
-                print("Unlock what?")
-                
-    elif command[0] == "search":
-        if len(command) > 1:
-           execute_search(command[1], player.inventory)
-        else:
-            print("Search what?")
+                print("Go where?")
 
-    elif command[0] == "view":
-        print_inventory()
+        elif command[0] == "take":
+            if len(command) > 1:
+                execute_take(command[1], player.inventory)
+            else:
+                print("Take what?")
+
+        elif command[0] == "drop":
+            if len(command) > 1:
+                execute_drop(command[1])
+            else:
+                print("Drop what?")
         
-    elif command[0] == "quit":
-        os._exit(1)
+        elif (command[0] == "unlock") or ((command[0] == "use") and ((command[1] == "plank") or (command[1] == "clue"))):
+                if len(command) > 1:
+                    if command[0] == "unlock":
+                        execute_unlock(command[1], player.inventory, "")
+                    else:
+                        execute_unlock(command[2], player.inventory, command[1])
+                else:
+                    print("Unlock what?")
+                
+        elif command[0] == "search":
+            if len(command) > 1:
+                execute_search(command[1], player.inventory)
+            else:
+                print("Search what?")
+
+        elif command[0] == "view":
+            print_inventory()
         
-    else:
+        elif command[0] == "quit":
+            os._exit(1)
+        
+        else:
+            print("This makes no sense.")
+    except:
         print("This makes no sense.")
 
 
@@ -641,7 +644,17 @@ the house in front of you.""")
 
 
 def status_update():
-    shared = {"health": player.health, "name": player.name, "inventory": [player.inventory]}
+    shared = {
+    "name": player.name, 
+    "style": player.style,
+    "health": player.health, 
+    "xp": player.experience,
+    "mana": player.mana,
+    "armor": player.armor,
+    "inventory": player.inventory,    
+    "current_room": player.current_room
+    }
+
     fp = open("shared.pkl", "wb")
     pickle.dump(shared, fp)
     fp.close()

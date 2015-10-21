@@ -4,7 +4,7 @@ from items import *
 cabinet = {
     "name": "Cabinet",
 
-    "items" : [item_biscuits]
+    "items": [item_biscuits]
 
 }
 
@@ -33,7 +33,7 @@ to your right. Upon listening, the clock seems to be broken.""",
     
     "first_visit": True,
 
-    "enemy": [enemy1]
+    "enemy": []
 }
 
 
@@ -123,7 +123,7 @@ the east.""",
 
     "items": [item_metal_key],
 
-    "enemy": []
+    "enemy": [enemy4]
 }    
 
 
@@ -208,9 +208,9 @@ continues to the west.""",
             
     "search_object": {},
 
-    "items": [item_metal_key],
+    "items": [item_copper_key],
 
-    "enemy": []
+    "enemy": [enemy1]
 }    
 
 
@@ -527,7 +527,7 @@ maybe even strong enough to hold a significant weight. """,
 
     "items": [item_clue],
 
-    "enemy": [enemy1]
+    "enemy": [enemy5]
 }    
 
 
@@ -738,6 +738,3 @@ locked_room_exits = {
     "Bathroom_Store": locked_exit_FB_FS,
     "Hole_In_Floor": locked_exit_plank
 }
-
-
-
