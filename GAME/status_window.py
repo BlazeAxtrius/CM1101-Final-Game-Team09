@@ -6,16 +6,23 @@ import pickle
 # open the temp file which the value of health is stored in
 op = open("shared.pkl", "rb")
 import_health = pickle.load(op)
-health = int(import_health["health"])
+
+
 input_character = str(import_health["name"])
+style = import_health["style"]
+health = int(import_health["health"])
+xp = import_health["xp"]
+mana = import_health["mana"]
+armor = import_health["armor"]
 inventory = import_health["inventory"]
+current_room = import_health["current_room"]
 
 # closes the file again
 op.close()
 
 max_health = {
-    "Civillian": 1000,
-    "Warrior": 1200,
+    "Innocent Civillian": 1000,
+    "Unknown Warrior": 1200,
     "Mad Scientist": 800,
     "John Cena": 2000
     }
@@ -34,6 +41,7 @@ stdscr.keypad(True)
 # these lines assign text color and background color which can be called for a print statement
 curses.init_pair(1, curses.COLOR_RED, curses.COLOR_WHITE)
 curses.init_pair(2, curses.COLOR_BLUE, curses.COLOR_GREEN)
+curses.init_pair(3, curses.COLOR_BLACK, curses.COLOR_WHITE)
 
 
 def main(stdscr):
@@ -51,9 +59,23 @@ def main(stdscr):
 
     # main loop. repeately fetches, and prints values from the temp file and makes them look pretty
     while True:
+        # Open the temp file up again to read the contents at start of loop
         op = open("shared.pkl", "rb")
         import_health = pickle.load(op)
+        
+        input_character = str(import_health["name"])
+        style = import_health["style"]
         health = int(import_health["health"])
+        xp = import_health["xp"]
+        mana = import_health["mana"]
+        armor = import_health["armor"]
+        inventory = import_health["inventory"]
+        current_room = import_health["current_room"]
+
+        items = []
+        for item in inventory:
+            items.append(item["id"])
+        items_joined = ', '.join(items)
 
         #Creates a visual healthbar which is proportional to the player's health integer
         # Creates a string full of "|"s, with a count equal to about 1/4 of the player's health (for scaling)
@@ -63,18 +85,32 @@ def main(stdscr):
         # Adds spaces to the end of the string so that the containing box remains the same size
         health_bar = health_bar + (25-len(health_bar))*" "
 
-        stdscr.addstr(1, 0, " Player:  " + input_character + " "*100, curses.color_pair(1))
+        # Prints the playername
+        stdscr.addstr(1, 0, " Player:  " + input_character + "         Style:  " + style + " "*100, curses.color_pair(1))
 
         # Prints out the healthbar and player 
         stdscr.addstr(2, 0, " Health: " + "[" + health_bar + "]" + " " + str(health) + "HP" + " "*50, curses.color_pair(1))
 
         # Prints the percentage health of the player
-        stdscr.addstr(3, 0, "          " + str(int(round(health/(max_health[input_character])*100, 0))) + "%" + " ~~               " + " "*50, curses.color_pair(1))
-        
-        # Testing adding more lines to the curses output
-        stdscr.addstr(4, 0, " Inventory: " + "torch, laptop, notepad, plank. " + " "*50, curses.color_pair(2))
+        stdscr.addstr(3, 0, " ------> " + str(int(round(health/(max_health[input_character])*100, 0))) + "%" + " "*100, curses.color_pair(1))
 
-        stdscr.addstr(5, 0, str(x) + " "*50)
+        # Prints the armor value of the player
+        stdscr.addstr(4, 0, " Armor: " + str(armor) + " "*100, curses.color_pair(3))
+
+        # Prints the mana value of the player
+        stdscr.addstr(5, 0, " Mana: " + str(mana) + " "*100, curses.color_pair(3))
+
+        # Prints the XP value of the player
+        stdscr.addstr(6, 0, " XP: " + str(xp) + " "*100, curses.color_pair(3))
+        
+        # Prints the player's current inventory
+        stdscr.addstr(7, 0, " Inventory: " + items_joined + " "*50, curses.color_pair(2))
+
+        # Prints the player's current room
+        stdscr.addstr(8, 0, " Current Room: " + current_room["name"] + " "*100, curses.color_pair(2))
+
+        # Loop counter
+        stdscr.addstr(9, 0, str(x) + " "*50)
         #del(l[0:2])
         #l.append("  ")
         #health = "".join(l)
@@ -88,6 +124,12 @@ def main(stdscr):
         stdscr.addstr(1, 1, " "*200)
         stdscr.addstr(2, 1, " "*200)
         stdscr.addstr(3, 1, " "*200)
+        stdscr.addstr(4, 1, " "*200)
+        stdscr.addstr(5, 1, " "*200)
+        stdscr.addstr(6, 1, " "*200)
+        stdscr.addstr(7, 1, " "*200)
+        stdscr.addstr(8, 1, " "*200)
+        stdscr.addstr(9, 1, " "*200)
         x += 1
 
         # tidy up at end of loop by closing file. Making it ready to open at start of next cycle

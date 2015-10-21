@@ -278,7 +278,7 @@ def print_inventory():
         player_command = normalise_input(input("> "))
 
         if player_command[0] == "use":
-            item_exists = False
+            item_exists = True
             for item in player.inventory:
                 if player_command[1] == item["id"]:
                     use_item = player_command[1]
@@ -638,7 +638,17 @@ the house in front of you.""")
 
 
 def status_update():
-    shared = {"health": player.health, "name": player.name, "inventory": [player.inventory]}
+    shared = {
+    "name": player.name, 
+    "style": player.style,
+    "health": player.health, 
+    "xp": player.experience,
+    "mana": player.mana,
+    "armor": player.armor,
+    "inventory": player.inventory,    
+    "current_room": player.current_room
+    }
+
     fp = open("shared.pkl", "wb")
     pickle.dump(shared, fp)
     fp.close()
