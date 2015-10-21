@@ -7,6 +7,9 @@ import pickle
 op = open("shared.pkl", "rb")
 import_health = pickle.load(op)
 health = int(import_health["health"])
+input_character = int(import_health["name"])
+inventory = int(import_health["inventory"])
+
 # closes the file again
 op.close()
 
@@ -18,7 +21,6 @@ max_health = {
     }
 
 #this will need to be sourced using the pickle library like before
-input_character = "warrior"
 
 
 

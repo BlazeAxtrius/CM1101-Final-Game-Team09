@@ -575,7 +575,7 @@ the house in front of you.""")
 
 
 def status_update():
-    shared = {"health": player.health}
+    shared = {"health": player.health, "name": player.name, "inventory": player.inventory}
     fp = open("shared.pkl", "wb")
     pickle.dump(shared, fp)
     fp.close()
