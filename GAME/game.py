@@ -253,12 +253,16 @@ def print_menu(exits, room_items, inv_items):
         print("TAKE " + item_lamp["id"].upper() + " to take a " + item_lamp["name"] + ".")
     if item_torch in room_items:
         print("TAKE " + item_torch["id"].upper() + " to take a " + item_torch["name"] + ".")
+    # For all possible items you can drop
+    for drop_item in inv_items:
+        print("DROP " + drop_item["id"].upper() + " to drop a " + drop_item["name"] + ".")
     print("VIEW inventory")
     print("What do you want to do?")
 
 
 def print_inventory():
-    try:
+    # try:
+    if True:
         print()
         print("You find on your person: \n")
         for item in player.inventory:
@@ -267,22 +271,17 @@ def print_inventory():
         print("What would you like to do?")
         print()
         print("USE <ITEM>")
-        print("DROP <ITEM>")
         print("VIEW all item descriptions")
         print("EXIT inventory")
         player_command = normalise_input(input("> "))
 
         if player_command[0] == "use":
+            # player_command = " ".join(player_command[1:])
             for item in player.inventory:
-                item_exists = False
                 if player_command[1] == item["id"]:
                     use_item = player_command[1]
                     execute_use(use_item)
-                    item_exists = True
-                if not item_exists:
-                    print("That makes no sense")
-                    break
-                print_inventory()
+            return
         elif player_command[0] == "view":
             print("Here is what you are carrying: ")
             for item in player.inventory:
@@ -290,19 +289,14 @@ def print_inventory():
                 print(item["description"])
                 print()
             return
-        elif command[0] == "drop":
-            if len(command) > 1:
-                execute_drop(command[1])
-            else:
-                print("Drop what?")
         elif player_command[0] == "exit":
             return
         else:
             print("That makes no sense")
             print_inventory()
-    except:
-        print("That makes no sense")
-        print_inventory()
+    # except:
+        #   print("That makes no sense")
+        #   print_inventory()
         
 
 def is_valid_exit(exits, chosen_exit):
@@ -344,9 +338,9 @@ def execute_use(item):
                     print()
                     if confirmation[0] == "yes":
                         player.potion_health()
-                        
+                        break
                     elif confirmation[0] == "no":
-                        return
+                        break
                     else:
                         print("Enter YES or NO to confirm whether to use the potion")
             else:
@@ -476,6 +470,12 @@ def execute_command(command):
         else:
             print("Take what?")
 
+    elif command[0] == "drop":
+        if len(command) > 1:
+            execute_drop(command[1])
+        else:
+            print("Drop what?")
+            
     elif (command[0] == "unlock") or ((command[0] == "use") and ((command[1] == "plank") or (command[1] == "clue"))):
             if len(command) > 1:
                 if command[0] == "unlock":
@@ -575,7 +575,7 @@ the house in front of you.""")
 
 
 def status_update():
-    shared = {"health": player.health, "name": player.name, "inventory": player.inventory}
+    shared = {"health": player.health, "name": player.name, "inventory": [player.inventory]}
     fp = open("shared.pkl", "wb")
     pickle.dump(shared, fp)
     fp.close()
