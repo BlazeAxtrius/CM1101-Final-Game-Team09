@@ -68,7 +68,7 @@ item_pen = {
 item_card = {
     "id": "card",
     
-    "name": "a card with a mobile number",
+    "name": "card with a mobile number",
 
     "description": """This card has a mobile number wrote on it. I wonder who's 
 number it is?""",
@@ -130,7 +130,7 @@ item_brass_key = {
 item_rusty_key = {
     "id": "rkey",
     
-    "name": "a rusty key",
+    "name": "rusty key",
     
     "description": "The key allows you to open doors with rusty locks",
 
@@ -142,7 +142,7 @@ item_rusty_key = {
 item_metal_key = {
     "id": "mkey",
     
-    "name": "a metal key",
+    "name": "metal key",
     
     "description": "The key allows you to open doors with metal locks",
     
@@ -154,9 +154,9 @@ item_metal_key = {
 item_copper_key = {
     "id": "ckey",
     
-    "name": "a metal key",
+    "name": "copper key",
     
-    "description": "The key allows you to open doors with metal locks",
+    "description": "The key allows you to open doors with copper locks",
     
     "mass": 0.2,
     

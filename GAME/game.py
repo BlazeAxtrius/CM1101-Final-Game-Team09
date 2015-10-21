@@ -51,7 +51,7 @@ def print_room_items(room):
     # check that the list of items is not empty
     if (room["items"] != ([])) and ((item_torch in player.inventory) or (rooms["Entrance"]["first_visit"] == True)):
         # prints the list of items
-        print("There is " + list_of_items(room["items"]) + " here.\n")
+        print("There is a " + list_of_items(room["items"]) + " here.\n")
     elif item_torch in room["items"]:
         print("There is " + item_torch["name"] + " here.\n")
     else:
@@ -240,16 +240,16 @@ def print_menu(exits, room_items, inv_items):
             print_exit(direction, exit_leads_to(exits, direction))
             # If there is a locked door and the player carries the right key
             if exit_locked(direction) and carrying_right_key(direction, inv_items) and not wooden_plank_required(direction) and not clue_required(direction):
-                print ("UNLOCK " + direction.upper() + " to unlock the " + direction + " door.")
+                print("UNLOCK " + direction.upper() + " to unlock the " + direction + " door.")
             elif exit_locked(direction) and carrying_right_key(direction, inv_items) and wooden_plank_required(direction):
-                print ("USE PLANK " + direction.upper() + " to cover the gap in the floor to your " + direction + ".")
+                print("USE PLANK " + direction.upper() + " to cover the gap in the floor to your " + direction + ".")
             elif exit_locked(direction) and carrying_right_key(direction, inv_items) and clue_required(direction):
-                print ("USE CLUE " + direction.upper() + " to work out how to get into the secret room to the " + direction + ".")
+                print("USE CLUE " + direction.upper() + " to work out how to get into the secret room to the " + direction + ".")
     if (item_torch in inv_items) or (rooms["Entrance"]["first_visit"] == True) :
         # For all possible item you can pick up
         for take_item in room_items:
             print("TAKE " + take_item["id"].upper() + " to take a " + take_item["name"] + ".")
-    if (item_lamp in room_items) and not (item_torch in inv_items) :
+    if (item_lamp in room_items) and not (item_torch in inv_items):
         print("TAKE " + item_lamp["id"].upper() + " to take a " + item_lamp["name"] + ".")
     if item_torch in room_items:
         print("TAKE " + item_torch["id"].upper() + " to take a " + item_torch["name"] + ".")

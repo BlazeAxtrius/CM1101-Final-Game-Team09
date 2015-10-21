@@ -9,61 +9,67 @@ will benefit the player. They will increase the players stats and he will have a
 enemy1 = {
     "name": "Haunted Ghost",
     "style": "ghostly",
-    "health": 400,
+    "health": 200,
     "armor": 0,
     "isAlive": True,
     "inventory": [item_potion_health],
     "damage": [30, 60],
+    "chance": [0, 15]
 }
 
 enemy2 = {
     "name": "Small Ogre",
     "style": "heavy",
-    "health": 600,
+    "health": 300,
     "armor": 20,
     "isAlive": True,
     "inventory": [item_potion_health],
     "damage": [70, 110],
+    "chance": [0, 15]
 }
 
 enemy3 = {
     "name": "Angry Ogre",
     "style": "really heavy",
-    "health": 800,
+    "health": 350,
     "armor": 70,
     "isAlive": True,
     "inventory": [item_potion_health],
     "damage": [120, 150],
+    "chance": [0, 15]
 }
 
 enemy4 = {
     "name": "Evil Witch",
     "style": "magic",
-    "health": 1100,
+    "health": 500,
     "armor": 30,
     "isAlive": True,
     "inventory": [item_potion_health],
     "damage": [130, 180],
+    "chance": [0, 15]
 }
 
 enemy5 = {
     "name": "Devils servant",
     "style": "semi-demonic",
-    "health": 1400,
+    "health": 600,
     "armor": 60,
     "isAlive": True,
     "inventory": [item_potion_health],
     "damage": [200, 240],
+    "chance": [0, 15]
 }
 
 enemy6 = {
     "name": "The Devil",
     "style": "completely demonic",
-    "health": 1800,
+    "health": 750,
     "armor": 100,
     "isAlive": True,
     "inventory": [item_potion_health],
     "damage": [250, 300],
+    "chance": [0, 15]
 }
 
 all_enemies = {

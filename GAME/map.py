@@ -164,7 +164,7 @@ continues to the west.""",
               "east": "Ground floor office", 
               "west": "Ground floor west lounge"},
 
-    "items": [item_copper_key],
+    "items": [item_metal_key],
 
     "enemy": []
 }    
