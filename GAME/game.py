@@ -245,6 +245,10 @@ def print_menu(exits, room_items, inv_items):
                 print("USE PLANK " + direction.upper() + " to cover the gap in the floor to your " + direction + ".")
             elif exit_locked(direction) and carrying_right_key(direction, inv_items) and clue_required(direction):
                 print("USE CLUE " + direction.upper() + " to work out how to get into the secret room to the " + direction + ".")
+    if (item_lamp in inv_items) or (item_torch in inv_items):    
+        if player.current_room["object_in_room"]:
+            for direction_of_object in player.current_room["search_object"]:
+                print("SEARCH " + direction_of_object.upper() + " to search the "+ player.current_room["search_object"][direction_of_object]["name"] + " in the " + direction_of_object + " of the room.")
     if (item_torch in inv_items) or (rooms["Entrance"]["first_visit"] == True) :
         # For all possible item you can pick up
         for take_item in room_items:
@@ -446,7 +450,52 @@ def execute_unlock(direction, inv_items, special):
             print("This door wasn't locked anyway")
     else:
         print("You cannot unlock that")
-
+        
+def view_searchable_object(direction, inv_items):
+    try:
+        object_in_room = player.current_room["search_object"][direction]
+        if len(object_in_room["items"]) != 0:
+            print("The " + object_in_room["name"] + " contains:")
+            while True:   
+                print()
+                for search in object_in_room["items"]:
+                    print("TAKE " + search["id"].upper() + " to take " + search["name"])
+                    print("LEAVE to leave the item")
+                print()
+                print("What do you want to do")
+                decision = normalise_input(input("> "))
+                for index in range(0,(len(object_in_room["items"]))):
+                    if (decision[0] == "take") and (decision[1] in object_in_room["items"][index]["id"]):
+                        if (current_weight(inv_items) + all_items[decision[1]]["mass"]) > 12.0:
+                            print("You are carrying too much") 
+                            return
+                        else:
+                            object_in_room["items"].remove(all_items[decision[1]])
+                            player.inventory.append(all_items[decision[1]]) 
+                            return
+                    elif decision[0] == "leave":
+                        return
+                    else:
+                        print("That does not make sense.")
+        else:
+            print("There is nothing in the " + object_in_room["name"] + ". " )
+    except:
+        print("That does not make sense.")
+    
+    
+def execute_search(direction, inv_items):
+     """This function allows players to search cabinets, providing that the room they are in
+     has a cabinet available to search."""
+     if len(player.current_room["search_object"]) != 0:
+         view_searchable_object(direction, inv_items)    
+     else:
+         print("There is nothing to search.")
+    
+    
+#     if player.current_room["has_cabinet"] == False:
+#         print("There is no cabinet in here for you to search.") 
+#     elif player.current_room["has_cabinet"] == True:
+#         print("Hello")
 
 def execute_command(command):
     """This function takes a command (a list of words as returned by
@@ -484,6 +533,12 @@ def execute_command(command):
                     execute_unlock(command[2], player.inventory, command[1])
             else:
                 print("Unlock what?")
+                
+    elif command[0] == "search":
+        if len(command) > 1:
+           execute_search(command[1], player.inventory)
+        else:
+            print("Search what?")
 
     elif command[0] == "view":
         print_inventory()

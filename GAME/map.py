@@ -1,6 +1,16 @@
 from enemies import *
 from items import *
 
+cabinet = {
+    "name": "Cabinet",
+
+    "items" : [item_biscuits]
+
+}
+
+searchable_objects = {
+    "Cabinet": cabinet
+}
 
 room_entrance = { 
     "name": "Entrance",
@@ -14,8 +24,10 @@ to your right. Upon listening, the clock seems to be broken.""",
               "south": "Ground floor west lounge", 
               "east": "Ground floor west hallway", 
               "west": "Porch"},
-
-    "has_plank": "False",
+              
+    "object_in_room": False,
+         
+    "search_object": {},
     
     "items": [],
     
@@ -36,6 +48,10 @@ west.""",
     "exits": {"west": "Ground floor central hallway", 
               "up": "First floor south hallway", 
               "down": "Basement hallway"}, 
+              
+    "object_in_room": False,
+              
+    "search_object": {},
 
     "items": [],
 
@@ -56,6 +72,10 @@ not to find out. """,
     "exits": {"west": "Entrance", 
               "north": "Ground floor east dining room", 
               "south": "Ground floor east lounge"},
+               
+    "object_in_room": False,
+             
+    "search_object": {},
 
     "items": [],
 
@@ -74,6 +94,10 @@ There are doors to the north and south and the stairway to the east.""",
     "exits": {"north": "Ground floor kitchen", 
               "south": "Ground floor office", 
               "east": "Ground floor east hallway"},
+              
+    "object_in_room": False,
+              
+    "search_object": {},
 
     "items": [],
 
@@ -92,6 +116,10 @@ the east.""",
 
     "exits": {"south": "Entrance", 
               "east": "Ground floor east dining room"},
+              
+    "object_in_room": False,
+              
+    "search_object": {},
 
     "items": [item_metal_key],
 
@@ -110,6 +138,10 @@ west. There is also a door to the south. """,
     "exits": {"west": "Ground floor west dining room", 
               "east": "Ground floor kitchen", 
               "south": "Ground floor west hallway"},
+               
+    "object_in_room": False,
+             
+    "search_object": {},
 
     "items": [],
 
@@ -128,6 +160,10 @@ chopping food. There is a door to the west and to the south.""",
 
     "exits": {"south": "Ground floor central hallway", 
               "west": "Ground floor east dining room"},
+               
+    "object_in_room": False,
+             
+    "search_object": {},
 
     "items": [item_knife, item_potion_health],
 
@@ -145,6 +181,10 @@ look as though they are expensive. """,
 
     "exits": {"north": "Ground floor central hallway",
               "west": "Ground floor east lounge"},
+               
+    "object_in_room": False,
+            
+    "search_object": {},
 
     "items": [],
 
@@ -163,6 +203,10 @@ continues to the west.""",
     "exits": {"north": "Ground floor west hallway", 
               "east": "Ground floor office", 
               "west": "Ground floor west lounge"},
+                
+    "object_in_room": False,
+            
+    "search_object": {},
 
     "items": [item_metal_key],
 
@@ -180,6 +224,10 @@ open. There is a door to the north and the room continues to the east.""",
 
     "exits": {"north": "Entrance", 
               "east": "Ground floor east lounge"}, 
+               
+    "object_in_room": True,
+             
+    "search_object": {"south": cabinet},
 
     "items": [],
 
@@ -202,6 +250,10 @@ cupboard in the corner when noises that emanate from it startle you.""",
     "exits": {"north": "Pantry", 
               "south": "Wine Cellar", 
               "east": "Basement hallway"},
+               
+    "object_in_room": False,
+             
+    "search_object": {},
 
     "items": [item_lamp],
 
@@ -222,6 +274,10 @@ entered the room with.""",
 
     "exits": {"south": "Basement storage", 
               "east": "Torture room"},
+                
+    "object_in_room": False,
+            
+    "search_object": {},
 
     "items": [item_torch],
 
@@ -240,6 +296,10 @@ you have to. A door leads to the south and back from where you came.""",
 
     "exits": {"west": "Pantry", 
               "south": "Basement hallway"},
+                
+    "object_in_room": False,
+            
+    "search_object": {},
 
     "items": [],
 
@@ -258,6 +318,10 @@ to the north and south and a staircase to the east.""",
               "south": "Workshop", 
               "west": "Basement storage", 
               "up": "Ground floor east hallway"},
+                 
+    "object_in_room": False,
+           
+    "search_object": {},
 
     "items": [],
 
@@ -284,6 +348,10 @@ AND PURPOSES!!!!!" You decide its best to leave him for now, there seems to
 be little you can do to comfort him. """,
 
     "exits": {"west": "Workshop"},
+                 
+    "object_in_room": False,
+           
+    "search_object": {},
 
     "items": [item_plank],
 
@@ -304,6 +372,10 @@ to the north of the room and another from where you came. """,
     "exits": {"west": "Wine Cellar", 
               "east": "Secret room", 
               "north": "Basement hallway"},
+                
+    "object_in_room": False,
+            
+    "search_object": {},
 
     "items": [],
 
@@ -320,6 +392,10 @@ can also see a door to the east and another from where you came.""",
 
     "exits": {"north": "Basement storage", 
               "east": "Workshop"},
+                
+    "object_in_room": False,
+            
+    "search_object": {},
 
     "items": [],
 
@@ -336,6 +412,10 @@ the south lead back downstairs. It is difficult to see much else. """,
     "exits": {"north": "First floor east hallway", 
               "west": "First floor master bedroom", 
               "down": "Ground floor east hallway"},
+                
+    "object_in_room": False,
+            
+    "search_object": {},
 
     "items": [],
 
@@ -352,6 +432,10 @@ lamp on top of it.""",
 
     "exits": {"south": "First floor south hallway", 
               "west": "First floor north hallway"},
+                 
+    "object_in_room": False,
+           
+    "search_object": {},
 
     "items": [],
 
@@ -368,6 +452,10 @@ south. The corridor continues to the west and to the east.""",
     "exits": {"west": "First floor west hallway", 
               "south": "First floor master bedroom", 
               "east": "First floor east hallway"},
+                  
+    "object_in_room": False,
+          
+    "search_object": {},
 
     "items": [],
 
@@ -383,6 +471,10 @@ south and the corridor goes back to the east.""",
 
     "exits": {"south": "First floor child's bedroom", 
               "east": "First floor north hallway"},
+                   
+    "object_in_room": False,
+         
+    "search_object": {},
 
     "items": [],
 
@@ -405,6 +497,10 @@ east and south""",
     "exits": {"north": "First floor west hallway", 
               "east": "First floor master bedroom", 
               "south": "First floor store room"},
+                 
+    "object_in_room": False,
+           
+    "search_object": {},
 
     "items": [],
 
@@ -424,6 +520,10 @@ maybe even strong enough to hold a significant weight. """,
 
     "exits": {"north": "First floor child's bedroom", 
               "east": "First floor bathroom"},
+                 
+    "object_in_room": False,
+           
+    "search_object": {},
 
     "items": [item_clue],
 
@@ -441,6 +541,10 @@ cabinet. There are doors leading to the north and to the west.""",
 
     "exits": {"north": "First floor master bedroom", 
               "west": "First floor store room"},
+                 
+    "object_in_room": False,
+           
+    "search_object": {},
 
     "items": [],
 
@@ -465,6 +569,10 @@ leading in each direction, north, south, east and west. """,
               "south": "First floor bathroom", 
               "west": "First floor child's bedroom", 
               "east": "First floor south hallway"},
+              
+    "object_in_room": False,
+              
+    "search_object": {},
 
     "items": [],
 
@@ -483,6 +591,10 @@ of a wood that has seen better days but the handle gleams like the day it was
 installed. """,
     
     "exits": {"east": "Entrance"},
+                
+    "object_in_room": False,
+            
+    "search_object": {},
 
     "items": [],
 
@@ -564,7 +676,7 @@ locked_exit_secret = {
     "locked": True
 }
 
-loceked_exit_O_L = {
+locked_exit_O_L = {
     "rooms": ["Ground floor office", "Ground floor east lounge"],
     
     "key_required": "rkey",
@@ -572,7 +684,7 @@ loceked_exit_O_L = {
     "locked": True
 } 
 
-loceked_exit_GEH_FSH = {
+locked_exit_GEH_FSH = {
     "rooms": ["Ground floor east hallway", "First floor south hallway"],
     
     "key_required": "mkey",
@@ -580,7 +692,7 @@ loceked_exit_GEH_FSH = {
     "locked": True
 }
 
-loceked_exit_FSH_FMB = {
+locked_exit_FSH_FMB = {
     "rooms": ["First floor master bedroom", "First floor south hallway"],
     
     "key_required": "bkey",
@@ -588,7 +700,7 @@ loceked_exit_FSH_FMB = {
     "locked": True
 }
 
-loceked_exit_FCB_FS = {
+locked_exit_FCB_FS = {
     "rooms": ["First floor child's bedroom", "First floor store room"],
     
     "key_required": "ckey",
@@ -596,7 +708,7 @@ loceked_exit_FCB_FS = {
     "locked": True
 }
 
-loceked_exit_FB_FS = {
+locked_exit_FB_FS = {
     "rooms": ["First floor bathroom", "First floor store room"],
     
     "key_required": "ckey",
@@ -604,7 +716,7 @@ loceked_exit_FB_FS = {
     "locked": True
 }
 
-loceked_exit_plank = {
+locked_exit_plank = {
     "rooms": ["Ground floor west hallway", "Entrance"],
     
     "key_required": "plank",
@@ -619,10 +731,13 @@ locked_room_exits = {
     "Storage_Wine_cellar": locked_exit_S_W,
     "Storage_Hallway": locked_exit_S_H,
     "Secret_Room": locked_exit_secret,
-    "Office_Lounge": loceked_exit_O_L,
-    "Ground_Floor_First_Floor": loceked_exit_GEH_FSH,
-    "South_Hallway_Master_Bedroom": loceked_exit_FSH_FMB,
-    "Child_Room_Store": loceked_exit_FCB_FS,
-    "Bathroom_Store": loceked_exit_FB_FS,
-    "Hole_In_Floor": loceked_exit_plank
+    "Office_Lounge": locked_exit_O_L,
+    "Ground_Floor_First_Floor": locked_exit_GEH_FSH,
+    "South_Hallway_Master_Bedroom": locked_exit_FSH_FMB,
+    "Child_Room_Store": locked_exit_FCB_FS,
+    "Bathroom_Store": locked_exit_FB_FS,
+    "Hole_In_Floor": locked_exit_plank
 }
+
+
+
