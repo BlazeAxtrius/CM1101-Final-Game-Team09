@@ -249,7 +249,7 @@ def print_menu(exits, room_items, inv_items):
     if (item_lamp in inv_items) or (item_torch in inv_items):    
         if player.current_room["object_in_room"]:
             for direction_of_object in player.current_room["search_object"]:
-                print("SEARCH " + direction_of_object.upper() + " to search the "+ player.current_room["search_object"][direction_of_object]["name"] + " in the " + direction_of_object + " of the room.")
+                print("SEARCH " + direction_of_object.upper() + " to search the "+ player.current_room["search_object"][direction_of_object] + " in the " + direction_of_object + " of the room.")
     if (item_torch in inv_items) or (rooms["Entrance"]["first_visit"] == True) :
         # For all possible item you can pick up
         for take_item in room_items:
@@ -461,6 +461,7 @@ def execute_unlock(direction, inv_items, special):
 def view_searchable_object(direction, inv_items):
     try:
         object_in_room = player.current_room["search_object"][direction]
+        object_in_room = searchable_objects[object_in_room]
         if len(object_in_room["items"]) != 0:
             print("The " + object_in_room["name"] + " contains:")
             while True:   
@@ -488,6 +489,7 @@ def view_searchable_object(direction, inv_items):
             print("There is nothing in the " + object_in_room["name"] + ". " )
     except:
         print("That does not make sense.")
+
     
     
 def execute_search(direction, inv_items):
@@ -555,6 +557,7 @@ def execute_command(command):
         
         else:
             print("This makes no sense.")
+            print("test")
     except:
         print("This makes no sense.")
 
@@ -627,8 +630,7 @@ as usual... Maybe someone twerking? The images flood your mind as you drift
 away once more.""")
     sleep(1)
     print("""\nYou look around, trying to work out where you are. A ruffled piece
-of paper sits a metre away in the dirt right next to a rusty old key. You walk
-over and pick up the paper and the key beside it.""")
+of paper sits a metre away. You walk over and pick up the paper.""")
     sleep(1)
     print("""\nYou unfold the piece of paper.""")
     print()

@@ -216,6 +216,20 @@ item_torch = {
     "isPotion": False,
 }
 
+item_wine = {
+    "id": "wine",
+    
+    "name": "wine bottle",
+    
+    "description": """It seems to be a very old red wine. The label reads 
+'Château Haut-Brion, Haut-Brion Rouge 1989'. Probably not wise to consume now.""",
+
+    "mass": 0.75,
+    
+    "isPotion": False,
+}
+
+
 item_potion_health = {
     "id": "health",
 
@@ -290,5 +304,6 @@ all_items = {
     "mana": item_potion_mana,
     "damage": item_potion_damage,
     "defense": item_potion_defense,
-    "clue": item_clue
+    "clue": item_clue,
+    "wine": item_wine
 }

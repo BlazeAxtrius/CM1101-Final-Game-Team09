@@ -32,7 +32,7 @@ civilian = {
     "armor": 60,
     "experience": 0,
     "isAlive": True,
-    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
 
     "damage": [50, 100]  # random.randrange[0, 50]
     }
@@ -46,7 +46,7 @@ warrior = {
     "armor": 100,
     "experience": 0,
     "isAlive": True,
-    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
     "damage": [75, 125]  # random.randrange[25, 100]
     }
 
@@ -59,7 +59,7 @@ mad_scientist = {
     "armor": 50,
     "experience": 0,
     "isAlive": True,
-    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
     "damage": [125, 200]  # random.randrange[0, 150]
     }
 
@@ -72,7 +72,7 @@ john_cena = {
     "armor": 30,
     "experience": 0,
     "isAlive": True,
-    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health, item_rusty_key, item_plank],
+    "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
     "damage": [150, 350]
     }
 
