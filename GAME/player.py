@@ -22,7 +22,7 @@ a = ""
 """Here are all the characters that the player can choose from. They have health, name, inventory, armor. We
 have planned for the future to make items that increase those stats. We will have different characters that use magic,
 or ranged attacks. Depending on the type of the character you will be able to wear or not wear certain gear.
-Currently mana and style are not used and they do not influence the game."""
+Currently mana and style are not used and they do not influence the game. We will add gear slots later on as well."""
 civilian = {
     "name": "Innocent Civilian",
     "style": "pathetic",
