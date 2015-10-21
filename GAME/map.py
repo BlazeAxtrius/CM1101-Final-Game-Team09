@@ -208,7 +208,7 @@ continues to the west.""",
             
     "search_object": {},
 
-    "items": [item_metal_key],
+    "items": [item_copper_key],
 
     "enemy": []
 }    
