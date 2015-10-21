@@ -193,10 +193,10 @@ def print_player(player):
 
 def print_enemy_stats(enemy_fight):
     """This prints the stats that the enemy has."""
-    print("Name: " + all_enemies[enemy_fight]["name"])
-    print("Style: " + all_enemies[enemy_fight]["style"])
-    print("Health: " + str(all_enemies[enemy_fight]["health"]))
-    print("Max damage: " + str(all_enemies[enemy_fight]["damage"][1]))
+    print("Name: " + enemy_fight["name"])
+    print("Style: " + enemy_fight["style"])
+    print("Health: " + str(enemy_fight["health"]))
+    print("Max damage: " + str(enemy_fight["damage"][1]))
 
 
 def compute_experience(damage_taken):
@@ -223,117 +223,96 @@ def attack_enemy(enemy_fight):
         damage_dealt_a = damage_dealt
     critchance = randrange(chance[0], chance[1])
     print("You attacked and dealt " + str(damage_dealt) + " damage your enemy")
-    if all_enemies[enemy_fight]["armor"] == 0:
+    if enemy_fight["armor"] == 0:
         if critchance == 1:
             new_damage_dealt = damage_dealt_a * 2
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         elif critchance == 6:
             new_damage_dealt = damage_dealt_a * 3
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         else:
             new_damage_dealt = damage_dealt_a
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
-    elif 1 <= all_enemies[enemy_fight]["armor"] <= 30:
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
+    elif 1 <= enemy_fight["armor"] <= 30:
         if critchance == 1:
             new_damage_dealt = damage_dealt_a * 2
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         elif critchance == 6:
             new_damage_dealt = damage_dealt_a * 3
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         else:
             new_damage_dealt = damage_dealt_a * float(0.25)
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
-    elif 31 <= all_enemies[enemy_fight]["armor"] <= 49:
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
+    elif 31 <= enemy_fight["armor"] <= 49:
         if critchance == 1:
             new_damage_dealt = damage_dealt_a * 2
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         elif critchance == 6:
             new_damage_dealt = damage_dealt_a * 3
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         else:
             new_damage_dealt = damage_dealt_a * float(0.35)
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
-    elif 50 <= all_enemies[enemy_fight]["armor"] <= 70:
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
+    elif 50 <= enemy_fight["armor"] <= 70:
         if critchance == 1:
             new_damage_dealt = damage_dealt_a * 2
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         elif critchance == 6:
             new_damage_dealt = damage_dealt_a * 3
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         else:
             new_damage_dealt = damage_dealt_a / 2
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
-    elif 71 >= all_enemies[enemy_fight]["armor"] <= 99:
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
+    elif 71 >= enemy_fight["armor"] <= 99:
         if critchance == 1:
             new_damage_dealt = damage_dealt_a * 2
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         elif critchance == 6:
             new_damage_dealt = damage_dealt_a * 3
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         else:
             new_damage_dealt = damage_dealt_a / float(2.75)
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
-    elif all_enemies[enemy_fight]["armor"] == 100:
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
+    elif enemy_fight["armor"] == 100:
         if critchance == 1:
             new_damage_dealt = damage_dealt_a * 2
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         elif critchance == 6:
             new_damage_dealt = damage_dealt_a * 3
             print("You made a critical hit.")
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
         else:
             new_damage_dealt = damage_dealt_a / float(3.50)
             print("Your new damage is " + str(new_damage_dealt))
-            # enemy1["health"] = enemy1["health"] - new_damage_dealt = new_damage_dealt + damage_dealt
-            all_enemies[enemy_fight]["health"] = all_enemies[enemy_fight]["health"] - new_damage_dealt
-    if all_enemies[enemy_fight]["health"] <= 0:
-        all_enemies[enemy_fight]["isAlive"] = False
-        all_enemies[enemy_fight]["health"] = 0
+            enemy_fight["health"] = enemy_fight["health"] - new_damage_dealt
     return enemy_fight
 
 
@@ -348,8 +327,8 @@ def take_damage(enemy_fight):
     global health
     global experience
     global isAlive
-    damage_taken = randrange(all_enemies[enemy_fight]["damage"][0], all_enemies[enemy_fight]["damage"][1])
-    critchance = randrange(all_enemies[enemy_fight]["chance"][0], all_enemies[enemy_fight]["chance"][1])
+    damage_taken = randrange(enemy_fight["damage"][0], enemy_fight["damage"][1])
+    critchance = randrange(enemy_fight["chance"][0], enemy_fight["chance"][1])
     print("The enemy attacked you with a damage of " + str(damage_taken))
     # if item_leather_armor in inventory:
     #     armor += 20
@@ -429,7 +408,7 @@ potions = {
 }
 
 
-def combat():
+def combat(enemy_fight):
     """This is the combat function. Here the player and the enemy meet and deal damage to each other.
     First we check if there is an enemy in the room and if the enemy is in the list of enemies.
     We print that the player met an enemy. We tell the player to type a command in order to deal damage to the enemy.
@@ -438,18 +417,14 @@ def combat():
     Also we will add a timer for more pressure on the player. This might make the player miss spell and therefore
     miss the attack."""
     combat = [0, 6]
-    for enemy in all_enemies:
-        if all_enemies[enemy]["name"] == current_room["enemy"][0]["name"]:
-            enemy_fight = enemy
-            break
-    print("You have come across a " + all_enemies[enemy_fight]["name"])
+    print("You have come across a " + enemy_fight["name"])
     print()
     print("Here are their stats: ")
     print_enemy_stats(enemy_fight)
     print()
     print("Fight the enemy with all your might.")
     print()
-    while all_enemies[enemy_fight]["isAlive"] and isAlive:
+    while enemy_fight["isAlive"] and isAlive:
         try:
             hit = randrange(combat[0], combat[1])
             if hit == 1:
@@ -552,17 +527,8 @@ def combat():
                     print()
                     print_player(choice)
                     print("────────────────────────────────────────────────────────────")
-                    if all_enemies[enemy_fight]["isAlive"] == False:
-                        print("You killed your enemy!")
-                        print("It dropped a Health potion")
-                        current_room["items"].append(all_enemies[enemy_fight]["inventory"][0])
-                        current_room["enemy"].remove(all_enemies[enemy_fight])
-                        print("────────────────────────────────────────────────────────────")
-                        print()
-                        print()
-                        break
-                    print("────────────────────────────────────────────────────────────")
-                    continue
+            if enemy_fight["health"] < 0:
+                enemy_fight["isAlive"] = False
         except:
             print("You missed!")
             print()
@@ -572,3 +538,8 @@ def combat():
             print()
             print_player(choice)
             print("────────────────────────────────────────────────────────────")
+    if not enemy_fight["isAlive"]:
+        for item in enemy_fight["inventory"]:
+            current_room["items"].append(item)
+            enemy_fight["inventory"].remove(item)
+            

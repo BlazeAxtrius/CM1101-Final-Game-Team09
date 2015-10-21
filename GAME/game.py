@@ -565,12 +565,11 @@ def menu(exits, room_items, inv_items):
     """
 
     for all_enemies in player.current_room["enemy"]:
-        if all_enemies["health"] == 0:
+        if not all_enemies["isAlive"]:
             print("You see your enemy's corpse laying limp on the ground")
             continue
-        if all_enemies in player.current_room["enemy"]:
-            print("You met an enemy.")
-            player.combat()
+        print("You met an enemy.")
+        player.combat(all_enemies)
 
     # Display menu
     print_menu(exits, room_items, inv_items)
