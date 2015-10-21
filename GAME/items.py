@@ -244,44 +244,44 @@ what drinking it would do.""",
     "isPotion": True
 }
 
-item_potion_mana = {
-    "id": "mana",
-
-    "name": "Mana Potion",
-
-    "description":
-    "This glass bottle buzzes almost as if with electricity, in fact you're sure it just sparked",
-
-    "mass": 2.0,
-
-    "isPotion": True
-}
-
-item_potion_damage = {
-    "id": "damage",
-
-    "name": "Damage Potion",
-
-    "description":
-    "The damage you deal is doubled while this potion is active.",
-
-    "mass": 2.0,
-
-    "isPotion": True
-}
-
-item_potion_defense = {
-    "id": "defense",
-
-    "name": "Defense Potion",
-
-    "description":
-    "The defense you have is twice as great while this potion is active.",
-
-    "mass": 2.0,
-
-    "isPotion": True
-}
+# item_potion_mana = {
+#     "id": "mana",
+#
+#     "name": "Mana Potion",
+#
+#     "description":
+#     "This glass bottle buzzes almost as if with electricity, in fact you're sure it just sparked",
+#
+#     "mass": 2.0,
+#
+#     "isPotion": True
+# }
+#
+# item_potion_damage = {
+#     "id": "damage",
+#
+#     "name": "Damage Potion",
+#
+#     "description":
+#     "The damage you deal is doubled while this potion is active.",
+#
+#     "mass": 2.0,
+#
+#     "isPotion": True
+# }
+#
+# item_potion_defense = {
+#     "id": "defense",
+#
+#     "name": "Defense Potion",
+#
+#     "description":
+#     "The defense you have is twice as great while this potion is active.",
+#
+#     "mass": 2.0,
+#
+#     "isPotion": True
+# }
 
 all_items = {
     "id": item_id,
@@ -301,9 +301,9 @@ all_items = {
     "bkey": item_brass_key,
     "ckey": item_copper_key,
     "health": item_potion_health,
-    "mana": item_potion_mana,
-    "damage": item_potion_damage,
-    "defense": item_potion_defense,
-    "clue": item_clue,
-    "wine": item_wine
+    "wine": item_wine,
+    # "mana": item_potion_mana,
+    # "damage": item_potion_damage,
+    # "defense": item_potion_defense,
+    "clue": item_clue
 }
