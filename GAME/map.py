@@ -353,7 +353,7 @@ be little you can do to comfort him. """,
            
     "search_object": {},
 
-    "items": [item_plank],
+    "items": [item_plank, item_potion_health],
 
     "enemy": []
 }    

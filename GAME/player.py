@@ -15,7 +15,7 @@ experience = 0
 isAlive = True
 inventory = []
 damage = [0, 0]
-chance = [0, 12]
+chance = [0, 7]
 current_room = rooms["Porch"]
 
 a = ""
@@ -27,7 +27,7 @@ Currently mana and style are not used and they do not influence the game. We wil
 civilian = {
     "name": "Innocent Civilian",
     "style": "pathetic",
-    "health": 1000,
+    "health": 1100,
     "mana": 0,
     "armor": 60,
     "experience": 0,
