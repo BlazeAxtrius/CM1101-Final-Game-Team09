@@ -123,7 +123,7 @@ the east.""",
 
     "items": [item_metal_key],
 
-    "enemy": []
+    "enemy": [enemy4]
 }    
 
 
