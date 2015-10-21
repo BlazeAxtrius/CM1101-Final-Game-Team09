@@ -273,12 +273,11 @@ def print_inventory():
         player_command = normalise_input(input("> "))
 
         if player_command[0] == "use":
+            item_exists = False
             for item in player.inventory:
-                item_exists = False
                 if player_command[1] == item["id"]:
                     use_item = player_command[1]
                     execute_use(use_item)
-                    item_exists = True
                 if not item_exists:
                     print("That makes no sense")
                     break
@@ -290,9 +289,9 @@ def print_inventory():
                 print(item["description"])
                 print()
             return
-        elif command[0] == "drop":
-            if len(command) > 1:
-                execute_drop(command[1])
+        elif player_command[0] == "drop":
+            if len(player_command) > 1:
+                execute_drop(player_command[1])
             else:
                 print("Drop what?")
         elif player_command[0] == "exit":
