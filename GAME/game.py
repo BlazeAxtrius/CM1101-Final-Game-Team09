@@ -253,16 +253,12 @@ def print_menu(exits, room_items, inv_items):
         print("TAKE " + item_lamp["id"].upper() + " to take a " + item_lamp["name"] + ".")
     if item_torch in room_items:
         print("TAKE " + item_torch["id"].upper() + " to take a " + item_torch["name"] + ".")
-    # For all possible items you can drop
-    for drop_item in inv_items:
-        print("DROP " + drop_item["id"].upper() + " to drop a " + drop_item["name"] + ".")
     print("VIEW inventory")
     print("What do you want to do?")
 
 
 def print_inventory():
-    # try:
-    if True:
+    try:
         print()
         print("You find on your person: \n")
         for item in player.inventory:
@@ -272,16 +268,19 @@ def print_inventory():
         print()
         print("USE <ITEM>")
         print("VIEW all item descriptions")
+        print("DROP <ITEM>")
         print("EXIT inventory")
         player_command = normalise_input(input("> "))
 
         if player_command[0] == "use":
-            # player_command = " ".join(player_command[1:])
+            item_exists = False
             for item in player.inventory:
                 if player_command[1] == item["id"]:
                     use_item = player_command[1]
                     execute_use(use_item)
-            return
+                if not item_exists:
+                    print("That makes no sense")
+                    print_inventory()
         elif player_command[0] == "view":
             print("Here is what you are carrying: ")
             for item in player.inventory:
@@ -289,14 +288,19 @@ def print_inventory():
                 print(item["description"])
                 print()
             return
+        elif player_command[0] == "drop":
+            if len(player_command) > 1:
+                execute_drop(player_command[1])
+            else:
+                print("Drop what?")
         elif player_command[0] == "exit":
             return
         else:
             print("That makes no sense")
             print_inventory()
-    # except:
-        #   print("That makes no sense")
-        #   print_inventory()
+    except:
+        print("That makes no sense")
+        print_inventory()
         
 
 def is_valid_exit(exits, chosen_exit):
