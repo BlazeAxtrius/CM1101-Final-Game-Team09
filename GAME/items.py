@@ -26,6 +26,33 @@ item_knife = {
     "isPotion": False,
 }
 
+item_wood_sword = {
+    "id": "wsword",
+
+    "name": "a wooden sword",
+
+    "description":
+    """Light and not very sharp. This weapon will
+     help you a bit.""",
+
+    "mass": 0.75,
+
+    "isPotion": False,
+}
+
+# item_leather_armor = {
+#     "id": "larmor",
+#
+#     "name": "leather armor",
+#
+#     "description":
+#     """Light but not very safe. Still protects you a little.""",
+#
+#     "mass": 0.75,
+#
+#     "isPotion": False,
+# }
+
 item_money = {
     "id": "money",
 
@@ -245,6 +272,8 @@ item_potion_defense = {
 all_items = {
     "id": item_id,
     "knife": item_knife,
+    "wsword": item_wood_sword,
+    # "larmor": item_leather_armor,
     "money": item_money,
     "biscuits": item_biscuits,
     "pen": item_pen,
