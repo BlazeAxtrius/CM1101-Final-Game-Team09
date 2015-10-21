@@ -4,7 +4,7 @@ from items import *
 cabinet = {
     "name": "Cabinet",
 
-    "items" : [item_biscuits]
+    "items": [item_biscuits]
 
 }
 
@@ -208,7 +208,7 @@ continues to the west.""",
             
     "search_object": {},
 
-    "items": [item_metal_key],
+    "items": [item_copper_key],
 
     "enemy": []
 }    
@@ -738,6 +738,3 @@ locked_room_exits = {
     "Bathroom_Store": locked_exit_FB_FS,
     "Hole_In_Floor": locked_exit_plank
 }
-
-
-
