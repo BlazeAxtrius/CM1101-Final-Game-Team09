@@ -395,7 +395,7 @@ def potion_damage():
 
 def potion_defense():
     armor *= 2
-    inventory.remove(items.item_potion_damage)
+    inventory.remove(items.item_potion_defense)
     print("You have increased your defense twofold temporarily")
     print()
 

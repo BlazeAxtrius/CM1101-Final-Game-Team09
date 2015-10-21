@@ -5,6 +5,7 @@ import player
 from items import *
 from parser_game import *
 from time import *
+import os
 
 """Pickle is going to create a file in your repo called 'shared.pkl'. This file contains the variables
 i need for the status window to work. It does not matter if you delete it or not, so if it causes any
@@ -546,6 +547,9 @@ def execute_command(command):
 
     elif command[0] == "view":
         print_inventory()
+        
+    elif command[0] == "quit":
+        os._exit(1)
         
     else:
         print("This makes no sense.")
