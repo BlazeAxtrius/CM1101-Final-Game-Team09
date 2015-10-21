@@ -17,7 +17,7 @@ max_health = {
     "Civillian": 1000,
     "Warrior": 1200,
     "Matt Morgan": 800,
-    "Kirill": 2000
+    "Kirill the God": 2000
     }
 
 #this will need to be sourced using the pickle library like before
@@ -63,16 +63,18 @@ def main(stdscr):
         # Adds spaces to the end of the string so that the containing box remains the same size
         health_bar = health_bar + (25-len(health_bar))*" "
 
+        stdscr.addstr(1, 0, " Player:  " + input_character + " "*100, curses.color_pair(1))
+
         # Prints out the healthbar and player 
-        stdscr.addstr(1, 1, " Health: " + "[" + health_bar + "]" + " " + str(health) + "HP" + " ", curses.color_pair(1))
+        stdscr.addstr(2, 0, " Health: " + "[" + health_bar + "]" + " " + str(health) + "HP" + " "*50, curses.color_pair(1))
 
         # Prints the percentage health of the player
-        stdscr.addstr(2, 1, "                   ~~ " + str(int(round(health/(max_health[input_character])*100, 0))) + "%" + " ~~               ", curses.color_pair(1))
+        stdscr.addstr(3, 0, "          " + str(int(round(health/(max_health[input_character])*100, 0))) + "%" + " ~~               " + " "*50, curses.color_pair(1))
         
         # Testing adding more lines to the curses output
-        stdscr.addstr(3, 1, " Inventory: " + "torch, laptop, notepad, plank. ", curses.color_pair(2))
+        stdscr.addstr(4, 0, " Inventory: " + "torch, laptop, notepad, plank. " + " "*50, curses.color_pair(2))
 
-        stdscr.addstr(4, 1, str(x))
+        stdscr.addstr(5, 0, str(x) + " "*50)
         #del(l[0:2])
         #l.append("  ")
         #health = "".join(l)
