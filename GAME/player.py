@@ -381,34 +381,34 @@ def potion_health():
     print()
 
 
-def potion_mana():
-    global mana
-    mana += 100
-    inventory.remove(items.item_potion_mana)
-    print("You have restored 100 mana")
-    print()
-
-
-def potion_damage():
-    global damage
-    damage *= 2
-    inventory.remove(items.item_potion_damage)
-    print("You have increased your damage twofold temporarily")
-    print()
-
-
-def potion_defense():
-    global armor
-    armor += 10
-    inventory.remove(items.item_potion_defense)
-    print("You have increased your defense twofold temporarily")
-    print()
+# def potion_mana():
+#     global mana
+#     mana += 100
+#     inventory.remove(items.item_potion_mana)
+#     print("You have restored 100 mana")
+#     print()
+#
+#
+# def potion_damage():
+#     global damage
+#     damage *= 2
+#     inventory.remove(items.item_potion_damage)
+#     print("You have increased your damage twofold temporarily")
+#     print()
+#
+#
+# def potion_defense():
+#     global armor
+#     armor += 10
+#     inventory.remove(items.item_potion_defense)
+#     print("You have increased your defense twofold temporarily")
+#     print()
 
 potions = {
     "health": potion_health,
-    "mana": potion_mana,
-    "damage": potion_damage,
-    "defense": potion_defense,
+    # "mana": potion_mana,
+    # "damage": potion_damage,
+    # "defense": potion_defense,
 }
 
 
