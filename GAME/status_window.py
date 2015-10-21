@@ -16,8 +16,8 @@ op.close()
 max_health = {
     "Civillian": 1000,
     "Warrior": 1200,
-    "Matt Morgan": 800,
-    "Kirill the God": 2000
+    "Mad Scientist": 800,
+    "John Cena": 2000
     }
 
 #this will need to be sourced using the pickle library like before
