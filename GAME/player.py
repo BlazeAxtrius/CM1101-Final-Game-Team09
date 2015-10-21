@@ -223,7 +223,6 @@ def attack_enemy(enemy_fight):
     else:
         damage_dealt_a = damage_dealt
     critchance = randrange(chance[0], chance[1])
-<<<<<<< HEAD
     print("You attacked and dealt " + str(damage_dealt) + " damage your enemy")
     if enemy_fight["armor"] == 0:
         if critchance == 1:
