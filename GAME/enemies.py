@@ -12,8 +12,8 @@ enemy1 = {
     "health": 400,
     "armor": 0,
     "isAlive": True,
-    "inventory": [item_potion_health],
-    "damage": [30, 60],
+    "inventory": [item_potion_health, item_wood_sword, item_potion_defense],
+    "damage": [60, 61],
     "chance": [0, 15]
 }
 
@@ -34,7 +34,7 @@ enemy3 = {
     "health": 650,
     "armor": 70,
     "isAlive": True,
-    "inventory": [item_potion_health],
+    "inventory": [item_potion_health, item_potion_defense],
     "damage": [120, 150],
     "chance": [0, 15]
 }
@@ -45,7 +45,7 @@ enemy4 = {
     "health": 800,
     "armor": 30,
     "isAlive": True,
-    "inventory": [item_potion_health],
+    "inventory": [item_potion_health, item_potion_damage],
     "damage": [130, 180],
     "chance": [0, 15]
 }
@@ -56,7 +56,7 @@ enemy5 = {
     "health": 900,
     "armor": 60,
     "isAlive": True,
-    "inventory": [item_potion_health],
+    "inventory": [item_potion_health, item_potion_damage],
     "damage": [200, 240],
     "chance": [0, 15]
 }
