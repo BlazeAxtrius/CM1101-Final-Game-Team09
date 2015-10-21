@@ -504,7 +504,7 @@ vase on top of it.""",
                  
     "object_in_room": True,
            
-    "search_object": {"east", "Vase"},
+    "search_object": {"east": "Vase"},
 
     "items": [],
 
