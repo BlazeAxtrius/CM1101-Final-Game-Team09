@@ -5,7 +5,6 @@ from parser_game import *
 from map import *
 from enemies import *
 import os
-from Potions_items import *
 
 name = ""
 style = ""
