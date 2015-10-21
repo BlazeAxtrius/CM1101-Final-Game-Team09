@@ -7,18 +7,20 @@ import pickle
 op = open("shared.pkl", "rb")
 import_health = pickle.load(op)
 health = int(import_health["health"])
+input_character = str(import_health["name"])
+inventory = import_health["inventory"]
+
 # closes the file again
 op.close()
 
 max_health = {
-    "civillian": 1000,
-    "warrior": 1200,
-    "matt_morgan": 800,
-    "kirill": 2000
+    "Civillian": 1000,
+    "Warrior": 1200,
+    "Matt Morgan": 800,
+    "Kirill": 2000
     }
 
 #this will need to be sourced using the pickle library like before
-input_character = "warrior"
 
 
 

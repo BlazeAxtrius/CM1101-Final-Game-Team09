@@ -253,6 +253,9 @@ def print_menu(exits, room_items, inv_items):
         print("TAKE " + item_lamp["id"].upper() + " to take a " + item_lamp["name"] + ".")
     if item_torch in room_items:
         print("TAKE " + item_torch["id"].upper() + " to take a " + item_torch["name"] + ".")
+    # For all possible items you can drop
+    for drop_item in inv_items:
+        print("DROP " + drop_item["id"].upper() + " to drop a " + drop_item["name"] + ".")
     print("VIEW inventory")
     print("What do you want to do?")
 
@@ -267,7 +270,6 @@ def print_inventory():
         print("What would you like to do?")
         print()
         print("USE <ITEM>")
-        print("DROP <ITEM>")
         print("VIEW all item descriptions")
         print("EXIT inventory")
         player_command = normalise_input(input("> "))
@@ -280,8 +282,7 @@ def print_inventory():
                     execute_use(use_item)
                 if not item_exists:
                     print("That makes no sense")
-                    break
-                print_inventory()
+                    print_inventory()
         elif player_command[0] == "view":
             print("Here is what you are carrying: ")
             for item in player.inventory:
@@ -343,9 +344,9 @@ def execute_use(item):
                     print()
                     if confirmation[0] == "yes":
                         player.potion_health()
-                        
+                        break
                     elif confirmation[0] == "no":
-                        return
+                        break
                     else:
                         print("Enter YES or NO to confirm whether to use the potion")
             else:
@@ -475,6 +476,12 @@ def execute_command(command):
         else:
             print("Take what?")
 
+    elif command[0] == "drop":
+        if len(command) > 1:
+            execute_drop(command[1])
+        else:
+            print("Drop what?")
+            
     elif (command[0] == "unlock") or ((command[0] == "use") and ((command[1] == "plank") or (command[1] == "clue"))):
             if len(command) > 1:
                 if command[0] == "unlock":
@@ -574,7 +581,7 @@ the house in front of you.""")
 
 
 def status_update():
-    shared = {"health": player.health}
+    shared = {"health": player.health, "name": player.name, "inventory": [player.inventory]}
     fp = open("shared.pkl", "wb")
     pickle.dump(shared, fp)
     fp.close()
