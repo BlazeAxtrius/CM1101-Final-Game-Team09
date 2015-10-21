@@ -89,7 +89,7 @@ def main(stdscr):
         stdscr.addstr(1, 0, " Player:  " + input_character + "         Style:  " + style + " "*100, curses.color_pair(1))
 
         # Prints out the healthbar and player 
-        stdscr.addstr(2, 0, " Health: " + "[" + health_bar + "]" + " " + str(health) + "HP" + " "*50, curses.color_pair(1))
+        stdscr.addstr(2, 0, " Health: " + "[" + health_bar + "]" + " " + str(health) + "HP" + " "*100, curses.color_pair(1))
 
         # Prints the percentage health of the player
         stdscr.addstr(3, 0, " ------> " + str(int(round(health/(max_health[input_character])*100, 0))) + "%" + " "*100, curses.color_pair(1))
@@ -104,7 +104,7 @@ def main(stdscr):
         stdscr.addstr(6, 0, " XP: " + str(xp) + " "*100, curses.color_pair(3))
         
         # Prints the player's current inventory
-        stdscr.addstr(7, 0, " Inventory: " + items_joined + " "*50, curses.color_pair(2))
+        stdscr.addstr(7, 0, " Inventory: " + items_joined + " "*100, curses.color_pair(2))
 
         # Prints the player's current room
         stdscr.addstr(8, 0, " Current Room: " + current_room["name"] + " "*100, curses.color_pair(2))
