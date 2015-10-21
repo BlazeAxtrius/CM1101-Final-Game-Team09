@@ -33,7 +33,7 @@ to your right. Upon listening, the clock seems to be broken.""",
     
     "first_visit": True,
 
-    "enemy": []
+    "enemy": [enemy1]
 }
 
 

@@ -347,10 +347,10 @@ def execute_use(item):
                     print()
                     if confirmation[0] == "yes":
                         player.potion_health()
-                        break
+                        return
                     elif confirmation[0] == "no":
                         print("You decided to drink it later.")
-                        break
+                        return
                     else:
                         print("Enter YES or NO to confirm whether to use the potion")
             else:

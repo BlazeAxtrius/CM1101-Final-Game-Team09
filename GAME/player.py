@@ -535,6 +535,9 @@ def combat(enemy_fight):
                     print("────────────────────────────────────────────────────────────")
             if enemy_fight["health"] < 0:
                 enemy_fight["isAlive"] = False
+                for item in enemy_fight["inventory"]:
+                    current_room["items"].append(item)
+                    enemy_fight["inventory"].remove(item)
         except:
             print("You missed!")
             print()
@@ -544,8 +547,8 @@ def combat(enemy_fight):
             print()
             print_player(choice)
             print("────────────────────────────────────────────────────────────")
-    if not enemy_fight["isAlive"]:
-        for item in enemy_fight["inventory"]:
-            current_room["items"].append(item)
-            enemy_fight["inventory"].remove(item)
+        if not enemy_fight["isAlive"]:
+            for item in enemy_fight["inventory"]:
+                current_room["items"].append(item)
+                enemy_fight["inventory"].remove(item)
             
