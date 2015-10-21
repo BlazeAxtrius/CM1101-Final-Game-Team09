@@ -5,6 +5,7 @@ from parser_game import *
 from map import *
 from enemies import *
 import os
+from Potions_items import *
 
 name = ""
 style = ""
@@ -97,12 +98,12 @@ next to you. One looks familiar... Yes... it's yours""")
     print("│                        │")
     for name in characters:
         print("│ " + str(characters[name]["name"]), end = '')
-        for space in range(1,26 -(len(str(characters[name]["name"])) + 2)):
+        for space in range(1, 26 - (len(str(characters[name]["name"])) + 2)):
             print(" ", end='')
         print("│")
         print("│                        │")
     print("│                        │")
-    print("└────────────────────────┘")        
+    print("└────────────────────────┘")
     print("")
     print("Enter the character you thought of straight away.")
 
@@ -173,24 +174,21 @@ def choose_character(choice):
                 break
     return choice
 
+
 def print_game_over():
     print("  _____                 ____                 ______")
     print(" / ___/__ ___ _  ___   / __ \_  _____ ____  / / / /")
     print("/ (_ / _ `/  ' \/ -_) / /_/ / |/ / -_) __/ /_/_/_/")
     print("\___/\_,_/_/_/_/\__/  \____/|___/\__/_/   (_|_|_) ")
     print()
-                                                   
+
 
 def print_player(player):
     """This print the stats that the player has."""
-#    for key in player:
- #       if player:
-  #          print(key + ": " + str(player[key]))
     global health
     global experience
     print("Health: " + str(health))
     print("Experience: " + str(experience))
-
 
 
 def print_enemy_stats(enemy_fight):
@@ -199,11 +197,10 @@ def print_enemy_stats(enemy_fight):
     print("Style: " + all_enemies[enemy_fight]["style"])
     print("Health: " + str(all_enemies[enemy_fight]["health"]))
     print("Max damage: " + str(all_enemies[enemy_fight]["damage"][1]))
-    
 
 
 def compute_experience(damage_taken):
-    """This function gives the play experience depending on the damage that the player took from the enemy."""
+    """This function gives the player experience depending on the damage that the player took from the enemy."""
     experience_gain = randrange(0, damage_taken*2 + 1)
     return experience_gain
 
@@ -255,6 +252,7 @@ def attack_enemy(enemy_fight):
 
 # Taking damage from enemy
 
+
 def take_damage(enemy_fight):
     """In this function we have the damage that the player receives from the enemies.
     We have armor reduction that is also part of this function.
@@ -285,11 +283,12 @@ def take_damage(enemy_fight):
         print('You are DEAD!')
         print_game_over()
         os._exit(1)
-    return 
+    return
+
 
 def check_potions():
-    """This function checks if the player has a potion in his inventory. We use 
-    this for when the player takes a potion. We want to print what the potion does 
+    """This function checks if the player has a potion in his inventory. We use
+    this for when the player takes a potion. We want to print what the potion does
     so the person playing knows what he just took."""
     if HP_potion in inventory:
         print(HP_potion["description"])
@@ -301,18 +300,18 @@ def check_potions():
         print(Defense_potion["description"])
 
 
-def check_potions_rev():
-    if Reverse_potion in inventory:
-        print("You drank a Reverse_potion")
-        print(Reverse_potion["description"])
-        inventory.remove(Reverse_potion)
-        # while True:
-        #     b = 0
-        #     input = reversed
-        #     if b <= 5:
-        #         b += 1
-        #         if b >= 5:
-        #             input = reversed
+# def check_potions_rev():
+#     if Reverse_potion in inventory:
+#         print("You drank a Reverse_potion")
+#         print(Reverse_potion["description"])
+#         inventory.remove(Reverse_potion)
+#         while True:
+#             b = 0
+#             input = reversed
+#             if b <= 5:
+#                 b += 1
+#                 if b >= 5:
+#                     input = reversed
 
 
 def potion_health():
@@ -322,17 +321,20 @@ def potion_health():
     print("You have restored 100 health")
     print()
 
+
 def potion_mana():
     mana += 100
     inventory.remove(items.item_potion_mana)
     print("You have restored 100 mana")
     print()
 
+
 def potion_damage():
     damage *= 2
     inventory.remove(items.item_potion_damage)
     print("You have increased your damage twofold temporarily")
     print()
+
 
 def potion_defense():
     armor *= 2
@@ -346,6 +348,7 @@ potions = {
     "damage": potion_damage,
     "defense": potion_defense,
 }
+
 
 def combat():
     """This is the combat function. Here the player and the enemy meet and deal damage to each other.
@@ -405,4 +408,4 @@ def combat():
             print_enemy_stats(enemy_fight)
             print()
             print_player(choice)
-            print("────────────────────────────────────────────────────────────")    
+            print("────────────────────────────────────────────────────────────")
