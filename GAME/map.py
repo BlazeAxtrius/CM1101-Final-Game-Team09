@@ -476,9 +476,11 @@ room_porch = {
     "name": "Porch",
     
     "description": """As you look around you can clearly see a house in front of you.
-    It looks old, almost an antique in itself, climbing a floor above you and possibly an attic space above that.
-    Looking around you see that there is no path leading away from the house, just east towards the porch.
-    The door is made of a wood that has seen better days but the handle gleams like the day it was installed. """,
+It looks old, almost an antique in itself, climbing a floor above you and 
+possibly an attic space above that. Looking around you see that there is no 
+path leading away from the house, just east towards the porch. The door is made
+of a wood that has seen better days but the handle gleams like the day it was 
+installed. """,
     
     "exits": {"east": "Entrance"},
 

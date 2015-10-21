@@ -94,11 +94,13 @@ def print_choices():
 next to you. One looks familiar... Yes... it's yours""")
     print()
     print("┌────────────────────────┐")
+    print("│                        │")
     for name in characters:
         print("│ " + str(characters[name]["name"]), end = '')
         for space in range(1,26 -(len(str(characters[name]["name"])) + 2)):
             print(" ", end='')
         print("│")
+        print("│                        │")
     print("│                        │")
     print("└────────────────────────┘")        
     print("")
@@ -320,8 +322,6 @@ def potion_health():
     print("You have restored 100 health")
     print()
 
-
-<<<<<<< HEAD
 def potion_mana():
     mana += 100
     inventory.remove(items.item_potion_mana)

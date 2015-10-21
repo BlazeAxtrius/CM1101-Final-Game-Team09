@@ -262,7 +262,6 @@ all_items = {
     "mana": item_potion_mana,
     "damage": item_potion_damage,
     "defense": item_potion_defense,
-    "reverse": item_potion_reverse,
     "clue": item_clue
 }
 
