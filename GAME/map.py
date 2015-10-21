@@ -33,7 +33,7 @@ to your right. Upon listening, the clock seems to be broken.""",
     
     "first_visit": True,
 
-    "enemy": [enemy1]
+    "enemy": []
 }
 
 
@@ -210,7 +210,7 @@ continues to the west.""",
 
     "items": [item_copper_key],
 
-    "enemy": []
+    "enemy": [enemy1]
 }    
 
 
@@ -527,7 +527,7 @@ maybe even strong enough to hold a significant weight. """,
 
     "items": [item_clue],
 
-    "enemy": [enemy1]
+    "enemy": [enemy5]
 }    
 
 

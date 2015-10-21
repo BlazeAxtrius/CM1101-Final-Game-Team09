@@ -13,7 +13,7 @@ enemy1 = {
     "armor": 0,
     "isAlive": True,
     "inventory": [item_potion_health, item_wood_sword, item_potion_defense],
-    "damage": [60, 61],
+    "damage": [20, 50],
     "chance": [0, 15]
 }
 
@@ -24,18 +24,18 @@ enemy2 = {
     "armor": 20,
     "isAlive": True,
     "inventory": [item_potion_health],
-    "damage": [70, 110],
+    "damage": [50, 80],
     "chance": [0, 15]
 }
 
 enemy3 = {
     "name": "Angry Ogre",
     "style": "really heavy",
-    "health": 650,
-    "armor": 70,
+    "health": 600,
+    "armor": 50,
     "isAlive": True,
     "inventory": [item_potion_health, item_potion_defense],
-    "damage": [120, 150],
+    "damage": [100, 130],
     "chance": [0, 15]
 }
 
@@ -46,7 +46,7 @@ enemy4 = {
     "armor": 30,
     "isAlive": True,
     "inventory": [item_potion_health, item_potion_damage],
-    "damage": [130, 180],
+    "damage": [120, 160],
     "chance": [0, 15]
 }
 
@@ -57,7 +57,7 @@ enemy5 = {
     "armor": 60,
     "isAlive": True,
     "inventory": [item_potion_health, item_potion_damage],
-    "damage": [200, 240],
+    "damage": [140, 180],
     "chance": [0, 15]
 }
 
@@ -68,7 +68,7 @@ enemy6 = {
     "armor": 100,
     "isAlive": True,
     "inventory": [item_potion_health],
-    "damage": [250, 300],
+    "damage": [160, 300],
     "chance": [0, 15]
 }
 
