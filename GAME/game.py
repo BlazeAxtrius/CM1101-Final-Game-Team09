@@ -6,6 +6,11 @@ from items import *
 from parser_game import *
 from time import *
 
+"""Pickle is going to create a file in your repo called 'shared.pkl'. This file contains the variables
+i need for the status window to work. It does not matter if you delete it or not, so if it causes any
+problems while pulling or pushing to Github, just delete it"""
+import pickle
+
 
 def list_of_items(items):
     """This function takes a list of items (see items.py for the definition) and
@@ -558,11 +563,21 @@ the house infront of you.""")
     sleep(1)
 
 
+def status_update():
+    shared = {"health": player.health}
+    fp = open("shared.pkl","wb")    
+    pickle.dump(shared, fp)
+    fp.close()
+
+
 # This is the entry point of our program
 def main():
     intro()
     # Main game loop
     while True:
+        # Update the status screen with any changed values
+        status_update()
+
         # Display game status (room description, inventory etc.)
         print_room(player.current_room)
 
