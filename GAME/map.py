@@ -4,7 +4,7 @@ from items import *
 cabinet = {
     "name": "Cabinet",
 
-    "items" : [item_biscuits]
+    "items": [item_biscuits]
 
 }
 
@@ -738,6 +738,3 @@ locked_room_exits = {
     "Bathroom_Store": locked_exit_FB_FS,
     "Hole_In_Floor": locked_exit_plank
 }
-
-
-
