@@ -51,8 +51,8 @@ warrior = {
     }
 
 
-mad_scientist = {
-    "name": "Mad Scientist",
+matt_morgan = {
+    "name": "Matt Morgan",
     "style": "a bit eccentric",
     "health": 800,
     "mana": 50,
@@ -64,9 +64,9 @@ mad_scientist = {
     }
 
 
-john_cena = {
-    "name": "John Cena",
-    "style": "JOHNNNNNNNNNNNNNN CENAAAAAAAAAAAAAAA",
+kirill = {
+    "name": "Kirill the God",
+    "style": "brutal, swift death via pure power of will",
     "health": 2000,
     "mana": 400,
     "armor": 30,
@@ -80,14 +80,14 @@ john_cena = {
 characters = OrderedDict([
     ("Civilian", civilian),
     ("Unknown Warrior", warrior),
-    ("Mad Scientist", mad_scientist),
-    ("John Cena", john_cena)])
+    ("Matt Morgan", matt_morgan),
+    ("Kirill The God", kirill)])
 
 
 characters_dict = {"Civilian": civilian,
                    "Unknown Warrior": warrior,
-                   "Mad Scientist": mad_scientist,
-                   "John Cena": john_cena}
+                   "Matt Morgan": matt_morgan,
+                   "Kirill The God": kirill}
 
 
 def print_choices():
@@ -158,16 +158,16 @@ def choose_character(choice):
                 set_stats(warrior)
                 a = warrior
                 return
-            elif character_choice == normalise_input(mad_scientist["name"]):
-                print_stats(mad_scientist)
+            elif character_choice == normalise_input(matt_morgan["name"]):
+                print_stats(matt_morgan)
                 print("")
-                set_stats(mad_scientist)
-                a = mad_scientist
+                set_stats(matt_morgan)
+                a = matt_morgan
                 return
-            elif character_choice == normalise_input(john_cena["name"]):
-                print_stats(john_cena)
-                set_stats(john_cena)
-                a = john_cena
+            elif character_choice == normalise_input(kirill["name"]):
+                print_stats(kirill)
+                set_stats(kirill)
+                a = kirill
                 return
             else:
                 print("You need to pick something from the list.")
@@ -211,7 +211,12 @@ def attack_enemy(enemy_fight):
     reduction. We have code that is currently not used but we plan on making more enemies in the future and
     to use these lines of code for them.
     """
-    damage_dealt = randrange(damage[0], damage[1])
+    hit_chance = randrange(0, 10)
+    if hit_chance =< 3:
+        print("You missed!")
+        damage_dealt = 0
+    else:
+        damage_dealt = randrange(damage[0], damage[1])
     critchance = randrange(chance[0], chance[1])
     print("You attacked and dealt " + str(damage_dealt) + " damage your enemy")
     if all_enemies[enemy_fight]["armor"] == 0:
@@ -364,6 +369,20 @@ def take_damage(enemy_fight):
         print_game_over()
         os._exit(1)
     return
+
+
+def check_potions():
+    """This function checks if the player has a potion in his inventory. We use
+    this for when the player takes a potion. We want to print what the potion does
+    so the person playing knows what he just took."""
+    if HP_potion in inventory:
+        print(HP_potion["description"])
+    elif Mana_potion in inventory:
+        print(Mana_potion["description"])
+    elif Damage_potion in inventory:
+        print(Damage_potion["description"])
+    elif Defense_potion in inventory:
+        print(Defense_potion["description"])
 
 
 # def check_potions_rev():
