@@ -253,9 +253,6 @@ def print_menu(exits, room_items, inv_items):
         print("TAKE " + item_lamp["id"].upper() + " to take a " + item_lamp["name"] + ".")
     if item_torch in room_items:
         print("TAKE " + item_torch["id"].upper() + " to take a " + item_torch["name"] + ".")
-    # For all possible items you can drop
-    for drop_item in inv_items:
-        print("DROP " + drop_item["id"].upper() + " to drop a " + drop_item["name"] + ".")
     print("VIEW inventory")
     print("What do you want to do?")
 
@@ -271,6 +268,7 @@ def print_inventory():
         print()
         print("USE <ITEM>")
         print("VIEW all item descriptions")
+        print("DROP <ITEM>")
         print("EXIT inventory")
         player_command = normalise_input(input("> "))
 
