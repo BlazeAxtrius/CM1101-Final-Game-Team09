@@ -278,7 +278,7 @@ def print_inventory():
         player_command = normalise_input(input("> "))
 
         if player_command[0] == "use":
-            item_exists = False
+            item_exists = True
             for item in player.inventory:
                 if player_command[1] == item["id"]:
                     use_item = player_command[1]
@@ -349,6 +349,7 @@ def execute_use(item):
                         player.potion_health()
                         break
                     elif confirmation[0] == "no":
+                        print("You decided to drink it later.")
                         break
                     else:
                         print("Enter YES or NO to confirm whether to use the potion")

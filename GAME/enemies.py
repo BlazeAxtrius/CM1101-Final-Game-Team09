@@ -9,7 +9,7 @@ will benefit the player. They will increase the players stats and he will have a
 enemy1 = {
     "name": "Haunted Ghost",
     "style": "ghostly",
-    "health": 200,
+    "health": 400,
     "armor": 0,
     "isAlive": True,
     "inventory": [item_potion_health],
@@ -20,7 +20,7 @@ enemy1 = {
 enemy2 = {
     "name": "Small Ogre",
     "style": "heavy",
-    "health": 300,
+    "health": 500,
     "armor": 20,
     "isAlive": True,
     "inventory": [item_potion_health],
@@ -31,7 +31,7 @@ enemy2 = {
 enemy3 = {
     "name": "Angry Ogre",
     "style": "really heavy",
-    "health": 350,
+    "health": 650,
     "armor": 70,
     "isAlive": True,
     "inventory": [item_potion_health],
@@ -42,7 +42,7 @@ enemy3 = {
 enemy4 = {
     "name": "Evil Witch",
     "style": "magic",
-    "health": 500,
+    "health": 800,
     "armor": 30,
     "isAlive": True,
     "inventory": [item_potion_health],
@@ -53,7 +53,7 @@ enemy4 = {
 enemy5 = {
     "name": "Devils servant",
     "style": "semi-demonic",
-    "health": 600,
+    "health": 900,
     "armor": 60,
     "isAlive": True,
     "inventory": [item_potion_health],
@@ -64,7 +64,7 @@ enemy5 = {
 enemy6 = {
     "name": "The Devil",
     "style": "completely demonic",
-    "health": 750,
+    "health": 1150,
     "armor": 100,
     "isAlive": True,
     "inventory": [item_potion_health],
