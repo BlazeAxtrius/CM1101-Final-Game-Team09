@@ -9,66 +9,66 @@ will benefit the player. They will increase the players stats and he will have a
 enemy1 = {
     "name": "Haunted Ghost",
     "style": "ghostly",
-    "health": 400,
+    "health": 200,
     "armor": 0,
     "isAlive": True,
-    "inventory": [item_potion_health, item_wood_sword, item_potion_defense],
-    "damage": [60, 61],
+    "inventory": [item_potion_health, item_wood_sword],  # item_potion_defense],
+    "damage": [20, 50],
     "chance": [0, 15]
 }
 
 enemy2 = {
     "name": "Small Ogre",
     "style": "heavy",
-    "health": 500,
+    "health": 300,
     "armor": 20,
     "isAlive": True,
     "inventory": [item_potion_health],
-    "damage": [70, 110],
+    "damage": [50, 80],
     "chance": [0, 15]
 }
 
 enemy3 = {
     "name": "Angry Ogre",
     "style": "really heavy",
-    "health": 650,
-    "armor": 70,
+    "health": 450,
+    "armor": 50,
     "isAlive": True,
-    "inventory": [item_potion_health, item_potion_defense],
-    "damage": [120, 150],
+    "inventory": [item_potion_health],  # item_potion_defense],
+    "damage": [100, 130],
     "chance": [0, 15]
 }
 
 enemy4 = {
     "name": "Evil Witch",
     "style": "magic",
-    "health": 800,
+    "health": 500,
     "armor": 30,
     "isAlive": True,
-    "inventory": [item_potion_health, item_potion_damage],
-    "damage": [130, 180],
+    "inventory": [item_potion_health],  # item_potion_damage],
+    "damage": [120, 160],
     "chance": [0, 15]
 }
 
 enemy5 = {
     "name": "Devils servant",
     "style": "semi-demonic",
-    "health": 900,
-    "armor": 60,
+    "health": 550,
+    "armor": 55,
     "isAlive": True,
-    "inventory": [item_potion_health, item_potion_damage],
-    "damage": [200, 240],
+    "inventory": [item_potion_health],  # item_potion_damage],
+    "damage": [140, 180],
     "chance": [0, 15]
 }
 
 enemy6 = {
     "name": "The Devil",
     "style": "completely demonic",
-    "health": 1150,
+    "health": 400,
     "armor": 100,
     "isAlive": True,
     "inventory": [item_potion_health],
-    "damage": [250, 300],
+    "damage": [160, 300],
     "chance": [0, 15]
 }
 

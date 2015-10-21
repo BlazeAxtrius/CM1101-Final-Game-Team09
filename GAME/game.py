@@ -249,7 +249,7 @@ def print_menu(exits, room_items, inv_items):
     if (item_lamp in inv_items) or (item_torch in inv_items):    
         if player.current_room["object_in_room"]:
             for direction_of_object in player.current_room["search_object"]:
-                print("SEARCH " + direction_of_object.upper() + " to search the "+ player.current_room["search_object"][direction_of_object]["name"] + " in the " + direction_of_object + " of the room.")
+                print("SEARCH " + direction_of_object.upper() + " to search the "+ player.current_room["search_object"][direction_of_object] + " in the " + direction_of_object + " of the room.")
     if (item_torch in inv_items) or (rooms["Entrance"]["first_visit"] == True) :
         # For all possible item you can pick up
         for take_item in room_items:
@@ -347,10 +347,10 @@ def execute_use(item):
                     print()
                     if confirmation[0] == "yes":
                         player.potion_health()
-                        break
+                        return
                     elif confirmation[0] == "no":
                         print("You decided to drink it later.")
-                        break
+                        return
                     else:
                         print("Enter YES or NO to confirm whether to use the potion")
             else:
@@ -370,6 +370,7 @@ def execute_go(direction):
                 print("You crash through some weak floorboards into a storage room below")
                 rooms["Entrance"]["first_visit"] = False
                 locked_room_exits["Hole_In_Floor"]["locked"] = True
+                rooms["Entrance"]["enemy"] = [enemy6]
                 return
     # If there is a valid exit and this door is not locked
     if is_valid_exit(player.current_room["exits"], direction) and not exit_locked(direction):
@@ -460,6 +461,7 @@ def execute_unlock(direction, inv_items, special):
 def view_searchable_object(direction, inv_items):
     try:
         object_in_room = player.current_room["search_object"][direction]
+        object_in_room = searchable_objects[object_in_room]
         if len(object_in_room["items"]) != 0:
             print("The " + object_in_room["name"] + " contains:")
             while True:   
@@ -487,6 +489,7 @@ def view_searchable_object(direction, inv_items):
             print("There is nothing in the " + object_in_room["name"] + ". " )
     except:
         print("That does not make sense.")
+
     
     
 def execute_search(direction, inv_items):
@@ -509,50 +512,53 @@ def execute_command(command):
     the command: "go", "take", or "drop"), executes either execute_go,
     execute_take, or execute_drop, supplying the second word as the argument.
     """
+    try:
+        if 0 == len(command):
+            return
 
-    if 0 == len(command):
-        return
-
-    if command[0] == "go":
-        if len(command) > 1:
-            execute_go(command[1])
-        else:
-            print("Go where?")
-
-    elif command[0] == "take":
-        if len(command) > 1:
-            execute_take(command[1], player.inventory)
-        else:
-            print("Take what?")
-
-    elif command[0] == "drop":
-        if len(command) > 1:
-            execute_drop(command[1])
-        else:
-            print("Drop what?")
-            
-    elif (command[0] == "unlock") or ((command[0] == "use") and ((command[1] == "plank") or (command[1] == "clue"))):
+        if command[0] == "go":
             if len(command) > 1:
-                if command[0] == "unlock":
-                    execute_unlock(command[1], player.inventory, "")
-                else:
-                    execute_unlock(command[2], player.inventory, command[1])
+                execute_go(command[1])
             else:
-                print("Unlock what?")
-                
-    elif command[0] == "search":
-        if len(command) > 1:
-           execute_search(command[1], player.inventory)
-        else:
-            print("Search what?")
+                print("Go where?")
 
-    elif command[0] == "view":
-        print_inventory()
+        elif command[0] == "take":
+            if len(command) > 1:
+                execute_take(command[1], player.inventory)
+            else:
+                print("Take what?")
+
+        elif command[0] == "drop":
+            if len(command) > 1:
+                execute_drop(command[1])
+            else:
+                print("Drop what?")
         
-    elif command[0] == "quit":
-        os._exit(1)
+        elif (command[0] == "unlock") or ((command[0] == "use") and ((command[1] == "plank") or (command[1] == "clue"))):
+                if len(command) > 1:
+                    if command[0] == "unlock":
+                        execute_unlock(command[1], player.inventory, "")
+                    else:
+                        execute_unlock(command[2], player.inventory, command[1])
+                else:
+                    print("Unlock what?")
+                
+        elif command[0] == "search":
+            if len(command) > 1:
+                execute_search(command[1], player.inventory)
+            else:
+                print("Search what?")
+
+        elif command[0] == "view":
+            print_inventory()
         
-    else:
+        elif command[0] == "quit":
+            os._exit(1)
+        
+        else:
+            print("This makes no sense.")
+            print("test")
+    except:
         print("This makes no sense.")
 
 
@@ -565,9 +571,11 @@ def menu(exits, room_items, inv_items):
     """
 
     for all_enemies in player.current_room["enemy"]:
-        if all_enemies in player.current_room["enemy"]:
-            print("You met an enemy.")
-            player.combat()
+        if not all_enemies["isAlive"]:
+            print("You see your enemy's corpse laying limp on the ground")
+            continue
+        print("You met an enemy.")
+        player.combat(all_enemies)
 
     # Display menu
     print_menu(exits, room_items, inv_items)
@@ -622,8 +630,7 @@ as usual... Maybe someone twerking? The images flood your mind as you drift
 away once more.""")
     sleep(1)
     print("""\nYou look around, trying to work out where you are. A ruffled piece
-of paper sits a metre away in the dirt right next to a rusty old key. You walk
-over and pick up the paper and the key beside it.""")
+of paper sits a metre away. You walk over and pick up the paper.""")
     sleep(1)
     print("""\nYou unfold the piece of paper.""")
     print()

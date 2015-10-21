@@ -4,12 +4,80 @@ from items import *
 cabinet = {
     "name": "Cabinet",
 
-    "items" : [item_biscuits]
+    "items": [item_copper_key]
+
+}
+
+cutlery_rack = {
+    "name": "Cutlery rack",
+
+    "items": [item_knife]
+
+}
+
+small_cupboard = {
+    "name": "Small cupboard",
+
+    "items": [item_rusty_key]
+
+}
+
+vase = {
+    "name": "Vase",
+
+    "items": []
+
+}
+
+desk = {
+    "name": "Desk",
+
+    "items": [item_pen]
+
+}
+
+wine_rack = {
+    "name": "Wine rack",
+
+    "items": [item_wine]
+
+}
+
+toy_box = {
+    "name": "Child's toy box",
+
+    "items": [item_potion_health]
+
+}
+
+kitchen_cupboard = {
+    "name": "Kitchen cupboard",
+
+    "items": [item_biscuits]
+
+
+}
+
+bath = {
+    "name": "Bath",
+
+    "items": []
+
 
 }
 
 searchable_objects = {
-    "Cabinet": cabinet
+    "Cabinet": cabinet,
+    "Cutlery rack": cutlery_rack,
+    "Small cupboard": small_cupboard,
+    "Vase": vase,
+    "Desk": desk,
+    "Wine rack": wine_rack,
+    "Child's toy box": toy_box,
+    "Kitchen cupboard": kitchen_cupboard,
+    "Bath" : bath
+    
+    
 }
 
 room_entrance = { 
@@ -33,7 +101,7 @@ to your right. Upon listening, the clock seems to be broken.""",
     
     "first_visit": True,
 
-    "enemy": [enemy1]
+    "enemy": []
 }
 
 
@@ -53,7 +121,7 @@ west.""",
               
     "search_object": {},
 
-    "items": [],
+    "items": [item_torch],
 
     "enemy": []
 }
@@ -123,7 +191,7 @@ the east.""",
 
     "items": [item_metal_key],
 
-    "enemy": []
+    "enemy": [enemy4]
 }    
 
 
@@ -161,11 +229,12 @@ chopping food. There is a door to the west and to the south.""",
     "exits": {"south": "Ground floor central hallway", 
               "west": "Ground floor east dining room"},
                
-    "object_in_room": False,
+    "object_in_room": True,
              
-    "search_object": {},
+    "search_object": {"north": "Cutlery rack",
+                      "east": "Kitchen cupboard"},
 
-    "items": [item_knife, item_potion_health],
+    "items": [ item_potion_health],
 
     "enemy": []
 }     
@@ -182,9 +251,9 @@ look as though they are expensive. """,
     "exits": {"north": "Ground floor central hallway",
               "west": "Ground floor east lounge"},
                
-    "object_in_room": False,
+    "object_in_room": True,
             
-    "search_object": {},
+    "search_object": {"south": "Desk"},
 
     "items": [],
 
@@ -208,9 +277,9 @@ continues to the west.""",
             
     "search_object": {},
 
-    "items": [item_metal_key],
+    "items": [],
 
-    "enemy": []
+    "enemy": [enemy1]
 }    
 
 
@@ -227,7 +296,7 @@ open. There is a door to the north and the room continues to the east.""",
                
     "object_in_room": True,
              
-    "search_object": {"south": cabinet},
+    "search_object": {"south": "Cabinet"},
 
     "items": [],
 
@@ -251,9 +320,9 @@ cupboard in the corner when noises that emanate from it startle you.""",
               "south": "Wine Cellar", 
               "east": "Basement hallway"},
                
-    "object_in_room": False,
+    "object_in_room": True,
              
-    "search_object": {},
+    "search_object": {"west": "Small cupboard"},
 
     "items": [item_lamp],
 
@@ -279,7 +348,7 @@ entered the room with.""",
             
     "search_object": {},
 
-    "items": [item_torch],
+    "items": [],
 
     "enemy": []
 }    
@@ -353,7 +422,7 @@ be little you can do to comfort him. """,
            
     "search_object": {},
 
-    "items": [item_plank],
+    "items": [item_plank, item_potion_health],
 
     "enemy": []
 }    
@@ -393,9 +462,9 @@ can also see a door to the east and another from where you came.""",
     "exits": {"north": "Basement storage", 
               "east": "Workshop"},
                 
-    "object_in_room": False,
+    "object_in_room": True,
             
-    "search_object": {},
+    "search_object": {"west": "Wine rack"},
 
     "items": [],
 
@@ -428,14 +497,14 @@ room_hallway_f_e = {
 
     "description": """As you reach the corner you can see the corridor leads 
 west as well as south. There is a small round table in the corner with a 
-lamp on top of it.""",
+vase on top of it.""",
 
     "exits": {"south": "First floor south hallway", 
               "west": "First floor north hallway"},
                  
-    "object_in_room": False,
+    "object_in_room": True,
            
-    "search_object": {},
+    "search_object": {"east", "Vase"},
 
     "items": [],
 
@@ -498,9 +567,9 @@ east and south""",
               "east": "First floor master bedroom", 
               "south": "First floor store room"},
                  
-    "object_in_room": False,
+    "object_in_room": True,
            
-    "search_object": {},
+    "search_object": {"west": "Child's toy box"},
 
     "items": [],
 
@@ -527,7 +596,7 @@ maybe even strong enough to hold a significant weight. """,
 
     "items": [item_clue],
 
-    "enemy": [enemy1]
+    "enemy": [enemy5]
 }    
 
 
@@ -542,9 +611,9 @@ cabinet. There are doors leading to the north and to the west.""",
     "exits": {"north": "First floor master bedroom", 
               "west": "First floor store room"},
                  
-    "object_in_room": False,
+    "object_in_room": True,
            
-    "search_object": {},
+    "search_object": {"south": "Bath"},
 
     "items": [],
 
@@ -738,6 +807,3 @@ locked_room_exits = {
     "Bathroom_Store": locked_exit_FB_FS,
     "Hole_In_Floor": locked_exit_plank
 }
-
-
-

@@ -15,7 +15,7 @@ item_id = {
 item_knife = {
     "id": "knife",
 
-    "name": "a kitchen knife",
+    "name": "kitchen knife",
 
     "description":
     """Light and very sharp from the looks of it.
@@ -29,7 +29,7 @@ item_knife = {
 item_wood_sword = {
     "id": "wsword",
 
-    "name": "a wooden sword",
+    "name": "wooden sword",
 
     "description":
     """Light and not very sharp. This weapon will
@@ -69,7 +69,7 @@ item_money = {
 item_biscuits = {
     "id": "biscuits",
 
-    "name": "a pack of biscuits",
+    "name": "pack of biscuits",
 
     "description": """These biscuits look fairly new and you are tempted to take one.
     After all, you can't really pass up free food as a student""",
@@ -82,7 +82,7 @@ item_biscuits = {
 item_pen = {
     "id": "pen",
     
-    "name": "a pen",
+    "name": "pen",
 
     "description": """A basic ballpoint pen. One end seems to have been chewed slightly.""",
 
@@ -119,7 +119,7 @@ item_note = {
 item_clue = {
     "id": "clue",
     
-    "name": "a piece of paper with writing on",
+    "name": "piece of paper with writing on",
 
     "description": """Reading will reveal things that you don't want to know and will never forget.""",
 
@@ -131,7 +131,7 @@ item_clue = {
 item_plank = {
     "id": "plank",
 
-    "name": "a large, wooden plank",
+    "name": "large, wooden plank",
 
     "description": """This could easily support your weight""",
 
@@ -143,7 +143,7 @@ item_plank = {
 item_brass_key = {
     "id": "bkey",
     
-    "name": "a brass key",
+    "name": "brass key",
     
     "description": "The key allows you to open doors with brass locks",
 
@@ -193,7 +193,7 @@ item_copper_key = {
 item_lamp = {
     "id": "lamp",
     
-    "name": "an oil lamp",
+    "name": "oil lamp",
     
     "description": """This oil lamp has just enough for you to see exits in
     the room which you are in and the furniture within the room.
@@ -207,7 +207,7 @@ item_lamp = {
 item_torch = {
     "id": "torch",
     
-    "name": "a torch",
+    "name": "torch",
     
     "description": "The torch allows you to see everything in the dark.",
 
@@ -215,6 +215,20 @@ item_torch = {
     
     "isPotion": False,
 }
+
+item_wine = {
+    "id": "wine",
+    
+    "name": "wine bottle",
+    
+    "description": """It seems to be a very old red wine. The label reads 
+'Château Haut-Brion, Haut-Brion Rouge 1989'. Probably not wise to consume now.""",
+
+    "mass": 0.75,
+    
+    "isPotion": False,
+}
+
 
 item_potion_health = {
     "id": "health",
@@ -230,44 +244,44 @@ what drinking it would do.""",
     "isPotion": True
 }
 
-item_potion_mana = {
-    "id": "mana",
-
-    "name": "Mana Potion",
-
-    "description":
-    "This glass bottle buzzes almost as if with electricity, in fact you're sure it just sparked",
-
-    "mass": 2.0,
-
-    "isPotion": True
-}
-
-item_potion_damage = {
-    "id": "damage",
-
-    "name": "Damage Potion",
-
-    "description":
-    "The damage you deal is doubled while this potion is active.",
-
-    "mass": 2.0,
-
-    "isPotion": True
-}
-
-item_potion_defense = {
-    "id": "defense",
-
-    "name": "Defense Potion",
-
-    "description":
-    "The defense you have is twice as great while this potion is active.",
-
-    "mass": 2.0,
-
-    "isPotion": True
-}
+# item_potion_mana = {
+#     "id": "mana",
+#
+#     "name": "Mana Potion",
+#
+#     "description":
+#     "This glass bottle buzzes almost as if with electricity, in fact you're sure it just sparked",
+#
+#     "mass": 2.0,
+#
+#     "isPotion": True
+# }
+#
+# item_potion_damage = {
+#     "id": "damage",
+#
+#     "name": "Damage Potion",
+#
+#     "description":
+#     "The damage you deal is doubled while this potion is active.",
+#
+#     "mass": 2.0,
+#
+#     "isPotion": True
+# }
+#
+# item_potion_defense = {
+#     "id": "defense",
+#
+#     "name": "Defense Potion",
+#
+#     "description":
+#     "The defense you have is twice as great while this potion is active.",
+#
+#     "mass": 2.0,
+#
+#     "isPotion": True
+# }
 
 all_items = {
     "id": item_id,
@@ -287,8 +301,9 @@ all_items = {
     "bkey": item_brass_key,
     "ckey": item_copper_key,
     "health": item_potion_health,
-    "mana": item_potion_mana,
-    "damage": item_potion_damage,
-    "defense": item_potion_defense,
+    "wine": item_wine,
+    # "mana": item_potion_mana,
+    # "damage": item_potion_damage,
+    # "defense": item_potion_defense,
     "clue": item_clue
 }
