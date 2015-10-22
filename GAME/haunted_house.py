@@ -616,6 +616,21 @@ decide to enter to start with?""")
 
 def intro():
     print("\n\n\n\n\n\n\n\n\n")
+    print("    |        '||'  '||'                             .                '||  ")
+    print("   |||        ||    ||   ....   ... ...  .. ...   .||.    ....     .. ||  ")
+    print("  |  ||       ||''''||  '' .||   ||  ||   ||  ||   ||   .|...||  .'  '||  ")
+    print(" .''''|.      ||    ||  .|' ||   ||  ||   ||  ||   ||   ||       |.   ||  ")
+    print(".|.  .||.    .||.  .||. '|..'|'  '|..'|. .||. ||.  '|.'  '|...'  '|..'||. ")
+    print("                                                                          ")
+    print("                                                                          ")
+    print("'||'  '||'                                                           ")
+    print(" ||    ||   ....   .. ...     ... .   ...   .... ...   ....  ... ..  ")
+    print(" ||''''||  '' .||   ||  ||   || ||  .|  '|.  '|.  |  .|...||  ||' '' ")
+    print(" ||    ||  .|' ||   ||  ||    |''   ||   ||   '|.|   ||       ||     ")
+    print(".||.  .||. '|..'|' .||. ||.  '||||.  '|..|'    '|     '|...' .||.    ")
+    print("                            .|....'                                  ")
+    print("\n\n")
+
     print("""Oh God last night... The drink, the music... People being sick 
 as usual... Maybe someone twerking? The images flood your mind as you drift
 away once more.""")
