@@ -34,7 +34,7 @@ civilian = {
     "isAlive": True,
     "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
 
-    "damage": [50, 100]  # random.randrange[0, 50]
+    "damage": [75, 125]  # random.randrange[0, 50]
     }
 
 
@@ -47,7 +47,7 @@ warrior = {
     "experience": 0,
     "isAlive": True,
     "inventory": [items.item_id, items.item_money, items.item_card, items.item_note, items.item_potion_health],
-    "damage": [75, 125]  # random.randrange[25, 100]
+    "damage": [100, 150]  # random.randrange[25, 100]
     }
 
 
