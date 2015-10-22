@@ -619,21 +619,21 @@ def intro():
     print("""Oh God last night... The drink, the music... People being sick 
 as usual... Maybe someone twerking? The images flood your mind as you drift
 away once more.""")
-    sleep(1)
+    sleep(3)
     print("""\nYou look around, trying to work out where you are. A ruffled piece
 of paper sits a metre away. You walk over and pick up the paper.""")
-    sleep(1)
+    sleep(3)
     print("""\nYou unfold the piece of paper.""")
     print()
-    sleep(1)
+    sleep(2)
     player.choose_character(input)
-    sleep(1)
+    sleep(2)
     print("""\nYou don't really know whats going on, probably because you have a 
 hangover, but you decide to carry on anyway and move onto the porch of 
 the house in front of you.""")
     print()
     print("────────────────────────────────────────────────────────────")
-    sleep(1)
+    sleep(3)
 
 
 def status_update():
