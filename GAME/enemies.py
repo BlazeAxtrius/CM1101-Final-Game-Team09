@@ -64,7 +64,7 @@ enemy5 = {
 enemy6 = {
     "name": "The Devil",
     "style": "completely demonic",
-    "health": 800,
+    "health": 750,
     "armor": 100,
     "isAlive": True,
     "inventory": [item_potion_health],
