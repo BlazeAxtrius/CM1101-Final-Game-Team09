@@ -136,7 +136,7 @@ def main(stdscr):
         op.close()
 
         # Adding wait time so that simulation does not flash by
-        time.sleep(1)
+        time.sleep(0.5)
 
         # this shit just doesn't work :(
         try:
