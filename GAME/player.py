@@ -5,7 +5,7 @@ from parser_game import *
 from map import *
 from enemies import *
 import os
-from game import status_update
+from haunted_house import status_update
 
 name = ""
 style = ""
