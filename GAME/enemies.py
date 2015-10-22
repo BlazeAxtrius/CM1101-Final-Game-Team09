@@ -9,7 +9,7 @@ will benefit the player. They will increase the players stats and he will have a
 enemy1 = {
     "name": "Haunted Ghost",
     "style": "ghostly",
-    "health": 200,
+    "health": 250,
     "armor": 0,
     "isAlive": True,
     "inventory": [item_potion_health, item_wood_sword],  # item_potion_defense],
@@ -20,7 +20,7 @@ enemy1 = {
 enemy2 = {
     "name": "Small Ogre",
     "style": "heavy",
-    "health": 300,
+    "health": 400,
     "armor": 20,
     "isAlive": True,
     "inventory": [item_potion_health],
@@ -42,7 +42,7 @@ enemy3 = {
 enemy4 = {
     "name": "Evil Witch",
     "style": "magic",
-    "health": 500,
+    "health": 600,
     "armor": 30,
     "isAlive": True,
     "inventory": [item_potion_health],  # item_potion_damage],
@@ -53,7 +53,7 @@ enemy4 = {
 enemy5 = {
     "name": "Devils servant",
     "style": "semi-demonic",
-    "health": 550,
+    "health": 650,
     "armor": 55,
     "isAlive": True,
     "inventory": [item_potion_health],  # item_potion_damage],
@@ -64,7 +64,7 @@ enemy5 = {
 enemy6 = {
     "name": "The Devil",
     "style": "completely demonic",
-    "health": 400,
+    "health": 750,
     "armor": 100,
     "isAlive": True,
     "inventory": [item_potion_health],
