@@ -5,6 +5,7 @@ from parser_game import *
 from map import *
 from enemies import *
 import os
+from haunted_house import status_update
 
 name = ""
 style = ""
@@ -443,6 +444,7 @@ def combat(enemy_fight):
                     print_enemy_stats(enemy_fight)
                     print()
                     print_player(choice)
+                    status_update()
                 else:
                     print("You missed!")
                     print()
@@ -451,6 +453,7 @@ def combat(enemy_fight):
                     print_enemy_stats(enemy_fight)
                     print()
                     print_player(choice)
+                    status_update()
                     print("────────────────────────────────────────────────────────────")
             elif hit == 2:
                 print("SWING to hit enemy!!!")
@@ -464,6 +467,7 @@ def combat(enemy_fight):
                     print_enemy_stats(enemy_fight)
                     print()
                     print_player(choice)
+                    status_update()
                 else:
                     print("You missed!")
                     print()
@@ -472,6 +476,7 @@ def combat(enemy_fight):
                     print_enemy_stats(enemy_fight)
                     print()
                     print_player(choice)
+                    status_update()
                     print("────────────────────────────────────────────────────────────")
             elif hit == 3:
                 print("FIGHT to hit enemy!!!")
@@ -485,6 +490,7 @@ def combat(enemy_fight):
                     print_enemy_stats(enemy_fight)
                     print()
                     print_player(choice)
+                    status_update()
                 else:
                     print("You missed!")
                     print()
@@ -493,6 +499,7 @@ def combat(enemy_fight):
                     print_enemy_stats(enemy_fight)
                     print()
                     print_player(choice)
+                    status_update()
                     print("────────────────────────────────────────────────────────────")
             elif hit == 4:
                 print("STAB to hit enemy!!!")
@@ -506,6 +513,7 @@ def combat(enemy_fight):
                     print_enemy_stats(enemy_fight)
                     print()
                     print_player(choice)
+                    status_update()
                 else:
                     print("You missed!")
                     print()
@@ -514,6 +522,7 @@ def combat(enemy_fight):
                     print_enemy_stats(enemy_fight)
                     print()
                     print_player(choice)
+                    status_update()
                     print("────────────────────────────────────────────────────────────")
             elif hit == 5:
                 print("POKE to hit enemy!!!")
@@ -527,6 +536,7 @@ def combat(enemy_fight):
                     print_enemy_stats(enemy_fight)
                     print()
                     print_player(choice)
+                    status_update()
                 else:
                     print("You missed!")
                     print()
@@ -535,6 +545,7 @@ def combat(enemy_fight):
                     print_enemy_stats(enemy_fight)
                     print()
                     print_player(choice)
+                    status_update()
                     print("────────────────────────────────────────────────────────────")
             if enemy_fight["health"] < 0:
                 enemy_fight["isAlive"] = False

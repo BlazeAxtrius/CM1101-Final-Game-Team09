@@ -89,25 +89,25 @@ def main(stdscr):
         stdscr.addstr(1, 0, " Player:  " + input_character + "         Style:  " + style + " "*100, curses.color_pair(1))
 
         # Prints out the healthbar and player 
-        stdscr.addstr(2, 0, " Health: " + "[" + health_bar + "]" + " " + str(health) + "HP" + " "*50, curses.color_pair(1))
+        stdscr.addstr(2, 0, " Health: " + "[" + health_bar + "]" + " " + str(health) + "HP" + " "*100, curses.color_pair(1))
 
         # Prints the percentage health of the player
-        stdscr.addstr(3, 0, " ------> " + str(int(round(health/(max_health[input_character])*100, 0))) + "%" + " "*100, curses.color_pair(1))
+        stdscr.addstr(3, 0, " ------> " + str(int(round(health/(max_health[input_character])*100, 0))) + "%" + " "*150, curses.color_pair(1))
 
         # Prints the armor value of the player
-        stdscr.addstr(4, 0, " Armor: " + str(armor) + " "*100, curses.color_pair(3))
+        stdscr.addstr(4, 0, " Armor: " + str(armor) + " "*150, curses.color_pair(3))
 
         # Prints the mana value of the player
-        stdscr.addstr(5, 0, " Mana: " + str(mana) + " "*100, curses.color_pair(3))
+        stdscr.addstr(5, 0, " Mana: " + str(mana) + " "*150, curses.color_pair(3))
 
         # Prints the XP value of the player
-        stdscr.addstr(6, 0, " XP: " + str(xp) + " "*100, curses.color_pair(3))
+        stdscr.addstr(6, 0, " XP: " + str(xp) + " "*150, curses.color_pair(3))
         
         # Prints the player's current inventory
-        stdscr.addstr(7, 0, " Inventory: " + items_joined + " "*50, curses.color_pair(2))
+        stdscr.addstr(7, 0, " Inventory: " + items_joined + " "*100, curses.color_pair(2))
 
         # Prints the player's current room
-        stdscr.addstr(8, 0, " Current Room: " + current_room["name"] + " "*100, curses.color_pair(2))
+        stdscr.addstr(8, 0, " Current Room: " + current_room["name"] + " "*150, curses.color_pair(2))
 
         # Loop counter
         stdscr.addstr(9, 0, str(x) + " "*50)
@@ -136,7 +136,7 @@ def main(stdscr):
         op.close()
 
         # Adding wait time so that simulation does not flash by
-        time.sleep(1)
+        time.sleep(0.5)
 
         # this shit just doesn't work :(
         try:
