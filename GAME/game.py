@@ -342,15 +342,15 @@ def execute_use(item):
         if item == player_item["id"]:
             if player_item["isPotion"]:
                 print(player_item["description"])
-                while True:
+                if True:
                     confirmation = normalise_input(input("Are you sure you want to use potion? (YES|NO) \n> "))
                     print()
                     if confirmation[0] == "yes":
                         player.potion_health()
-                        return
+                        pass
                     elif confirmation[0] == "no":
                         print("You decided to drink it later.")
-                        return
+                        pass
                     else:
                         print("Enter YES or NO to confirm whether to use the potion")
             else:
@@ -488,9 +488,7 @@ def view_searchable_object(direction, inv_items):
         else:
             print("There is nothing in the " + object_in_room["name"] + ". " )
     except:
-        print("That does not make sense.")
-
-    
+        print("That does not make sense.")   
     
 def execute_search(direction, inv_items):
      """This function allows players to search cabinets, providing that the room they are in
@@ -499,12 +497,6 @@ def execute_search(direction, inv_items):
          view_searchable_object(direction, inv_items)    
      else:
          print("There is nothing to search.")
-    
-    
-#     if player.current_room["has_cabinet"] == False:
-#         print("There is no cabinet in here for you to search.") 
-#     elif player.current_room["has_cabinet"] == True:
-#         print("Hello")
 
 def execute_command(command):
     """This function takes a command (a list of words as returned by
@@ -557,7 +549,6 @@ def execute_command(command):
         
         else:
             print("This makes no sense.")
-            print("test")
     except:
         print("This makes no sense.")
 
@@ -628,21 +619,21 @@ def intro():
     print("""Oh God last night... The drink, the music... People being sick 
 as usual... Maybe someone twerking? The images flood your mind as you drift
 away once more.""")
-    sleep(1)
+    sleep(3)
     print("""\nYou look around, trying to work out where you are. A ruffled piece
 of paper sits a metre away. You walk over and pick up the paper.""")
-    sleep(1)
+    sleep(3)
     print("""\nYou unfold the piece of paper.""")
     print()
-    sleep(1)
+    sleep(2)
     player.choose_character(input)
-    sleep(1)
+    sleep(2)
     print("""\nYou don't really know whats going on, probably because you have a 
 hangover, but you decide to carry on anyway and move onto the porch of 
 the house in front of you.""")
     print()
     print("────────────────────────────────────────────────────────────")
-    sleep(1)
+    sleep(3)
 
 
 def status_update():
