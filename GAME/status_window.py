@@ -63,6 +63,7 @@ def main(stdscr):
         op = open("shared.pkl", "rb")
         import_health = pickle.load(op)
         
+        # Fetching values from the imported dictionaries
         input_character = str(import_health["name"])
         style = import_health["style"]
         health = int(import_health["health"])
@@ -73,9 +74,15 @@ def main(stdscr):
         current_room = import_health["current_room"]
 
         items = []
+        items_2 = []
         for item in inventory:
-            items.append(item["id"])
+            if len(items) < 10:
+                items.append(item["id"])
+            else:
+                items_2.append(item["id"])
         items_joined = ', '.join(items)
+        items_joined_2 = ', '.join(items_2)
+
 
         #Creates a visual healthbar which is proportional to the player's health integer
         # Creates a string full of "|"s, with a count equal to about 1/4 of the player's health (for scaling)
@@ -106,11 +113,14 @@ def main(stdscr):
         # Prints the player's current inventory
         stdscr.addstr(7, 0, " Inventory: " + items_joined + " "*100, curses.color_pair(2))
 
+        # Second line of inventory printeding to allow more items to fit onto screen
+        stdscr.addstr(8, 0, " "*12 + items_joined_2 + " "*100, curses.color_pair(2))
+
         # Prints the player's current room
-        stdscr.addstr(8, 0, " Current Room: " + current_room["name"] + " "*150, curses.color_pair(2))
+        stdscr.addstr(9, 0, " Current Room: " + current_room["name"] + " "*150, curses.color_pair(2))
 
         # Loop counter
-        stdscr.addstr(9, 0, str(x) + " "*50)
+        stdscr.addstr(10, 0, str(x) + " "*50)
         #del(l[0:2])
         #l.append("  ")
         #health = "".join(l)
@@ -129,6 +139,7 @@ def main(stdscr):
         stdscr.addstr(6, 1, " "*200)
         stdscr.addstr(7, 1, " "*200)
         stdscr.addstr(8, 1, " "*200)
+        stdscr.addstr(9, 1, " "*200)
         stdscr.addstr(9, 1, " "*200)
         x += 1
 
