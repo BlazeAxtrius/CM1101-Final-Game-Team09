@@ -80,7 +80,7 @@ def main(stdscr):
         #Creates a visual healthbar which is proportional to the player's health integer
         # Creates a string full of "|"s, with a count equal to about 1/4 of the player's health (for scaling)
         for i in range(0, int((health/max_health[input_character])*100), 4):
-            health_bar = "█" + health_bar
+            health_bar = "|" + health_bar
 
         # Adds spaces to the end of the string so that the containing box remains the same size
         health_bar = health_bar + (25-len(health_bar))*" "
